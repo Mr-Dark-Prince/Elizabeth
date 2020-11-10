@@ -512,25 +512,20 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-Lazy to promote or demote someone for admins? Want to see basic information about chat? \
-All stuff about chatroom such as admin lists, pinning or grabbing an invite link can be \
-done easily using the bot.
 
- × /adminlist: list of admins in the chat
+ ❒ /adminlist: ഗ്രൂപ്പിലെ അഡ്മിൻസിന്റെ ലിസ്റ്റ് ലഭിക്കുന്നു..
 
-*Admin only:*
- × /invitelink: Gets private chat's invitelink.
- × /settitle: Sets a custom title for an admin which is promoted by bot.
- × /setgpic: As a reply to file or photo to set group profile pic!
- × /delgpic: Same as above but to remove group profile pic.
- × /setgtitle <newtitle>: Sets new chat title in your group.
- × /setsticker: As a reply to some sticker to set it as group sticker set!
- × /setdescription: <description> Sets new chat description in group.
+*ഗ്രൂപ്പ്‌ അഡ്മിൻസ് മാത്രം:*
+ ❒ /invitelink: പ്രൈവറ്റ് ഗ്രൂപ്പിന്റെ ഇൻവിറ്റേഷൻ ലിങ്ക് ലഭിക്കുന്നു..
+ ❒ /settitle: ബോട്ടിനാൽ പ്രൊമോട്ട് ചെയ്യപ്പെട്ട ഗ്രൂപ്പ്‌ അഡ്മിൻസിന്റെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റുന്നതിന് വേണ്ടി ഉപയോഗിക്കുന്നു..
+ ❒ /setgpic: ഒരു ഫോട്ടോയുടെയോ ഫയലിന്റെയോ റിപ്ലൈ ആയി ഈ കമാൻഡ് നക്കിയിയാൽ ആ ഫോട്ടോ ഗ്രൂപ്പിന്റെ പ്രൊഫൈൽ പിക്ചർ ആയി സെറ്റ് ചെയ്യുന്നു..
+ ❒ /delgpic: ഗ്രൂപ്പിലെ നിലവിലെ പ്രൊഫൈൽ പിക്ചർ നീക്കം ചെയ്യുവാൻ ഉപയോഗിക്കുന്നു..
+ ❒ /setgtitle <ഗ്രൂപ്പിന്റെ പേര്>: ഗ്രൂപ്പിന് പുതിയ ഒരു പേര് നൽകി സെറ്റ് ചെയ്യുന്നു..
+ ❒ /setsticker: സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി ഈ കമാൻഡ് നൽകിയാൽ അത് ഗ്രൂപ്പിന്റെ സ്റ്റിക്കർപാക്ക് ആയി സെറ്റ് ചെയ്യുന്നു..
+ ❒ /setdescription: <വിവരണം> ഗ്രൂപ്പിനെക്കുറിച്ച് ഒരു വിവരണം തയ്യാർ ആക്കി സേവ് ചെയ്യുന്നതിന് ഉപയോഗിക്കുന്നു...
 
-*Note*: To set group sticker set chat must needs to have min 100 members.
+⚠️  സ്റ്റിക്കർ സെറ്റ് ചെയ്യുമ്പോൾ ഗ്രൂപ്പിൽ കുറഞ്ഞത് 100 മെംബേർസ് എങ്കിലും ഉണ്ടായിരിക്കണം...
 
-An example of promoting someone to admins:
-`/promote @username`; this promotes a user to admins.
 """
 
 __mod_name__ = "⚙️GROUP INFO"
