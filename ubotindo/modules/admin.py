@@ -365,7 +365,7 @@ def setchatpic(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("You are missing right to change group info!")
+        msg.reply_text("സോറി.. താങ്കൾക്ക് ഗ്രൂപ്പ്‌ ഇൻഫോയിൽ മാറ്റം വരുത്താനുള്ള അധികാരമില്ല..!")
         return
 
     if msg.reply_to_message:
@@ -376,13 +376,13 @@ def setchatpic(update, context):
         else:
             msg.reply_text("You can only set some photo as chat pic!")
             return
-        dlmsg = msg.reply_text("Just a sec...")
+        dlmsg = msg.reply_text("ദയവായി കാത്തിരിക്കുക...⏳️")
         tpic = context.bot.get_file(pic_id)
         tpic.download("gpic.png")
         try:
             with open("gpic.png", "rb") as chatp:
                 context.bot.set_chat_photo(int(chat.id), photo=chatp)
-                msg.reply_text("Successfully set new chatpic!")
+                msg.reply_text("ഗ്രൂപ്പിന്റെ‌ പ്രൊഫൈൽ പിക്ചർ വിജയകരമായി മാറ്റിയിരിക്കുന്നു..")
         except BadRequest as excp:
             msg.reply_text(f"Error! {excp.message}")
         finally:
@@ -390,7 +390,7 @@ def setchatpic(update, context):
             if os.path.isfile("gpic.png"):
                 os.remove("gpic.png")
     else:
-        msg.reply_text("Reply to some photo or file to set new chat pic!")
+        msg.reply_text("ദയവായി ഇമേജിനു മറുപടിയായി കമാൻഡ് നൽകുക..!")
 
 
 @run_async
@@ -403,11 +403,11 @@ def rmchatpic(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("You don't have enough rights to delete group photo")
+        msg.reply_text("സോറി.. തങ്കൾക്ക് അതിനുള്ള അധികാരമില്ല..")
         return
     try:
         context.bot.delete_chat_photo(int(chat.id))
-        msg.reply_text("Successfully deleted chat's profile photo!")
+        msg.reply_text("ഗ്രൂപ്പിന്റെ പ്രൊഫൈൽ പിക്ചർ റിമൂവ് ചെയ്തു..!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
         return
@@ -424,18 +424,18 @@ def setchat_title(update, context):
     args = context.args
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("You don't have enough rights to change chat info!")
+        msg.reply_text("സോറി.. താങ്കൾക്ക് ഈ കമാൻഡ് ഉപയോഗിക്കുന്നതിനുള്ള അധികാരമില്ല..")
         return
 
     title = " ".join(args)
     if not title:
-        msg.reply_text("Enter some text to set new title in your chat!")
+        msg.reply_text("ദയവായി ഗ്രൂപ്പ്‌ നെയിം കൂടി കമാൻഡിനൊപ്പം അയക്കുക..")
         return
 
     try:
         context.bot.set_chat_title(int(chat.id), str(title))
         msg.reply_text(
-            f"Successfully set <b>{title}</b> as new chat title!",
+            f"വിജയകരമായി <b>{title}</b> എന്നത് പുതിയ ഗ്രൂപ്പ്‌ നെയിം ആയി സെറ്റ് ചെയ്തു.. !",
             parse_mode=ParseMode.HTML,
         )
     except BadRequest as excp:
@@ -453,27 +453,27 @@ def set_sticker(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("You're missing rights to change chat info!")
+        return msg.reply_text("ഗ്രൂപ്പ്‌ ഇൻഫോ മാറ്റുന്നതിനുള്ള അധികാരം താങ്കൾക്കില്ല..!")
 
     if msg.reply_to_message:
         if not msg.reply_to_message.sticker:
             return msg.reply_text(
-                "You need to reply to some sticker to set chat sticker set!"
+                "സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി കമാൻഡ് നൽകുക..!"
             )
         stkr = msg.reply_to_message.sticker.set_name
         try:
             context.bot.set_chat_sticker_set(chat.id, stkr)
             msg.reply_text(
-                f"Successfully set new group stickers in {chat.title}!")
+                f"വിജകരമായി സ്റ്റിക്കർപാക്ക് {chat.title} എന്ന ഗ്രൂപ്പിൽ സെറ്റ് ചെയ്തു..!")
         except BadRequest as excp:
             if excp.message == "Participants_too_few":
                 return msg.reply_text(
-                    "Sorry, due to telegram restrictions chat needs to have minimum 100 members before they can have group stickers!"
+                    "സോറി... ഗ്രൂപ്പിൽ കുറഞ്ഞത് 100 മെംബേർസ് ഉണ്ടായിരിക്കണം..!"
                 )
             msg.reply_text(f"Error! {excp.message}.")
     else:
         msg.reply_text(
-            "You need to reply to some sticker to set chat sticker set!")
+            "സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി നൽകുക..")
 
 
 @run_async
@@ -486,20 +486,20 @@ def set_desc(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("You're missing rights to change chat info!")
+        return msg.reply_text("സോറി.. താങ്കൾക്ക് ഗ്രൂപ്പ്‌ ഇൻഫോ മാറ്റുന്നതിനുള്ള അധികാരമില്ല !")
 
     tesc = msg.text.split(None, 1)
     if len(tesc) >= 2:
         desc = tesc[1]
     else:
-        return msg.reply_text("Setting empty description won't do anything!")
+        return msg.reply_text("കമാൻഡിനൊപ്പം വിവരണം കൂടി അയച്ചാൽ മാത്രമേ മാറ്റം വരുത്താൻ സാധിക്കുകയുള്ളൂ..!")
     try:
         if len(desc) > 255:
             return msg.reply_text(
-                "Description must needs to be under 255 characters!")
+                "വിവരണം 255 വാക്കുകളിൽ കൂടാൻ പാടില്ല..!")
         context.bot.set_chat_description(chat.id, desc)
         msg.reply_text(
-            f"Successfully updated chat description in {chat.title}!")
+            f"വിജയകരമായി {chat.title} എന്ന ഗ്രൂപ്പിന്റെ വിവരണം സെറ്റ് ചെയ്തു..!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
 
@@ -512,20 +512,18 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-
  ❒ /adminlist: ഗ്രൂപ്പിലെ അഡ്മിൻസിന്റെ ലിസ്റ്റ് ലഭിക്കുന്നു..
 
 *ഗ്രൂപ്പ്‌ അഡ്മിൻസ് മാത്രം:*
  ❒ /invitelink: പ്രൈവറ്റ് ഗ്രൂപ്പിന്റെ ഇൻവിറ്റേഷൻ ലിങ്ക് ലഭിക്കുന്നു..
- ❒ /settitle: ബോട്ടിനാൽ പ്രൊമോട്ട് ചെയ്യപ്പെട്ട ഗ്രൂപ്പ്‌ അഡ്മിൻസിന്റെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റുന്നതിന് വേണ്ടി ഉപയോഗിക്കുന്നു..
- ❒ /setgpic: ഒരു ഫോട്ടോയുടെയോ ഫയലിന്റെയോ റിപ്ലൈ ആയി ഈ കമാൻഡ് നക്കിയിയാൽ ആ ഫോട്ടോ ഗ്രൂപ്പിന്റെ പ്രൊഫൈൽ പിക്ചർ ആയി സെറ്റ് ചെയ്യുന്നു..
- ❒ /delgpic: ഗ്രൂപ്പിലെ നിലവിലെ പ്രൊഫൈൽ പിക്ചർ നീക്കം ചെയ്യുവാൻ ഉപയോഗിക്കുന്നു..
- ❒ /setgtitle <ഗ്രൂപ്പിന്റെ പേര്>: ഗ്രൂപ്പിന് പുതിയ ഒരു പേര് നൽകി സെറ്റ് ചെയ്യുന്നു..
- ❒ /setsticker: സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി ഈ കമാൻഡ് നൽകിയാൽ അത് ഗ്രൂപ്പിന്റെ സ്റ്റിക്കർപാക്ക് ആയി സെറ്റ് ചെയ്യുന്നു..
- ❒ /setdescription: <വിവരണം> ഗ്രൂപ്പിനെക്കുറിച്ച് ഒരു വിവരണം തയ്യാർ ആക്കി സേവ് ചെയ്യുന്നതിന് ഉപയോഗിക്കുന്നു...
+ ❒ /settitle: ബോട്ടിനാൽ പ്രൊമോട്ട് ചെയ്യപ്പെട്ട ഗ്രൂപ്പ്‌ അഡ്മിൻന്റെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റുന്നതിന് വേണ്ടി ഉപയോഗിക്കുന്നു..
+ ❒ /setgpic: ഒരു ഇമേജിന് റിപ്ലൈ ആയി ഈ കമാൻഡ് നക്കിയിയാൽ ആ ഫോട്ടോ ഗ്രൂപ്പിന്റെ പ്രൊഫൈൽ പിക്ചർ ആയി സെറ്റ് ചെയ്യും..
+ ❒ /delgpic: ഗ്രൂപ്പിലെ നിലവിലെ പ്രൊഫൈൽ പിക്ചർ ഡിലീറ്റ് ചെയ്യും..
+ ❒ /setgtitle <ഗ്രൂപ്പിന്റെ പേര്>: ഗ്രൂപ്പിന് പുതിയ ഒരു പേര് നൽകി സെറ്റ് ചെയ്യും..
+ ❒ /setsticker: സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി ഈ കമാൻഡ് നൽകിയാൽ അത് ഗ്രൂപ്പിന്റെ സ്റ്റിക്കർപാക്ക് ആയി സെറ്റ് ചെയ്യും..
+ ❒ /setdescription: <വിവരണം> ഗ്രൂപ്പിനെക്കുറിച്ച് ഒരു വിവരണം സേവ് ചെയ്യുന്നതിന് ഉപയോഗിക്കുന്നു...
 
-⚠️  സ്റ്റിക്കർ സെറ്റ് ചെയ്യുമ്പോൾ ഗ്രൂപ്പിൽ കുറഞ്ഞത് 100 മെംബേർസ് എങ്കിലും ഉണ്ടായിരിക്കണം...
-
+ ⚠️ സ്റ്റിക്കർ സെറ്റ് ചെയ്യുമ്പോൾ ഗ്രൂപ്പിൽ കുറഞ്ഞത് 100 മെംബേർസ് എങ്കിലും ഉണ്ടായിരിക്കണം...
 """
 
 __mod_name__ = "⚙️GROUP INFO"
