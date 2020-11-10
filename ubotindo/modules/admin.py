@@ -275,15 +275,15 @@ def invite(update, context):
 @typing_action
 def adminlist(update, context):
     administrators = update.effective_chat.get_administrators()
-    text = "Admins in <b>{}</b>:".format(
+    text = "💡അഡ്മിൻസ് in <b>{}</b>:".format(
         update.effective_chat.title or "this chat")
     for admin in administrators:
         user = admin.user
         status = admin.status
         name = f"{(mention_html(user.id, user.first_name))}"
         if status == "creator":
-            text += "\n 🦁 ഉടമസ്ഥൻ 🔥:"
-            text += "\n • {} \n\n 🦊 മറ്റുള്ള അഡ്മിൻസ്:".format(name)
+            text += "\n 🌳 ഉടമസ്ഥൻ 🔥:"
+            text += "\n • {} \n\n 🌱 മറ്റുള്ള അഡ്മിൻസ്:".format(name)
     for admin in administrators:
         user = admin.user
         status = admin.status
@@ -315,7 +315,7 @@ def set_title(update, context):
 
     if user_member.status == "creator":
         message.reply_text(
-            "ഗ്രൂപ്പ്‌ ഓണറുടെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റാൻ എനിക്ക് സാധിക്കില്ല.."
+            "ഗ്രൂപ്പ്‌ ഓണറുടെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റുവാൻ എനിക്ക് സാധിക്കില്ല.."
         )
         return
 
@@ -337,7 +337,7 @@ def set_title(update, context):
 
     if len(title) > 16:
         message.reply_text(
-            "ഇത്രയും നീളമുള്ള ടെക്സ്റ്റ്‌ അഡ്മിൻ ടൈറ്റിൽ ആയി കൊടുക്കാൻ സാധിക്കില്ല.."
+            "ഇത്രയും നീളമുള്ള ടെക്സ്റ്റ്‌ അഡ്മിൻ ടൈറ്റിൽ ആയി നൽകാൻ സാധിക്കില്ല.."
         )
 
     try:
