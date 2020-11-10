@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import importlib
 import traceback
 import html
@@ -55,38 +39,26 @@ from ubotindo.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hey there! my name is *{dispatcher.bot.first_name}*.
-Any questions on how to use me? use /help
+💌 `ഹായ്....`
+`എന്റെ പേര്` *{dispatcher.bot.first_name}*.
+`ഞാൻ ടെലെഗ്രാമിലെ ഗ്രൂപ്പ്‌ കൈകാര്യം ചെയ്യുന്ന ഒരു അഡ്മിൻ ബോട്ട് ആണ്..`
+⚠️ `കംപ്ലീറ്റ് ആയിട്ടില്ല`
 
-Join Our [Group](https://t.me/userbotindo) If You wanna Report Issue 🙂
+`Maintained By` [༄ᶦᶰᵈ᭄𖤓𝐏 𝐑 𝐈 𝐍 𝐂 𝐄™ 🇮🇳](https://t.me/P_RINC_E)
 
-I'm here to make your group management fun and easy!
-I have lots of handy features ☺️ such as :
-
-• flood control.         • Note'S keeping system.
-• Warning System.   • Predetermined Filters.
-
-*Managed With ❤️ By :* [UserbotIndo Team](https://t.me/userbotindo)
-
-Wanna Add me to your Group? Just click the button below!
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="Add to Group 👥", url="t.me/userbotindobot?startgroup=true"
-        ),
-        InlineKeyboardButton(
-            text="Gban Logs 🚫", url="https://t.me/UserIndoBotBannedLog"
+            text="🔥എന്നെ ഗ്രൂപ്പിൽ ചേർക്കുക🔥", url="t.me/malayalam_tgbot?startgroup=true"
         ),
     ]
 ]
 
 
-buttons += [[InlineKeyboardButton(text="Help & Commands ❔",
+buttons += [[InlineKeyboardButton(text="💬കമാൻഡ്സ് ഹെല്പ് ബട്ടൺ💬",
                                   url=f"t.me/{dispatcher.bot.username}?start=help"),
-             InlineKeyboardButton(text="Support Group 🎗️",
-                                  url="https://t.me/userbotindo"),
              ]]
 
 
