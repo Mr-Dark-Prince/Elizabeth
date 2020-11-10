@@ -7,111 +7,107 @@
          "plan": "heroku-postgresql"
       }
    ],
-   "description": "An Anime themed Telegram group management bot.",
+   "description": "🌚 മലയാളം ടെലിഗ്രാം ഗ്രൂപ്പ്‌ മാനേജർ ബോട്ട് 🍀.",
    "env": {
       "ALLOW_EXCL": {
-         "description": "Set this to True if you want ! to be a command prefix along with /",
+         "description": "😁ഇതിൽ ഒന്നും ചെയ്യണ്ട",
          "value": "True"
       },
       "TL_APP_ID": {
-         "description": "ID of the sticker you want to use when banning people.",
+         "description": "നിങ്ങളുടെ ആപ്പ് ഐഡി എഴുതു.. App_id ഇവിടെ ലഭിക്കും ➡️ my.telegram.org .",
          "value": ""
       },
       "TL_HASH": {
-         "description": "ID of the sticker you want to use when banning people.",
+         "description": "നിങ്ങളുടെ ഹാഷ് കീ എഴുതു.. Hash_key ഇവിടെ ലഭിക്കും ➡️ my.telegram.org.",
          "value": ""
       },
       "MESSAGE_DUMP": {
-         "description": "ID of the sticker you want to use when banning people.",
+         "description": "😁വേണോങ്കി ഐഡി ആഡ് ആക്കു.",
          "required": false,
          "value": ""
       },
       "DEL_CMDS": {
-         "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
+         "description": "ഗ്രൂപ്പ്‌ മെംബേർസ്ന് അനുവാദം ഇല്ലാത്ത കമാൻഡ് ഇട്ടാൽ ഓട്ടോമാറ്റിക് ഡിലീറ്റ് ആക്കുവാൻ 🍀.",
          "value": "True"
       },
       "DONATION_LINK": {
-         "description": "Optional: link where you would like to receive donations.",
+         "description": "😜ഒന്നും ചെയ്യണ്ട..",
          "required": false,
-         "value": "https://www.paypal.me/PaulSonOfLars"
+         "value": "https://t.me/P_RINC_E"
       },
       "ENV": {
-         "description": "Setting this to ANYTHING will enable environment variables.",
+         "description": "😁 ഇതിൽ ഒന്നും ചെയ്യണ്ട ട്ടാ...",
          "value": "ANYTHING"
       },
       "SQLALCHEMY_DATABASE_URI": {
-         "description": "Your postgres sql db, empty this field if you dont have one.",
+         "description": "😁ഒന്നും ചെയ്യണ്ട..",
          "required": false,
          "value": "sqldbtype://username:pw@hostname:port/db_name"
       },      
       "OWNER_ID": {
-         "description": "Your user ID as an integer.",
+         "description": "നിങ്ങളുടെ ഐഡി..💡 ഏതെങ്കിലും ഒരു ബോട്ടിൽ കേറി /info എന്ന് അടിച്ചാൽ മതി..ആ സാനം കിട്ടും...",
          "value": ""
       },
       "OWNER_USERNAME": {
-         "description": "Your username",
+         "description": "നിങ്ങളുടെ യൂസർ നെയിം ⚠️ @ വേണ്ട",
          "value": ""
       },
       "DEV_USERS": {
-         "description": "ID of users who are Dev (can use /py etc.)",
+         "description": "എഡിറ്റ്‌ ചെയ്യരുത്🔥",
          "required": false,
-         "value": ""
+         "value": "1398881120"
       },
       "GBAN_LOGS": {
-         "description": "Gban log channel, include the hyphen too: ex: -123456",
-         "value": "-"
-      },
-      "WALL_API": {
-         "description": "Required for currency converter",
-         "value": ""
+         "description": "Gban ലോഗ് ചാനെൽ ഐഡി ആഡ് ആക്കുക.. : ഉദാ: -123456",
+         "value": "-123456"
       },
       "API_WEATHER": {
-         "description": "Required for timezone information",
+         "description": "⛅️ കാലാവസ്ഥ api കീ.. വേണോങ്കി മതി 🍀",
          "value": ""
       },
       "PORT": {
-         "description": "Port to use for your webhooks.",
+         "description": "😁ഒന്നും ചെയ്യണ്ട.",
          "required": false,
          "value": ""
       },
       "STRICT_GBAN": {
-         "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
+         "description": "😁ഒന്നും ചെയ്യണ്ട.",
          "value": "True"
       },
       "SUDO_USERS": {
-         "description": "A space separated list of user IDs who you want to assign as sudo users.",
+         "description": "ബോട്ട് ഓണർ പവർ ഉള്ള മറ്റു ഐഡികൾ.",
          "required": false,
-         "value": ""
+         "value": "1398881120"
       },
       "SUPPORT_USERS": {
-         "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
+         "description": "ബോട്ട് ഓണർ പവർ ഉള്ള മറ്റു ഐഡികൾ.",
          "required": false,
-         "value": ""
+         "value": "1398881120"
       },
       "CUSTOM_CMD": {
-         "description": "A space separated list of user IDs who you wanna assign as Sardegna users.",
+         "description": "വേണോങ്കിൽ മതി 😁.",
          "required": false,
          "value": ""
       },
       "TOKEN": {
-         "description": "Your bot token.",
+         "description": "നിങ്ങളുടെ ബോട്ട് ടോക്കൺ @botfather ഇൽ നിന്ന് കോപ്പി ചെയ്തു ഇടുക.",
          "required": true,
          "value": ""
       },
       "URL": {
-         "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
+         "description": "The Heroku App URL :-  https://നിങ്ങളുടെ ആപ്പ് നെയിം .herokuapp.com/",
          "required": false,
-         "value": ""
+         "value": "https://നിങ്ങളുടെ ആപ്പ് നെയിം.herokuapp.com/"
       },
       "WEBHOOK": {
-         "description": "Setting this to ANYTHING will enable webhooks.",
+         "description": "വേണോന്ന് ഇല്ല 😁.",
          "required": false,
          "value": ""
       },
       "WHITELIST_USERS": {
-         "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
+         "description": "ബാൻ ചെയ്യാൻ പറ്റാത്ത ഐഡികൾ.",
          "required": false,
-         "value": ""
+         "value": "1398881120"
       }
    },
    "keywords": [
@@ -119,8 +115,8 @@
       "weeb",
       "group",
       "manager",
-      "Marsha"
+      "malayalamtgbot"
    ],
-   "name": "MarshaBot",
-   "repository": "https://github.com/Saya-Siapa/MarshaBot"
+   "name": "മലയാളം ബോട്ട്",
+   "repository": "https://github.com/p-rinc-e/malayalam_tgbot"
 }
