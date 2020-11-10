@@ -250,7 +250,7 @@ def invite(update, context):
         chat = dispatcher.bot.getChat(conn)
     else:
         if msg.chat.type == "private":
-            msg.reply_text("This command is meant to use in chat not in PM")
+            msg.reply_text("ഈ കമാൻഡ് ഉപയോഗിക്കേണ്ടത് ഇവിടെ അല്ല.. ഗ്രൂപ്പിൽ ആണ്..")
             return ""
         chat = update.effective_chat
 
@@ -263,11 +263,11 @@ def invite(update, context):
             msg.reply_text(invitelink)
         else:
             msg.reply_text(
-                "I don't have access to the invite link, try changing my permissions!"
+                "എനിക്ക് ലിങ്ക് എടുക്കുവാനുള്ള അധികാരം ഇല്ല 😒!"
             )
     else:
         msg.reply_text(
-            "I can only give you invite links for supergroups and channels, sorry!"
+            "സോറി.. ലിങ്ക് തരണമെങ്കിൽ ഒന്നുകിൽ സൂപ്പർ ഗ്രൂപ്പ്‌ ആയിരിക്കണം..അല്ലെങ്കിൽ ചാനൽ ആയിരിക്കണം..!"
         )
 
 
@@ -282,8 +282,8 @@ def adminlist(update, context):
         status = admin.status
         name = f"{(mention_html(user.id, user.first_name))}"
         if status == "creator":
-            text += "\n 🦁 Creator:"
-            text += "\n • {} \n\n 🦊 Admin:".format(name)
+            text += "\n 🦁 ഉടമസ്ഥൻ 🔥:"
+            text += "\n • {} \n\n 🦊 മറ്റുള്ള അഡ്മിൻസ്:".format(name)
     for admin in administrators:
         user = admin.user
         status = admin.status
@@ -310,41 +310,41 @@ def set_title(update, context):
         return
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("ഒരാളെ സൂചിപ്പിച്ചു കമാൻഡ് നൽകുക.")
         return
 
     if user_member.status == "creator":
         message.reply_text(
-            "This person CREATED the chat, how can i set custom title for him?"
+            "ഗ്രൂപ്പ്‌ ഓണറുടെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റാൻ എനിക്ക് സാധിക്കില്ല.."
         )
         return
 
     if not user_member.status == "administrator":
         message.reply_text(
-            "Can't set title for non-admins!\nPromote them first to set custom title!"
+            "അഡ്മിൻ അല്ലാത്ത ഒരാളിന് അഡ്മിൻ ടൈറ്റിൽ കൊടുക്കാൻ കഴിയില്ല മണ്ണുണ്ണി..!"
         )
         return
 
     if user_id == context.bot.id:
         message.reply_text(
-            "I can't set my own title myself! Get the one who made me admin to do it for me."
+            "എനിക്ക് എന്റെ തന്നെ അഡ്മിൻ ടൈറ്റിൽ ചേഞ്ച്‌ ചെയ്യാൻ സാധിക്കില്ല.."
         )
         return
 
     if not title:
-        message.reply_text("Setting blank title doesn't do anything!")
+        message.reply_text("എന്ത് ഉണ്ടയാണ് അഡ്മിൻ ടൈറ്റിൽ ആയി കൊടുക്കേണ്ടത് 😡!")
         return
 
     if len(title) > 16:
         message.reply_text(
-            "The title length is longer than 16 characters.\nTruncating it to 16 characters."
+            "ഇത്രയും നീളമുള്ള ടെക്സ്റ്റ്‌ അഡ്മിൻ ടൈറ്റിൽ ആയി കൊടുക്കാൻ സാധിക്കില്ല.."
         )
 
     try:
         context.bot.set_chat_administrator_custom_title(
             chat.id, user_id, title)
         message.reply_text(
-            "Sucessfully set title for <b>{}</b> to <code>{}</code>!".format(
+            "അഡ്മിൻ ടൈറ്റിൽ വിജയകരമായി മാറ്റിയിരിക്കുന്നു.. <b>{}</b> to <code>{}</code>!".format(
                 user_member.user.first_name or user_id, title[:16]
             ),
             parse_mode=ParseMode.HTML,
@@ -352,7 +352,7 @@ def set_title(update, context):
 
     except BadRequest:
         message.reply_text(
-            "I can't set custom title for admins that I didn't promote!")
+            "ഞാൻ പ്രൊമോട്ട് ചെയ്യാത്ത ആളിന്റെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റാൻ എനിക്ക് സാധിക്കില്ല..!")
 
 
 @run_async
@@ -533,7 +533,7 @@ An example of promoting someone to admins:
 `/promote @username`; this promotes a user to admins.
 """
 
-__mod_name__ = "Admin"
+__mod_name__ = "⚙️GROUP INFO"
 
 PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
