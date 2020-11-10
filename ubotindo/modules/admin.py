@@ -73,7 +73,7 @@ def promote(update, context):
         can_pin_messages=bot_member.can_pin_messages,
     )
 
-    message.reply_text("അഡ്മിൻ ആക്കിയിട്ടുണ്ട്..🧡")
+    message.reply_text("👍അഡ്മിൻ ആക്കിയിട്ടുണ്ട്...")
     return (
         "<b>{}:</b>"
         "\n#PROMOTED"
@@ -99,27 +99,27 @@ def demote(update, context):
     args = context.args
 
     if user_can_promote(chat, user, context.bot.id) is False:
-        message.reply_text("You don't have enough rights to demote someone!")
+        message.reply_text("⚠️ നിങ്ങൾക്ക് അതിനുള്ള പെർമിഷൻ ഇല്ല..!")
         return ""
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("mention one.... 🤷🏻‍♂.")
+        message.reply_text("🙄എന്തോന്നെടെ?.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == "creator":
-        message.reply_text("I'm not gonna demote Creator this group.... 🙄")
+        message.reply_text("ഗ്രൂപ്പ്‌ മുതലാളിയെ എങ്ങനെ അഡ്മിൻ സ്ഥാനത്ത് നിന്ന് മാറ്റും..😡")
         return ""
 
     if not user_member.status == "administrator":
         message.reply_text(
-            "How I'm supposed to demote someone who is not even an admin!"
+            "എടെ മണ്ണുണ്ണി..അഡ്മിൻ അല്ലാത്ത ഒരാളെ എങ്ങനെ അഡ്മിൻ അല്ലാതാക്കും..മണ്ടൻ ആണോ നീ..👻!"
         )
         return ""
 
     if user_id == context.bot.id:
-        message.reply_text("Yeahhh... Not gonna demote myself!")
+        message.reply_text("😜 ഇല്ല...ഒരിക്കലും ഞാൻ ചെയ്യില്ല..!")
         return ""
 
     try:
@@ -134,7 +134,7 @@ def demote(update, context):
             can_restrict_members=False,
             can_pin_messages=False,
         )
-        message.reply_text("Successfully demoted!")
+        message.reply_text("😁 അഡ്മിൻ സ്ഥാനത്തു നിന്ന് ഒഴിവാക്കിയിട്ടുണ്ട്!")
         return (
             "<b>{}:</b>"
             "\n#DEMOTED"
@@ -148,8 +148,8 @@ def demote(update, context):
 
     except BadRequest:
         message.reply_text(
-            "Failed to demote. I might not be admin, or the admin status was appointed by another "
-            "user, so I can't act upon them!")
+            "ഹായ് മണ്ണുണ്ണി... ഞാൻ അഡ്മിൻ അല്ലാതിരിക്കുകയോ , അല്ലെങ്കിൽ അയാളെ അഡ്മിൻ ആക്കിയത് വേറെ ആരെങ്കിലും ആയിരിക്കുകയോ "
+            "ചെയ്താൽ എനിക്ക് ഒന്നും ചെയ്യാൻ പറ്റില്ല 😑!")
         return ""
 
 
