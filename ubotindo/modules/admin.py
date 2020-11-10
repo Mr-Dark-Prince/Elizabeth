@@ -520,8 +520,6 @@ done easily using the bot.
 
 *Admin only:*
  × /invitelink: Gets private chat's invitelink.
- × /promote: Promotes the user replied to.
- × /demote: Demotes the user replied to.
  × /settitle: Sets a custom title for an admin which is promoted by bot.
  × /setgpic: As a reply to file or photo to set group profile pic!
  × /delgpic: Same as above but to remove group profile pic.
