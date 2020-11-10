@@ -539,14 +539,6 @@ __mod_name__ = "Admin"
 
 PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
-
-PERMANENT_PIN_SET_HANDLER = CommandHandler(
-    "permanentpin", permanent_pin_set, pass_args=True, filters=Filters.group
-)
-PERMANENT_PIN_HANDLER = MessageHandler(
-    Filters.status_update.pinned_message | Filters.user(777000), permanent_pin
-)
-
 INVITE_HANDLER = CommandHandler("invitelink", invite)
 CHAT_PIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 DEL_CHAT_PIC_HANDLER = CommandHandler(
@@ -578,8 +570,6 @@ ADMINLIST_HANDLER = DisableAbleCommandHandler(
 
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
-dispatcher.add_handler(PERMANENT_PIN_SET_HANDLER)
-dispatcher.add_handler(PERMANENT_PIN_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
