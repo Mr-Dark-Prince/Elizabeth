@@ -41,21 +41,21 @@ def promote(update, context):
     args = context.args
 
     if user_can_promote(chat, user, context.bot.id) is False:
-        message.reply_text("You don't have enough rights to promote someone!")
+        message.reply_text("⚠️ക്ഷമിക്കണം..ആരെയും അഡ്മിൻ ആക്കുവാനുള്ള അധികാരം നിങ്ങൾക്ക് ഇല്ല..!")
         return ""
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("mention one.... 🤷🏻‍♂.")
+        message.reply_text("ആരെയാണ് അഡ്മിൻ ആക്കേണ്ടത്?🤔")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == "administrator" or user_member.status == "creator":
-        message.reply_text("This person is already an admin...!")
+        message.reply_text("🙄 ആൾറെഡി അഡ്മിൻ ആണ്..!")
         return ""
 
     if user_id == context.bot.id:
-        message.reply_text("I hope, if i could promote myself!")
+        message.reply_text("🙄ഞാൻ എന്നെത്തന്നെ അഡ്മിൻ ആക്കുവാനോ?!")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -73,7 +73,7 @@ def promote(update, context):
         can_pin_messages=bot_member.can_pin_messages,
     )
 
-    message.reply_text("Promoted🧡")
+    message.reply_text("അഡ്മിൻ ആക്കിയിട്ടുണ്ട്..🧡")
     return (
         "<b>{}:</b>"
         "\n#PROMOTED"
