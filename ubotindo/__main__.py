@@ -41,40 +41,30 @@ from ubotindo.modules.helper_funcs.alternate import typing_action
 PM_START_TEXT = f"""
 💌 `ഹായ്....`
 `എന്റെ പേര്` *{dispatcher.bot.first_name}*.
-`ഞാൻ ടെലെഗ്രാമിലെ ഗ്രൂപ്പ്‌ കൈകാര്യം ചെയ്യുന്ന ഒരു അഡ്മിൻ ബോട്ട് ആണ്..`
+`ഞാൻ ടെലെഗ്രാമിലെ ഗ്രൂപ്പുകൾ‌ കൈകാര്യം ചെയ്യുന്ന ഒരു അഡ്മിൻ ബോട്ട് ആണ്..`
 ⚠️ `കംപ്ലീറ്റ് ആയിട്ടില്ല`
-
-`Maintained By` [༄ᶦᶰᵈ᭄𖤓𝐏 𝐑 𝐈 𝐍 𝐂 𝐄™ 🇮🇳](https://t.me/P_RINC_E)
+﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌﹌
+`Maintained By` [༄ᶦᶰᵈ᭄𖤓𝐏 𝐑 𝐈 𝐍 𝐂 𝐄™](https://t.me/P_RINC_E)
 
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="🔥എന്നെ ഗ്രൂപ്പിൽ ചേർക്കുക🔥", url="t.me/malayalam_tgbot?startgroup=true"
+            text="💼ADD ME TO YOUR GROUP", url="t.me/malayalam_tgbot?startgroup=true"
         ),
     ]
 ]
 
 
-buttons += [[InlineKeyboardButton(text="💬കമാൻഡ്സ് ഹെല്പ് ബട്ടൺ💬",
+buttons += [[InlineKeyboardButton(text="📑HELP AND COMMANDS",
                                   url=f"t.me/{dispatcher.bot.username}?start=help"),
              ]]
 
 
 HELP_STRINGS = f"""
-Hello there! My name is *{dispatcher.bot.first_name}*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
-the things I can help you with.
-
-*Main* commands available:
- × /start: Starts me, can be used to check i'm alive or no...
- × /help: PM's you this message.
- × /help <module name>: PM's you info about that module.
- × /settings: in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
- \nClick on the buttons below to get documentation about specific modules!"""
-
+⬇️ `ചുവടെ കാണുന്ന ഓരോ ബോക്സും തുറന്നു നോക്കുക... കമാൻഡുകൾ കാണാം..`
+"""
 
 STAFF_HELP_STRINGS = """Hey there staff users. Nice to see you :)
 Here is all the staff's commands. Users above has the command access for all commands below.
