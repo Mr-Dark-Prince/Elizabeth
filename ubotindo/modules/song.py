@@ -1,4 +1,4 @@
-from telegram import ParseMode, Update, Bot
+from telegram import ParseMode, Update, Context
 from telegram.ext import run_async
 from ubotindo.modules.disable import DisableAbleCommandHandler
 from ubotindo import dispatcher
@@ -9,7 +9,7 @@ import os
 def song(update, context):
     message = update.effective_message
     text = message.text[len('/song '):]
-    dl(cmd)
+    dl(song)
     sng = db.get('title') + '.mp3'
     title = db.get('title')
     reply_text = f"Finding **{title}**"
