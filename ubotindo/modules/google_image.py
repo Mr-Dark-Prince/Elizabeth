@@ -13,11 +13,11 @@ async def img_sampler(event):
      if event.fwd_from:
         return
      if event.is_group:
-          await event.reply("")
+          await event.reply("Searching 🔎.. Please wait..⏳️")
           return
      query = event.pattern_match.group(1)
      jit = f'"{query}"'
-     downloader.download(jit, limit=5, output_dir='store', adult_filter_off=False, force_replace=False, timeout=60)
+     downloader.download(jit, limit=3, output_dir='store', adult_filter_off=False, force_replace=False, timeout=60)
      os.chdir(f'./store/"{query}"')
      types = ('*.png', '*.jpeg', '*.jpg') # the tuple of file types
      files_grabbed = []
