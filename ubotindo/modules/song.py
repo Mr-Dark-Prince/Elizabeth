@@ -3,13 +3,16 @@ from telegram.ext import run_async
 from ubotindo.modules.disable import DisableAbleCommandHandler
 from ubotindo import dispatcher
 from ubotindo.modules.dll import dl, db
+from haruka.events import register
 import os
 
-@run_async
-def song(update, context):
+@register(pattern="^/song (.*)")
+async def _(event):
+    if event.fwd_from:
+        return
     message = update.effective_message
     text = message.text[len('/song '):]
-    cmd = f'{song}'
+    cmd = event.pattern_match.group(1)
     dl(cmd)
     sng = db.get('title') + '.mp3'
     title = db.get('title')
