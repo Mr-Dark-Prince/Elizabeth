@@ -5,9 +5,6 @@ from telethon import *
 
 @register(pattern="^/app (.*)")
 async def apk(e):
-    if e.is_group:
-     if not (await is_register_admin(e.input_chat, e.message.sender_id)):
-          await e.reply("")
           return
     try:
         app_name = e.pattern_match.group(1)
