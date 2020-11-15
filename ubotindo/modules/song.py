@@ -1,6 +1,5 @@
 from telethon import events
 import asyncio
-from ubotindo import bot, CMD_HELP
 from ubotindo.events import register 
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
