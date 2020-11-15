@@ -36,6 +36,7 @@ pillow
 psutil
 speedtest-cli>=2.0.2
 googletrans
+youtube-dl
 wikipedia
 spamwatch
 bleach
