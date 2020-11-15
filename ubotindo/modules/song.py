@@ -21,8 +21,6 @@ def bruh(name):
 
 @register(outgoing=True, pattern="^.song(?: |$)(.*)")
 async def getmusic(so):
-    if so.fwd_from:
-        return
     await so.client(JoinChannelRequest("t.me/Anitimeofficial"))
     song = so.pattern_match.group(1)
     chat = "@SongsForYouBot"
