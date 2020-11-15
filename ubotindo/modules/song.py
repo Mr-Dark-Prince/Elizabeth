@@ -10,7 +10,7 @@ def song(update, context):
     message = update.effective_message
     text = message.text[len('/song '):]
     dl(cmd)
-    cmd = f'{cmd}'
+    cmd = f'{song}'
     sng = db.get('title') + '.mp3'
     title = db.get('title')
     reply_text = f"Finding **{title}**"
