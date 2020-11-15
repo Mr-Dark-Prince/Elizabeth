@@ -1,6 +1,7 @@
 from ubotindo import client
 import glob
 import os
+import spotdl
 import subprocess
 from telethon import types
 from telethon.tl import functions
@@ -12,7 +13,6 @@ from ubotindo.events import register
 async def _(event):
     if event.fwd_from:
         return
-
     cmd = event.pattern_match.group(1)
     cmnd = f"{cmd}"
     reply_to_id = event.message.id
