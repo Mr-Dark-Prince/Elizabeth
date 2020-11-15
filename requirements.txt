@@ -24,6 +24,7 @@ psycopg2-binary
 pythonping
 feedparser
 pytz
+pafy
 gtts
 bs4
 lxml
