@@ -2,7 +2,7 @@ import requests
 from telethon import events
 from ubotindo.events import register
 
-@register(pattern="^/meaning (.*)"))
+@register(pattern="^/meaning (.*)")
 async def _(event):
     if event.fwd_from:
         return
