@@ -6,7 +6,7 @@ from ubotindo.modules.dll import dl, db
 import os
 
 @run_async
-def song(bot: update context):
+def song(update, context):
     message = update.effective_message
     text = message.text[len('/song '):]
     dl(cmd)
