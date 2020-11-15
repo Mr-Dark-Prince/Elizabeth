@@ -1,7 +1,6 @@
 from telethon import events
 import asyncio
 from ubotindo.events import register 
-from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 import os
 
@@ -21,7 +20,6 @@ def bruh(name):
 
 @register(outgoing=True, pattern="^.song(?: |$)(.*)")
 async def getmusic(so):
-    await so.client(JoinChannelRequest("t.me/Anitimeofficial"))
     song = so.pattern_match.group(1)
     chat = "@SongsForYouBot"
     link = f"/song {song}"
