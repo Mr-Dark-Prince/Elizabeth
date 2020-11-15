@@ -3,7 +3,7 @@ from telethon import events
 from ubotindo.events import register
 
 @register(pattern="^/meaning (.*)")
-async def _(event):
+async def (event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
@@ -24,7 +24,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_msg_id = event.reply_to_msg_id
     try:
-        await bot.send_file(
+        await contextbot.send_file(
             event.chat_id,
             pronounciation,
             caption=f"Pronounciation of __{input_str}__",
