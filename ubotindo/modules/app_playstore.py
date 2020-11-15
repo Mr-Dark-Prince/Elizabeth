@@ -6,7 +6,6 @@ from ubotindo.events import register
 
 @register(pattern="^/app (.*)")
 async def apk(e):
-          return
     try:
         app_name = e.pattern_match.group(1)
         remove_space = app_name.split(' ')
