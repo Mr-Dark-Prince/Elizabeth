@@ -8,7 +8,6 @@ from ubotindo.events import register
 
 @register(pattern=r'^/phone (.*)')
 async def phone(event): 
-          return
     information = event.pattern_match.group(1)
     number = information
     key = "fe65b94e78fc2e3234c1c6ed1b771abd" 
