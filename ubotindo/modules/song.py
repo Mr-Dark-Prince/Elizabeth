@@ -21,7 +21,7 @@ async def _(event):
     try:
         subprocess.run(["instantmusic", "-s", cmnd, "-q", "best"])
         subprocess.run(
-            'for f in *.opus; do      mv -- "$f" "${f%.opus}.mp3"; done', shell=True
+            'for f in *.webm; do      mv -- "$f" "${f%.webm}.mp3"; done', shell=True
         )
         l = glob.glob("*.mp3")
         loa = l[0]
