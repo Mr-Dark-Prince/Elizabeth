@@ -3,7 +3,7 @@ from telegram.ext import run_async
 from ubotindo.modules.disable import DisableAbleCommandHandler
 from ubotindo import dispatcher
 from ubotindo.modules.dll import dl, db
-from haruka.events import register
+from ubotindo.events import register
 import os
 
 @register(pattern="^/song (.*)")
