@@ -1,4 +1,4 @@
-from telegram import ParseMode, Update, Context
+from telegram import ParseMode, Update, bot
 from telegram.ext import run_async
 from ubotindo.modules.disable import DisableAbleCommandHandler
 from ubotindo import dispatcher
