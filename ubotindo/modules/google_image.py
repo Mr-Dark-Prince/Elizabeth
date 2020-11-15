@@ -5,6 +5,8 @@ from re import findall
 from bing_image_downloader import downloader
 import os
 import glob
+from ubotindo.events import register
+
 
 @register(pattern="^/img (.*)")
 async def img_sampler(event):
