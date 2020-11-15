@@ -20,6 +20,8 @@ def bruh(name):
 
 @register(outgoing=True, pattern="^.song(?: |$)(.*)")
 async def getmusic(so):
+    if event.fwd_from:
+        return
     song = so.pattern_match.group(1)
     chat = "@SongsForYouBot"
     link = f"/song {song}"
