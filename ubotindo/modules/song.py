@@ -1,13 +1,13 @@
 from ubotindo import client
 import glob
 import os
-import spotdl
 import subprocess
 from telethon import types
 from telethon.tl import functions
 from ubotindo import client
 from ubotindo.events import register
-
+import instantmusic,subprocess
+os.system("rm -rf *.mp3")
 
 @register(pattern="^/song (.*)")
 async def _(event):
@@ -19,7 +19,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     try:
-        subprocess.run(["spotdl", "-s", cmnd, "-q", "best"])
+        subprocess.run(["instantmusic", "-s", cmnd, "-q", "best"])
         subprocess.run(
             'for f in *.opus; do      mv -- "$f" "${f%.opus}.mp3"; done', shell=True
         )
