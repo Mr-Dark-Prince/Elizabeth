@@ -43,3 +43,4 @@ alphabet_detector
 tswift
 covid
 hurry.filesize
+fontTools
