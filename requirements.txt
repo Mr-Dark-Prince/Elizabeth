@@ -50,3 +50,4 @@ covid
 hurry.filesize
 fontTools
 bing_image_downloader
+instantmusic
