@@ -2,6 +2,7 @@ import requests
 import bs4 
 import re
 from telethon import *
+from ubotindo.events import register
 
 @register(pattern="^/app (.*)")
 async def apk(e):
