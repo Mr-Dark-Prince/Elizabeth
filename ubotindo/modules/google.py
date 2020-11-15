@@ -8,6 +8,8 @@ import sys
 import shutil
 from re import findall
 import html2text
+from ubotindo.events import register
+
 
 @register(pattern="^/google (.*)") 
 async def _(event):
