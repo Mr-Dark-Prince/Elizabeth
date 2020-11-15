@@ -4,6 +4,7 @@ import json
 import time
 import urllib
 import os
+from ubotindo.events import register
 
 @register(pattern=r'^/phone (.*)')
 async def phone(event): 
