@@ -1,4 +1,4 @@
-from alluka import tbot, SUDO_USERS, WHITELIST_USERS
+from ubotindo import client, SUDO_USERS, WHITELIST_USERS
 from telethon import functions, types
 from telethon.tl.types import ChannelParticipantsAdmins
 
