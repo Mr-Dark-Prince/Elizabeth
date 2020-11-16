@@ -32,7 +32,7 @@ from ubotindo import (
 from ubotindo.modules import ALL_MODULES
 from ubotindo.modules.purge import client
 from ubotindo.modules.helper_funcs.chat_status import is_user_admin
-from ubotindo m.modules.helper_funcs.misc import paginate_modules
+from ubotindo.m.modules.helper_funcs.misc import paginate_modules
 from ubotindo.modules.helper_funcs.alternate import typing_action
 
 
