@@ -12,7 +12,7 @@ from telegram.utils.helpers import escape_markdown
 from ubotindo.modules.helper_funcs.admin_rights import user_can_ban
 from ubotindo.modules.helper_funcs.readable_time import get_readable_time
 
-from Shoko import (
+from ubotindo import (
     dispatcher,
     since_time_start,
     updater,
