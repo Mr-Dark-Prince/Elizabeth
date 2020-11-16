@@ -68,7 +68,7 @@ buttons = [
 
 
 buttons += [[InlineKeyboardButton(text="Help & Commands ❔",
-                                  "callback_data="help_back"),
+                                  callback_data="help_back"),
              InlineKeyboardButton(text="Support Group 🎗️",
                                   url="https://t.me/userbotindo"),
              ]]
