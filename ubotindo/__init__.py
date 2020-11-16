@@ -3,7 +3,6 @@ import os
 import sys
 import spamwatch
 from telethon import TelegramClient
-from redis import StrictRedis
 import telegram.ext as tg
 
 # enable logging
@@ -110,7 +109,6 @@ if ENV:
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
-    REDIS_URL = os.environ.get("REDIS_URI", None)
 
 else:
     from ubotindo.config import Development as Config
@@ -179,7 +177,6 @@ else:
     TELETHON_ID = Config.TELETHON_ID
     SPAMWATCH = Config.SPAMWATCH_API
     LASTFM_API_KEY = Config.LASTFM_API_KEY
-    REDIS_URL = Config.REDIS_URI
 
 DEV_USERS.add(OWNER_ID)
 
@@ -189,16 +186,6 @@ if SPAMWATCH is None:
     LOGGER.warning("Invalid spamwatch api")
 else:
     spamwtc = spamwatch.Client(SPAMWATCH)
-
-REDIS_URL = Config.REDIS_URI
-REDIS = StrictRedis.from_url(REDIS_URL,decode_responses=True)
-
-try:
-    REDIS.ping()
-    LOGGER.info("Your redis server is now alive!")
-    
-except BaseException:
-    raise Exception("Your redis server is not alive, please check again.")
 
 
 # Telethon
