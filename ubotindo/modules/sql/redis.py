@@ -1,4 +1,4 @@
-from Shoko import REDIS
+from ubotindo import REDIS
 
 # AFK
 def is_user_afk(userid):
