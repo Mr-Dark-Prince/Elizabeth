@@ -27,6 +27,7 @@ googletrans
 youtube-dl
 wikipedia
 spamwatch
+zipfile
 bleach
 git+https://github.com/TomyPrs/python-markdown2.git
 alphabet_detector
