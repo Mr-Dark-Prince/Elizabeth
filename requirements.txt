@@ -23,6 +23,7 @@ telegraph
 pillow
 psutil
 speedtest-cli>=2.0.2
+hachoir
 googletrans
 youtube-dl
 wikipedia
