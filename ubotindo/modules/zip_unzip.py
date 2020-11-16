@@ -1,4 +1,4 @@
-from ubotindo import tbot
+from ubotindo import client
 import os
 import time
 import zipfile
