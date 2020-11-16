@@ -1,5 +1,5 @@
 from telethon import events
-import telethon import *
+
 import asyncio
 from ubotindo.events import register
 
