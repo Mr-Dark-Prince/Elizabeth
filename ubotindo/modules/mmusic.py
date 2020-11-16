@@ -5,7 +5,7 @@ from ubotindo.events import register
 
 
 
-@register(pattern="^/music (.*)") 
+@register(pattern=r"music")
 
 async def _(event):
 
@@ -21,7 +21,7 @@ async def _(event):
 
    # if input_str == "music":
 
-    await event.edit("music")
+    await event.reply("music")
 
     animation_chars = [
             "⬤⬤⬤ 81% ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`✖️`\n\n⠀⠀⠀⠀⠀[cee jay Music Player](tg://user?id=1289422521)\n\n⠀⠀⠀⠀**Now Playing:Kamasutra BGM**\n\n**00:00** ▱▱▱▱▱▱▱▱▱▱ **00:10**\n\n⠀⠀⠀⠀⠀`🔂` `⏮️` `⏪️` `▶️` `⏩️` `⏭️`\n\n**⠀Next Song:** __I Am Sexy And I Know It.__\n\n⠀⠀⠀⠀**⠀Device: I phone X**",
@@ -40,4 +40,4 @@ async def _(event):
 
         await asyncio.sleep(animation_interval)
 
-        await event.edit(animation_chars[i % 11])
+        await event.reply(animation_chars[i % 11])
