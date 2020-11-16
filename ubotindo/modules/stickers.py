@@ -9,9 +9,9 @@ from telegram import TelegramError
 from telegram.ext import run_async, CallbackQueryHandler
 from telegram.utils.helpers import mention_html
 
-from Shoko import dispatcher, REDIS
-from Shoko.modules.disable import DisableAbleCommandHandler
-from Shoko.modules.helper_funcs.alternate import typing_action
+from ubotindo import dispatcher
+from ubotindo.modules.disable import DisableAbleCommandHandler
+from ubotindo.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
