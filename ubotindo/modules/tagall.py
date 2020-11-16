@@ -7,14 +7,14 @@ from telegram.ext import (run_async,
                           Filters,
                           CallbackQueryHandler)
 
-from Shoko import dispatcher, REDIS
-from Shoko.modules.disable import DisableAbleCommandHandler
-from Shoko.modules.helper_funcs.chat_status import (
+from ubotindo import dispatcher, REDIS
+from ubotindo.modules.disable import DisableAbleCommandHandler
+from ubotindo.modules.helper_funcs.chat_status import (
     bot_admin,
     user_admin
 )
-from Shoko.modules.helper_funcs.extraction import extract_user_and_text
-from Shoko.modules.helper_funcs.alternate import typing_action
+from ubotindo.modules.helper_funcs.extraction import extract_user_and_text
+from ubotindo.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
