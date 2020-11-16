@@ -5,8 +5,8 @@ from telegram import Update
 from telegram.ext import CommandHandler
 from telegram.ext import run_async
 
-from julia import dispatcher
-from julia.modules.helper_funcs.chat_status import user_admin
+from ubotindo import dispatcher
+from ubotindo.modules.helper_funcs.chat_status import user_admin
 
 GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
 
