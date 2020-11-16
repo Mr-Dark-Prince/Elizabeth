@@ -1,5 +1,5 @@
 from telethon import events
-
+import telethon 
 import asyncio
 from ubotindo.events import register
 
@@ -42,5 +42,3 @@ async def _(event):
 
         await event.edit(animation_chars[i % 11])
 
-except IndexError:
-     await event.reply(animation_chars[i % 11])
