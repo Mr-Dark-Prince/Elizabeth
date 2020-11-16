@@ -11,6 +11,7 @@ feedparser
 html2text
 spotdl
 pickledb
+redis
 pytz
 pafy
 gtts
