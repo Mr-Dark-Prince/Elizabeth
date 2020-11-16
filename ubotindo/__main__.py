@@ -29,11 +29,11 @@ from Shoko import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from Shoko.modules import ALL_MODULES
-from Shoko.modules.purge import client
-from Shoko.modules.helper_funcs.chat_status import is_user_admin
-from Shoko.modules.helper_funcs.misc import paginate_modules
-from Shoko.modules.helper_funcs.alternate import typing_action
+from ubotindo.modules import ALL_MODULES
+from ubotindo.modules.purge import client
+from ubotindo.modules.helper_funcs.chat_status import is_user_admin
+from ubotindo m.modules.helper_funcs.misc import paginate_modules
+from ubotindo.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
@@ -97,7 +97,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("Shoko.modules." + module_name)
+    imported_module = importlib.import_module("ubotindo.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
