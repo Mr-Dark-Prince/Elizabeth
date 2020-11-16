@@ -498,19 +498,19 @@ def main():
                                     certificate=open(CERT_PATH, "rb"))
         else:
             updater.bot.set_webhook(url=URL + TOKEN)
-            tbot.run_until_disconnected()
+            client.run_until_disconnected()
 
     else:
         updater.start_polling(poll_interval=0, timeout=15, read_latency=4, clean=True)
         if len(argv) not in (1, 3, 4):
-           tbot.disconnect()
+           client.disconnect()
         else:
-           tbot.run_until_disconnected()
+           client.run_until_disconnected()
         LOGGER.info("Successfully Started Alexa !")
     updater.idle()
 
 
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    tbot.start(bot_token=TOKEN)
+    client.start(bot_token=TOKEN)
     main()
