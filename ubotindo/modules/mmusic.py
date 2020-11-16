@@ -41,3 +41,6 @@ async def _(event):
         await asyncio.sleep(animation_interval)
 
         await event.edit(animation_chars[i % 11])
+
+except IndexError:
+     await event.reply(animation_chars[i % 11])
