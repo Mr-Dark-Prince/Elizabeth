@@ -1,3 +1,19 @@
+# UserindoBot
+# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 import html
 import os
 
@@ -41,21 +57,21 @@ def promote(update, context):
     args = context.args
 
     if user_can_promote(chat, user, context.bot.id) is False:
-        message.reply_text("⚠️ക്ഷമിക്കണം..ആരെയും അഡ്മിൻ ആക്കുവാനുള്ള അധികാരം നിങ്ങൾക്ക് ഇല്ല..!")
+        message.reply_text("You don't have enough rights to promote someone!")
         return ""
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("ആരെയാണ് അഡ്മിൻ ആക്കേണ്ടത്?🤔")
+        message.reply_text("mention one.... 🤷🏻‍♂.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == "administrator" or user_member.status == "creator":
-        message.reply_text("🙄 ആൾറെഡി അഡ്മിൻ ആണ്..!")
+        message.reply_text("This person is already an admin...!")
         return ""
 
     if user_id == context.bot.id:
-        message.reply_text("🙄ഞാൻ എന്നെത്തന്നെ അഡ്മിൻ ആക്കുവാനോ?!")
+        message.reply_text("I hope, if i could promote myself!")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -73,7 +89,7 @@ def promote(update, context):
         can_pin_messages=bot_member.can_pin_messages,
     )
 
-    message.reply_text("👍അഡ്മിൻ ആക്കിയിട്ടുണ്ട്...")
+    message.reply_text("Promoted🧡")
     return (
         "<b>{}:</b>"
         "\n#PROMOTED"
@@ -99,27 +115,27 @@ def demote(update, context):
     args = context.args
 
     if user_can_promote(chat, user, context.bot.id) is False:
-        message.reply_text("⚠️ നിങ്ങൾക്ക് അതിനുള്ള പെർമിഷൻ ഇല്ല..!")
+        message.reply_text("You don't have enough rights to demote someone!")
         return ""
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("🙄എന്തോന്നെടെ?.")
+        message.reply_text("mention one.... 🤷🏻‍♂.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == "creator":
-        message.reply_text("ഗ്രൂപ്പ്‌ മുതലാളിയെ എങ്ങനെ അഡ്മിൻ സ്ഥാനത്ത് നിന്ന് മാറ്റും..😡")
+        message.reply_text("I'm not gonna demote Creator this group.... 🙄")
         return ""
 
     if not user_member.status == "administrator":
         message.reply_text(
-            "എടെ മണ്ണുണ്ണി..അഡ്മിൻ അല്ലാത്ത ഒരാളെ എങ്ങനെ അഡ്മിൻ അല്ലാതാക്കും..മണ്ടൻ ആണോ നീ..👻!"
+            "How I'm supposed to demote someone who is not even an admin!"
         )
         return ""
 
     if user_id == context.bot.id:
-        message.reply_text("😜 ഇല്ല...ഒരിക്കലും ഞാൻ ചെയ്യില്ല..!")
+        message.reply_text("Yeahhh... Not gonna demote myself!")
         return ""
 
     try:
@@ -134,7 +150,7 @@ def demote(update, context):
             can_restrict_members=False,
             can_pin_messages=False,
         )
-        message.reply_text("😁 അഡ്മിൻ സ്ഥാനത്തു നിന്ന് ഒഴിവാക്കിയിട്ടുണ്ട്!")
+        message.reply_text("Successfully demoted!")
         return (
             "<b>{}:</b>"
             "\n#DEMOTED"
@@ -148,8 +164,8 @@ def demote(update, context):
 
     except BadRequest:
         message.reply_text(
-            "ഹായ് മണ്ണുണ്ണി... ഞാൻ അഡ്മിൻ അല്ലാതിരിക്കുകയോ , അല്ലെങ്കിൽ അയാളെ അഡ്മിൻ ആക്കിയത് വേറെ ആരെങ്കിലും ആയിരിക്കുകയോ "
-            "ചെയ്താൽ എനിക്ക് ഒന്നും ചെയ്യാൻ പറ്റില്ല 😑!")
+            "Failed to demote. I might not be admin, or the admin status was appointed by another "
+            "user, so I can't act upon them!")
         return ""
 
 
@@ -170,7 +186,7 @@ def pin(update, context):
     prev_message = update.effective_message.reply_to_message
 
     if user_can_pin(chat, user, context.bot.id) is False:
-        message.reply_text("⚠️ താങ്കൾക്ക് മെസ്സേജ് പിൻ ചെയ്യുന്നതിനുള്ള അധികാരമില്ല.. !")
+        message.reply_text("You are missing rights to pin a message!")
         return ""
 
     is_silent = True
@@ -203,6 +219,133 @@ def pin(update, context):
     return ""
 
 
+@can_pin
+@user_admin
+@run_async
+def permanent_pin_set(update, context) -> str:
+    user = update.effective_user
+    chat = update.effective_chat
+    args = context.args
+    bot = context.bot
+
+    conn = connected(bot, update, chat, user.id, need_admin=True)
+    if conn:
+        chat = dispatcher.bot.getChat(conn)
+        chat_id = conn
+        dispatcher.bot.getChat(conn).title
+        if not args:
+            get_permapin = sql.get_permapin(chat_id)
+            text_maker = "Permanent pin is currently set:`{}`".format(
+                bool(int(get_permapin))
+            )
+            if get_permapin:
+                if chat.username:
+                    old_pin = "https://t.me/{}/{}".format(
+                        chat.username, get_permapin)
+                else:
+                    old_pin = "https://t.me/c/{}/{}".format(
+                        str(chat.id)[4:], get_permapin
+                    )
+                text_maker += "\nTo disable permanent pin: `/permanentpin off`"
+                text_maker += "\n\n[Permanent pin message is here]({})".format(
+                    old_pin)
+                update.effective_message.reply_text(
+                    text_maker, parse_mode="markdown")
+            return ""
+
+        prev_message = args[0]
+        if prev_message == "off":
+            sql.set_permapin(chat_id, 0)
+            update.effective_message.reply_text(
+                "Permanently pin has been disabled!")
+            return
+        if "/" in prev_message:
+            prev_message = prev_message.split("/")[-1]
+    else:
+        if update.effective_message.chat.type == "private":
+            update.effective_message.reply_text(
+                "You can do this command on groups, not on PM!!!"
+            )
+            return ""
+        chat = update.effective_chat
+        chat_id = update.effective_chat.id
+        update.effective_message.chat.title
+        if update.effective_message.reply_to_message:
+            prev_message = update.effective_message.reply_to_message.message_id
+        elif len(args) >= 1 and args[0] == "off":
+            sql.set_permapin(chat.id, 0)
+            update.effective_message.reply_text(
+                "Permanently pin has been disabled!")
+            return
+        else:
+            get_permapin = sql.get_permapin(chat.id)
+            text_maker = "Current permanent pin: `{}`".format(
+                bool(int(get_permapin)))
+            if get_permapin:
+                if chat.username:
+                    old_pin = "https://t.me/{}/{}".format(
+                        chat.username, get_permapin)
+                else:
+                    old_pin = "https://t.me/c/{}/{}".format(
+                        str(chat.id)[4:], get_permapin
+                    )
+                text_maker += "\nTo disable permanent pin: `/permanentpin off`"
+                text_maker += "\n\n[Permanent pin message is here]({})".format(
+                    old_pin)
+            update.effective_message.reply_text(
+                text_maker, parse_mode="markdown")
+            return ""
+
+    is_group = chat.type != "private" and chat.type != "channel"
+
+    if prev_message and is_group:
+        sql.set_permapin(chat.id, prev_message)
+        update.effective_message.reply_text("Permanent Pin Set successfully!")
+        return (
+            "<b>{}:</b>"
+            "\n#PERMANENT_PIN"
+            "\n<b>Admin:</b> {}".format(
+                html.escape(chat.title), mention_html(user.id, user.first_name)
+            )
+        )
+
+    return ""
+
+
+@run_async
+def permanent_pin(update, context):
+    user = update.effective_user
+    chat = update.effective_chat
+    message = update.effective_message
+    bot = context.bot
+
+    get_permapin = sql.get_permapin(chat.id)
+    if get_permapin and not user.id == bot.id:
+        try:
+            to_del = bot.pinChatMessage(
+                chat.id, get_permapin, disable_notification=True
+            )
+        except BadRequest:
+            sql.set_permapin(chat.id, 0)
+            if chat.username:
+                old_pin = "https://t.me/{}/{}".format(
+                    chat.username, get_permapin)
+            else:
+                old_pin = "https://t.me/c/{}/{}".format(
+                    str(chat.id)[4:], get_permapin)
+            message.reply_text(
+                "*Permanent pin error:*\nI can't pin messages here!\nMake sure I'm admin and can pin messages.\n\nPermanent pin disabled now, [here is your old pinned message]({})".format(old_pin),
+                parse_mode="markdown",
+            )
+            return
+
+        if to_del:
+            try:
+                bot.deleteMessage(chat.id, message.message_id + 1)
+            except BadRequest:
+                print("Permanent pin error: cannot delete pin msg")
+
+
 @run_async
 @bot_admin
 @can_pin
@@ -215,7 +358,7 @@ def unpin(update, context):
     message = update.effective_message
 
     if user_can_pin(chat, user, context.bot.id) is False:
-        message.reply_text("⚠️ താങ്കൾക്ക് മെസ്സേജ് അൺപിൻ ചെയ്യുന്നതിനുള്ള അധികാരമില്ല !")
+        message.reply_text("You are missing rights to unpin a message!")
         return ""
 
     try:
@@ -250,7 +393,7 @@ def invite(update, context):
         chat = dispatcher.bot.getChat(conn)
     else:
         if msg.chat.type == "private":
-            msg.reply_text("ഈ കമാൻഡ് ഉപയോഗിക്കേണ്ടത് ഇവിടെ അല്ല.. ഗ്രൂപ്പിൽ ആണ്..")
+            msg.reply_text("This command is meant to use in chat not in PM")
             return ""
         chat = update.effective_chat
 
@@ -263,11 +406,11 @@ def invite(update, context):
             msg.reply_text(invitelink)
         else:
             msg.reply_text(
-                "എനിക്ക് ലിങ്ക് എടുക്കുവാനുള്ള അധികാരം ഇല്ല 😒!"
+                "I don't have access to the invite link, try changing my permissions!"
             )
     else:
         msg.reply_text(
-            "സോറി.. ലിങ്ക് തരണമെങ്കിൽ ഒന്നുകിൽ സൂപ്പർ ഗ്രൂപ്പ്‌ ആയിരിക്കണം..അല്ലെങ്കിൽ ചാനൽ ആയിരിക്കണം..!"
+            "I can only give you invite links for supergroups and channels, sorry!"
         )
 
 
@@ -275,15 +418,15 @@ def invite(update, context):
 @typing_action
 def adminlist(update, context):
     administrators = update.effective_chat.get_administrators()
-    text = "💡അഡ്മിൻസ് in <b>{}</b>:".format(
+    text = "Admins in <b>{}</b>:".format(
         update.effective_chat.title or "this chat")
     for admin in administrators:
         user = admin.user
         status = admin.status
         name = f"{(mention_html(user.id, user.first_name))}"
         if status == "creator":
-            text += "\n 🌳 ഉടമസ്ഥൻ 🔥:"
-            text += "\n • {} \n\n 🌱 മറ്റുള്ള അഡ്മിൻസ്:".format(name)
+            text += "\n 🦁 Creator:"
+            text += "\n • {} \n\n 🦊 Admin:".format(name)
     for admin in administrators:
         user = admin.user
         status = admin.status
@@ -310,41 +453,41 @@ def set_title(update, context):
         return
 
     if not user_id:
-        message.reply_text("ഒരാളെ സൂചിപ്പിച്ചു കമാൻഡ് നൽകുക.")
+        message.reply_text("You don't seem to be referring to a user.")
         return
 
     if user_member.status == "creator":
         message.reply_text(
-            "ഗ്രൂപ്പ്‌ ഓണറുടെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റുവാൻ എനിക്ക് സാധിക്കില്ല.."
+            "This person CREATED the chat, how can i set custom title for him?"
         )
         return
 
     if not user_member.status == "administrator":
         message.reply_text(
-            "അഡ്മിൻ അല്ലാത്ത ഒരാളിന് അഡ്മിൻ ടൈറ്റിൽ കൊടുക്കാൻ കഴിയില്ല മണ്ണുണ്ണി..!"
+            "Can't set title for non-admins!\nPromote them first to set custom title!"
         )
         return
 
     if user_id == context.bot.id:
         message.reply_text(
-            "എനിക്ക് എന്റെ തന്നെ അഡ്മിൻ ടൈറ്റിൽ ചേഞ്ച്‌ ചെയ്യാൻ സാധിക്കില്ല.."
+            "I can't set my own title myself! Get the one who made me admin to do it for me."
         )
         return
 
     if not title:
-        message.reply_text("എന്ത് ഉണ്ടയാണ് അഡ്മിൻ ടൈറ്റിൽ ആയി കൊടുക്കേണ്ടത് 😡!")
+        message.reply_text("Setting blank title doesn't do anything!")
         return
 
     if len(title) > 16:
         message.reply_text(
-            "ഇത്രയും നീളമുള്ള ടെക്സ്റ്റ്‌ അഡ്മിൻ ടൈറ്റിൽ ആയി നൽകാൻ സാധിക്കില്ല.."
+            "The title length is longer than 16 characters.\nTruncating it to 16 characters."
         )
 
     try:
         context.bot.set_chat_administrator_custom_title(
             chat.id, user_id, title)
         message.reply_text(
-            "അഡ്മിൻ ടൈറ്റിൽ വിജയകരമായി മാറ്റിയിരിക്കുന്നു.. <b>{}</b> to <code>{}</code>!".format(
+            "Sucessfully set title for <b>{}</b> to <code>{}</code>!".format(
                 user_member.user.first_name or user_id, title[:16]
             ),
             parse_mode=ParseMode.HTML,
@@ -352,7 +495,7 @@ def set_title(update, context):
 
     except BadRequest:
         message.reply_text(
-            "ഞാൻ പ്രൊമോട്ട് ചെയ്യാത്ത ആളിന്റെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റാൻ എനിക്ക് സാധിക്കില്ല..!")
+            "I can't set custom title for admins that I didn't promote!")
 
 
 @run_async
@@ -365,7 +508,7 @@ def setchatpic(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("സോറി.. താങ്കൾക്ക് ഗ്രൂപ്പ്‌ ഇൻഫോയിൽ മാറ്റം വരുത്താനുള്ള അധികാരമില്ല..!")
+        msg.reply_text("You are missing right to change group info!")
         return
 
     if msg.reply_to_message:
@@ -376,13 +519,13 @@ def setchatpic(update, context):
         else:
             msg.reply_text("You can only set some photo as chat pic!")
             return
-        dlmsg = msg.reply_text("ദയവായി കാത്തിരിക്കുക...⏳️")
+        dlmsg = msg.reply_text("Just a sec...")
         tpic = context.bot.get_file(pic_id)
         tpic.download("gpic.png")
         try:
             with open("gpic.png", "rb") as chatp:
                 context.bot.set_chat_photo(int(chat.id), photo=chatp)
-                msg.reply_text("ഗ്രൂപ്പിന്റെ‌ പ്രൊഫൈൽ പിക്ചർ വിജയകരമായി മാറ്റിയിരിക്കുന്നു..")
+                msg.reply_text("Successfully set new chatpic!")
         except BadRequest as excp:
             msg.reply_text(f"Error! {excp.message}")
         finally:
@@ -390,7 +533,7 @@ def setchatpic(update, context):
             if os.path.isfile("gpic.png"):
                 os.remove("gpic.png")
     else:
-        msg.reply_text("ദയവായി ഇമേജിനു മറുപടിയായി കമാൻഡ് നൽകുക..!")
+        msg.reply_text("Reply to some photo or file to set new chat pic!")
 
 
 @run_async
@@ -403,11 +546,11 @@ def rmchatpic(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("സോറി.. തങ്കൾക്ക് അതിനുള്ള അധികാരമില്ല..")
+        msg.reply_text("You don't have enough rights to delete group photo")
         return
     try:
         context.bot.delete_chat_photo(int(chat.id))
-        msg.reply_text("ഗ്രൂപ്പിന്റെ പ്രൊഫൈൽ പിക്ചർ റിമൂവ് ചെയ്തു..!")
+        msg.reply_text("Successfully deleted chat's profile photo!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
         return
@@ -424,18 +567,18 @@ def setchat_title(update, context):
     args = context.args
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        msg.reply_text("സോറി.. താങ്കൾക്ക് ഈ കമാൻഡ് ഉപയോഗിക്കുന്നതിനുള്ള അധികാരമില്ല..")
+        msg.reply_text("You don't have enough rights to change chat info!")
         return
 
     title = " ".join(args)
     if not title:
-        msg.reply_text("ദയവായി ഗ്രൂപ്പ്‌ നെയിം കൂടി കമാൻഡിനൊപ്പം അയക്കുക..")
+        msg.reply_text("Enter some text to set new title in your chat!")
         return
 
     try:
         context.bot.set_chat_title(int(chat.id), str(title))
         msg.reply_text(
-            f"വിജയകരമായി <b>{title}</b> എന്നത് പുതിയ ഗ്രൂപ്പ്‌ നെയിം ആയി സെറ്റ് ചെയ്തു.. !",
+            f"Successfully set <b>{title}</b> as new chat title!",
             parse_mode=ParseMode.HTML,
         )
     except BadRequest as excp:
@@ -453,27 +596,27 @@ def set_sticker(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("ഗ്രൂപ്പ്‌ ഇൻഫോ മാറ്റുന്നതിനുള്ള അധികാരം താങ്കൾക്കില്ല..!")
+        return msg.reply_text("You're missing rights to change chat info!")
 
     if msg.reply_to_message:
         if not msg.reply_to_message.sticker:
             return msg.reply_text(
-                "സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി കമാൻഡ് നൽകുക..!"
+                "You need to reply to some sticker to set chat sticker set!"
             )
         stkr = msg.reply_to_message.sticker.set_name
         try:
             context.bot.set_chat_sticker_set(chat.id, stkr)
             msg.reply_text(
-                f"വിജകരമായി സ്റ്റിക്കർപാക്ക് {chat.title} എന്ന ഗ്രൂപ്പിൽ സെറ്റ് ചെയ്തു..!")
+                f"Successfully set new group stickers in {chat.title}!")
         except BadRequest as excp:
             if excp.message == "Participants_too_few":
                 return msg.reply_text(
-                    "സോറി... ഗ്രൂപ്പിൽ കുറഞ്ഞത് 100 മെംബേർസ് ഉണ്ടായിരിക്കണം..!"
+                    "Sorry, due to telegram restrictions chat needs to have minimum 100 members before they can have group stickers!"
                 )
             msg.reply_text(f"Error! {excp.message}.")
     else:
         msg.reply_text(
-            "സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി നൽകുക..")
+            "You need to reply to some sticker to set chat sticker set!")
 
 
 @run_async
@@ -486,20 +629,20 @@ def set_desc(update, context):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("സോറി.. താങ്കൾക്ക് ഗ്രൂപ്പ്‌ ഇൻഫോ മാറ്റുന്നതിനുള്ള അധികാരമില്ല !")
+        return msg.reply_text("You're missing rights to change chat info!")
 
     tesc = msg.text.split(None, 1)
     if len(tesc) >= 2:
         desc = tesc[1]
     else:
-        return msg.reply_text("കമാൻഡിനൊപ്പം വിവരണം കൂടി അയച്ചാൽ മാത്രമേ മാറ്റം വരുത്താൻ സാധിക്കുകയുള്ളൂ..!")
+        return msg.reply_text("Setting empty description won't do anything!")
     try:
         if len(desc) > 255:
             return msg.reply_text(
-                "വിവരണം 255 വാക്കുകളിൽ കൂടാൻ പാടില്ല..!")
+                "Description must needs to be under 255 characters!")
         context.bot.set_chat_description(chat.id, desc)
         msg.reply_text(
-            f"വിജയകരമായി {chat.title} എന്ന ഗ്രൂപ്പിന്റെ വിവരണം സെറ്റ് ചെയ്തു..!")
+            f"Successfully updated chat description in {chat.title}!")
     except BadRequest as excp:
         msg.reply_text(f"Error! {excp.message}.")
 
@@ -512,24 +655,44 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- ❒ /adminlist: ഗ്രൂപ്പിലെ അഡ്മിൻസിന്റെ ലിസ്റ്റ് ലഭിക്കുന്നു..
+Lazy to promote or demote someone for admins? Want to see basic information about chat? \
+All stuff about chatroom such as admin lists, pinning or grabbing an invite link can be \
+done easily using the bot.
 
-*ഗ്രൂപ്പ്‌ അഡ്മിൻസ് മാത്രം:*
- ❒ /invitelink: പ്രൈവറ്റ് ഗ്രൂപ്പിന്റെ ഇൻവിറ്റേഷൻ ലിങ്ക് ലഭിക്കുന്നു..
- ❒ /settitle: ബോട്ടിനാൽ പ്രൊമോട്ട് ചെയ്യപ്പെട്ട ഗ്രൂപ്പ്‌ അഡ്മിൻന്റെ അഡ്മിൻ ടൈറ്റിൽ മാറ്റുന്നതിന് വേണ്ടി ഉപയോഗിക്കുന്നു..
- ❒ /setgpic: ഒരു ഇമേജിന് റിപ്ലൈ ആയി ഈ കമാൻഡ് നക്കിയിയാൽ ആ ഫോട്ടോ ഗ്രൂപ്പിന്റെ പ്രൊഫൈൽ പിക്ചർ ആയി സെറ്റ് ചെയ്യും..
- ❒ /delgpic: ഗ്രൂപ്പിലെ നിലവിലെ പ്രൊഫൈൽ പിക്ചർ ഡിലീറ്റ് ചെയ്യും..
- ❒ /setgtitle <ഗ്രൂപ്പിന്റെ പേര്>: ഗ്രൂപ്പിന് പുതിയ ഒരു പേര് നൽകി സെറ്റ് ചെയ്യും..
- ❒ /setsticker: സ്റ്റിക്കറുകൾക്ക് മറുപടിയായി ഈ കമാൻഡ് നൽകിയാൽ അത് ഗ്രൂപ്പിന്റെ സ്റ്റിക്കർപാക്ക് ആയി സെറ്റ് ചെയ്യും..
- ❒ /setdescription: <വിവരണം> ഗ്രൂപ്പിനെക്കുറിച്ച് ഒരു വിവരണം സേവ് ചെയ്യുന്നതിന് ഉപയോഗിക്കുന്നു...
+ × /adminlist: list of admins in the chat
 
- ⚠️ സ്റ്റിക്കർ സെറ്റ് ചെയ്യുമ്പോൾ ഗ്രൂപ്പിൽ കുറഞ്ഞത് 100 മെംബേർസ് എങ്കിലും ഉണ്ടായിരിക്കണം...
+*Admin only:*
+ × /pin: Silently pins the message replied to - add `loud`, `notify` or `violent` to give notificaton to users.
+ × /unpin: Unpins the currently pinned message.
+ × /permanentpin: Set a permanent pin for supergroup chat, when an admin or telegram channel change pinned message, bot will change pinned message immediatelly
+ × /invitelink: Gets private chat's invitelink.
+ × /promote: Promotes the user replied to.
+ × /demote: Demotes the user replied to.
+ × /settitle: Sets a custom title for an admin which is promoted by bot.
+ × /setgpic: As a reply to file or photo to set group profile pic!
+ × /delgpic: Same as above but to remove group profile pic.
+ × /setgtitle <newtitle>: Sets new chat title in your group.
+ × /setsticker: As a reply to some sticker to set it as group sticker set!
+ × /setdescription: <description> Sets new chat description in group.
+
+*Note*: To set group sticker set chat must needs to have min 100 members.
+
+An example of promoting someone to admins:
+`/promote @username`; this promotes a user to admins.
 """
 
-__mod_name__ = "⚙️GROUP INFO"
+__mod_name__ = "Admin"
 
 PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
+
+PERMANENT_PIN_SET_HANDLER = CommandHandler(
+    "permanentpin", permanent_pin_set, pass_args=True, filters=Filters.group
+)
+PERMANENT_PIN_HANDLER = MessageHandler(
+    Filters.status_update.pinned_message | Filters.user(777000), permanent_pin
+)
+
 INVITE_HANDLER = CommandHandler("invitelink", invite)
 CHAT_PIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.group)
 DEL_CHAT_PIC_HANDLER = CommandHandler(
@@ -561,6 +724,8 @@ ADMINLIST_HANDLER = DisableAbleCommandHandler(
 
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
+dispatcher.add_handler(PERMANENT_PIN_SET_HANDLER)
+dispatcher.add_handler(PERMANENT_PIN_HANDLER)
 dispatcher.add_handler(INVITE_HANDLER)
 dispatcher.add_handler(PROMOTE_HANDLER)
 dispatcher.add_handler(DEMOTE_HANDLER)
