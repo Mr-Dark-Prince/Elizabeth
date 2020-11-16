@@ -9,8 +9,8 @@ from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
-from Shoko.modules.helper_funcs.admin_rights import user_can_ban
-from Shoko.modules.helper_funcs.readable_time import get_readable_time
+from ubotindo.modules.helper_funcs.admin_rights import user_can_ban
+from ubotindo.modules.helper_funcs.readable_time import get_readable_time
 
 from Shoko import (
     dispatcher,
