@@ -25,7 +25,7 @@ from ubotindo import dispatcher
 from ubotindo import LOGGER
 from ubotindo import OWNER_ID
 from ubotindo import PORT
-from ubotindo import tbot
+from ubotindo import client
 from ubotindo import TOKEN
 from ubotindo import updater
 from ubotindo import URL
