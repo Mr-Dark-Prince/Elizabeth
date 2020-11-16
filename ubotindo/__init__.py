@@ -198,6 +198,7 @@ updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
 
 # Declare user rank
+since_time_start = time.time()
 DEV_USERS = list(DEV_USERS)
 SUDO_USERS = list(SUDO_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
