@@ -279,9 +279,9 @@ def error_handler(update, context):
 @run_async
 def help_button(update, context):
     query = update.callback_query
-    user = update.effective_user
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
-    staff_match = re.match(r"help_staff", query.data)
+    prev_match = re.match(r"help_prev\((.+?)\)", query.data)
+    next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     try:
         if mod_match:
@@ -292,41 +292,45 @@ def help_button(update, context):
                 )
                 + HELPABLE[module].__help__
             )
-            query.message.edit_text(
+            query.message.reply_text(
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                 ),
             )
 
-        elif staff_match:
-            query.message.edit_text(
-                text=STAFF_HELP_STRINGS,
+        elif prev_match:
+            curr_page = int(prev_match.group(1))
+            query.message.reply_text(
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
+                    paginate_modules(curr_page - 1, HELPABLE, "help")
+                ),
+            )
+
+        elif next_match:
+            next_page = int(next_match.group(1))
+            query.message.reply_text(
+                HELP_STRINGS,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, HELPABLE, "help")
                 ),
             )
 
         elif back_match:
-            keyb = paginate_modules(0, HELPABLE, "help")
-            # Add aditional button if staff user detected
-            if (
-                user.id in DEV_USERS
-                or user.id in SUDO_USERS
-                or user.id in SUPPORT_USERS
-            ):
-                keyb += [[InlineKeyboardButton(text="Staff",
-                                               callback_data="help_staff")]]
-
-            query.message.edit_text(
+            query.message.reply_text(
                 text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(keyb),
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, HELPABLE, "help")
+                ),
             )
 
         # ensure no spinny white circle
+        query.message.delete()
         context.bot.answer_callback_query(query.id)
     except Exception as excp:
         if excp.message == "Message is not modified":
@@ -341,47 +345,133 @@ def help_button(update, context):
 
 
 @run_async
-@typing_action
-def staff_help(update, context):
-    chat = update.effective_chat
-    user = update.effective_user
-
-    if chat.type != chat.PRIVATE:
-        update.effective_message.reply_text(
-            "Contact me in PM to get the list of staff's command"
-        )
-        return
-
-    if user.id in DEV_USERS or user.id in SUDO_USERS or user.id in SUPPORT_USERS:
-        update.effective_message.reply_text(
-            text=STAFF_HELP_STRINGS,
+def Shoko_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "aboutmanu_":
+        query.message.edit_text(
+            text="*Shoko is a bot for managing your group with additional features,*"
+                 "\nand is fork of [marie](https://github.com/PaulSonOfLars/tgbot)."
+                 "\n\n_Shoko's licensed under the GNU General Public License v3.0_,"
+                 "\nhere is the [repository](https://github.com/gizmostuffin/Shoko)."
+                 "\n\nIf any question about Shoko, let us know at @Shokosupport.",
             parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Modules help", callback_data="help_back")]]
+                [
+                  [
+                    InlineKeyboardButton(text="How to use ❓", callback_data="aboutmanu_howto"),
+                    InlineKeyboardButton(text="Terms and Conditions", callback_data="aboutmanu_tac")
+                  ],
+                 [
+                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")
+                 ]
+                ]
             ),
         )
-    else:
-        update.effective_message.reply_text("You can't access this command")
-
-
+    elif query.data == "aboutmanu_back":
+        query.message.edit_text(
+                PM_START_TEXT,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=True,
+            )
+        
+    elif query.data == "aboutmanu_howto":
+        query.message.edit_text(
+            text="*Basic help:*"
+                 "\nTo add Shoko to your chats, simply click [here](http://t.me/zoldycktmbot?startgroup=true)  and select your chat."
+                 "\nYou can also click on @zoldycktmbot, and go to the three dots on the top right of your screen, and select 'add to group'."
+                 "",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton(text="Admins Permissions", callback_data="aboutmanu_permis"),
+                InlineKeyboardButton(text="Anti-spam settings", callback_data="aboutmanu_spamprot")],
+                [
+                InlineKeyboardButton(text="Back", callback_data="aboutmanu_")]
+                                               ]),
+        )
+    elif query.data == "aboutmanu_permis":
+        query.message.edit_text(
+            text="<b>Admin permissions:</b>"
+                 "\nTo avoid slowing down, Shoko caches admin rights for each user. This cache lasts about 10 minutes; this may change in the future. This means that if you promote a user manually (without using the /promote command), Shoko will only find out ~10 minutes later."
+                 "\n\nIf you are getting a message saying:"
+                 "\n<Code>You must be this chat administrator to perform this action!</code>"
+                 "\nThis has nothing to do with Shoko's rights; this is all about YOUR permissions as an admin. Shoko respects admin permissions; if you do not have the Ban Users permission as a telegram admin, you won't be able to ban users with Shoko. Similarly, to change Shoko settings, you need to have the Change group info permission."
+                 "\n\nThe message very clearly says that you need these rights - <i>not</i> Shoko.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto")]]),
+        )
+    elif query.data == "aboutmanu_spamprot":
+        query.message.edit_text(
+            text="*Anti-spam settings:*"
+                 "\n- /antispam <on/off/yes/no>: Change antispam security settings in the group, or return your current settings(when no arguments)."
+                 "\n_This helps protect you and your groups by removing spam flooders as quickly as possible._"
+                 "\n\n- /setflood <int/'no'/'off'>: enables or disables flood control"
+                 "\n- /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban"
+                 "\n_Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood will result in restricting that user._"
+                 "\n\n- /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers."
+                 "\n- /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words."
+                 "\n_Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!_"
+                 "\n\n- /reports <on/off>: Change report setting, or view current status."
+                 "\n • If done in pm, toggles your status."
+                 "\n • If in chat, toggles that chat's status."
+                 "\n_If someone in your group thinks someone needs reporting, they now have an easy way to call all admins._"
+                 "\n\n- /lock <type>: Lock items of a certain type (not available in private)"
+                 "\n- /locktypes: Lists all possible locktypes"
+                 "\n_The locks module allows you to lock away some common items in the telegram world; the bot will automatically delete them!_"
+                 "\n\n- /addwarn <keyword> <reply message>: Sets a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn \"very angry\" This is an angry user. "
+                 "\n- /warn <userhandle>: Warns a user. After 3 warns, the user will be banned from the group. Can also be used as a reply."
+                 "\n- /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just kick."
+                 "\n_If you're looking for a way to automatically warn users when they say certain things, use the /addwarn command._"
+                 "\n\n- /welcomemute <off/soft/strong>: All users that join, get muted"
+                 "\n_ A button gets added to the welcome message for them to unmute themselves. This proves they aren't a bot! soft - restricts users ability to post media for 24 hours. strong - mutes on join until they prove they're not bots._",
+            parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto")]]),
+        )
+    elif query.data == "aboutmanu_tac":
+        query.message.edit_text(
+            text="<b>Terms and Conditions:</b>"
+                 "\nTo use this bot, you need to read Terms and Conditions"
+                 "\n- Watch your group, if someone spamming your group, you can use report feature from your Telegram Client."
+                 "\n- Make sure antiflood is enabled, so nobody can ruin your group."
+                 "\n- Do not spam commands, buttons, or anything in bot PM, else you will be Gbanned."
+                 "\n- If you need to ask anything about this bot, Go @Shokosupport."
+                 "\n- If you asking nonsense in @Shokosupport, you will get banned."
+                 "\n- Sharing any files/videos others than about bot in @Shokosupport is prohibited."
+                 "\n- Sharing NSFW in @Shokosupport will reward you banned/gbanned and reported to Telegram as well."
+                 "\n\nFor any kind of help, related to this bot, Join @ShokoSupport."
+                 "\n\n<i>Terms and Conditions will be changed anytime</i>"
+                 "\nFollow @ShokoTM for Updates."
+                 "\nFollow @spookyanii to get info about bots.",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="aboutmanu_")]]),
+        )
+        
 @run_async
 @typing_action
 def get_help(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
-    user = update.effective_user
     args = update.effective_message.text.split(None, 1)
 
     # ONLY send help in PM
     if chat.type != chat.PRIVATE:
 
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Click the button below to get help manu in your pm.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
-                            url="t.me/{}?start=help".format(context.bot.username),
+                            text="Open in Private chat",
+                            callback_data="gethelp_pr",
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Support chat",
+                            url="https://t.me/Shokosupport",
                         )
                     ]
                 ]
@@ -406,13 +496,7 @@ def get_help(update, context):
         )
 
     else:
-        keyb = paginate_modules(0, HELPABLE, "help")
-        # Add aditional button if staff user detected
-        if user.id in DEV_USERS or user.id in SUDO_USERS or user.id in SUPPORT_USERS:
-            keyb += [[InlineKeyboardButton(text="Staff",
-                                           callback_data="help_staff")]]
-
-        send_help(chat.id, HELP_STRINGS, InlineKeyboardMarkup(keyb))
+        send_help(chat.id, HELP_STRINGS)
 
 
 def send_settings(chat_id, user_id, user=False):
