@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import re
 import time
 
@@ -21,10 +5,10 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CallbackQueryHandler, CommandHandler, run_async
 
-import ubotindo.modules.sql.connection_sql as sql
-from ubotindo import DEV_USERS, SUDO_USERS, dispatcher
-from ubotindo.modules.helper_funcs import chat_status
-from ubotindo.modules.helper_funcs.alternate import send_message, typing_action
+import Elizabeth.modules.sql.connection_sql as sql
+from Elizabeth import DEV_USERS, SUDO_USERS, dispatcher
+from Elizabeth.modules.helper_funcs import chat_status
+from Elizabeth.modules.helper_funcs.alternate import send_message, typing_action
 
 user_admin = chat_status.user_admin
 
