@@ -192,139 +192,176 @@ def start(update, context):
         args = context.args
         if len(args) >= 1:
             if args[0].lower() == "help":
-                user = update.effective_user
-                keyb = paginate_modules(0, HELPABLE, "help")
-
-                if (
-                    user.id in DEV_USERS
-                    or user.id in SUDO_USERS
-                    or user.id in SUPPORT_USERS
-                ):
-                    keyb += [[InlineKeyboardButton(text="Staff",
-                                                   callback_data="help_staff")]]
-
-                send_help(
-                    update.effective_chat.id,
-                    HELP_STRINGS,
-                    InlineKeyboardMarkup(keyb))
+                send_help(update.effective_chat.id, HELP_STRINGS)
 
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
                 chat = dispatcher.bot.getChat(match.group(1))
 
                 if is_user_admin(chat, update.effective_user.id):
-                    send_settings(
-                        match.group(1), update.effective_user.id, False)
+                    send_settings(match.group(1), update.effective_user.id,
+                                  False)
                 else:
-                    send_settings(
-                        match.group(1), update.effective_user.id, True)
+                    send_settings(match.group(1), update.effective_user.id,
+                                  True)
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_photo(
-                "https://i.ibb.co/zJdLsyg/Userindobot.png",
+            update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=True,
+                disable_web_page_preview=False,
             )
     else:
-        update.effective_message.reply_text(
-            "Sending you a warm hi & wishing your day is a happy one!"
-        )
+        update.effective_message.reply_text("I am Alive ^_^")
+
+
+def send_start(update, context):
+    # Try to remove old message
+    try:
+        query = update.callback_query
+        query.message.delete()
+    except BaseException:
+        pass
+
+    chat = update.effective_chat  # type: Optional[Chat]
+    first_name = update.effective_user.first_name
+    text = PM_START_TEXT
+    buttons = [[
+        InlineKeyboardButton(text="Add to Group 👥",
+                             url="t.me/HarleyQuinn_RoBot?startgroup=true"),
+        InlineKeyboardButton(text="Support Group 🎙️",
+                             url="https://t.me/MegatronSupportGroup"),
+    ]]
+
+    buttons += [[InlineKeyboardButton(text="Commands ❓",
+                                      callback_data="help_back"),
+                 InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
+                                      url="https://t.me/joinchat/AAAAAExdk4x2AeQSTzBnfA"),
+                 ]]
+
+    buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
+                                      callback_data="close_menu")]]
+
+    update.effective_message.reply_text(
+        PM_START_TEXT,
+        reply_markup=InlineKeyboardMarkup(buttons),
+        parse_mode=ParseMode.MARKDOWN,
+        timeout=60,
+        disable_web_page_preview=False,
+    )
+
+
+def start_stop(update, context):
+    # Try to remove old message
+    try:
+        query = update.callback_query
+        query.message.delete()
+    except BaseException:
+        pass
+
+    chat = update.effective_chat  # type: Optional[Chat]
+    first_name = update.effective_user.first_name
+    text = "The menu is closed 🔒"
+    buttons = [[InlineKeyboardButton(text="Reopen Menu 🔓",
+                                     callback_data="bot_start")]]
+
+    update.effective_message.reply_text(
+        text,
+        reply_markup=InlineKeyboardMarkup(buttons),
+        parse_mode=ParseMode.MARKDOWN,
+        timeout=60,
+        disable_web_page_preview=False,
+    )
 
 
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
     # Log the error before we do anything else, so we can see it even if
     # something breaks.
-    LOGGER.error(
-        msg="Exception while handling an update:",
-        exc_info=context.error)
+    LOGGER.error(msg="Exception while handling an update:",
+                 exc_info=context.error)
 
     # traceback.format_exception returns the usual python message about an exception, but as a
     # list of strings rather than a single string, so we have to join them
     # together.
-    tb_list = traceback.format_exception(
-        None, context.error, context.error.__traceback__
-    )
+    tb_list = traceback.format_exception(None, context.error,
+                                         context.error.__traceback__)
     tb = "".join(tb_list)
 
     # Build the message with some markup and additional information about what
     # happened.
-    message = (
-        "An exception was raised while handling an update\n"
-        "<pre>{}</pre>".format(
-            html.escape(
-                json.dumps(
-                    update.to_dict(),
-                    indent=2,
-                    ensure_ascii=False)),
-            html.escape(tb),
-        ))
+    message = ("An exception was raised while handling an update\n"
+               "<pre>update = {}</pre>\n\n"
+               "<pre>{}</pre>").format(
+                   html.escape(
+                       json.dumps(update.to_dict(),
+                                  indent=2,
+                                  ensure_ascii=False)),
+                   html.escape(tb),
+    )
 
     if len(message) >= 4096:
         message = message[:4096]
     # Finally, send the message
-    context.bot.send_message(
-        chat_id=MESSAGE_DUMP, text=message, parse_mode=ParseMode.HTML
-    )
+    context.bot.send_message(chat_id=OWNER_ID,
+                             text=message,
+                             parse_mode=ParseMode.HTML)
 
 
 @run_async
 def help_button(update, context):
     query = update.callback_query
-    user = update.effective_user
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
-    staff_match = re.match(r"help_staff", query.data)
+    prev_match = re.match(r"help_prev\((.+?)\)", query.data)
+    next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     try:
         if mod_match:
             module = mod_match.group(1)
-            text = (
-                "Here is the help for the *{}* module:\n".format(
-                    HELPABLE[module].__mod_name__
-                )
-                + HELPABLE[module].__help__
-            )
+            text = ("Here is the help for the *{}* module:\n".format(
+                HELPABLE[module].__mod_name__) + HELPABLE[module].__help__)
             query.message.edit_text(
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
-                ),
+                reply_markup=InlineKeyboardMarkup([[
+                    InlineKeyboardButton(text="🔙 Back",
+                                         callback_data="help_back")
+                ]]),
             )
 
-        elif staff_match:
+        elif prev_match:
+            curr_page = int(prev_match.group(1))
             query.message.edit_text(
-                text=STAFF_HELP_STRINGS,
+                HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
-                ),
+                    paginate_modules(curr_page - 1, HELPABLE, "help")),
+            )
+
+        elif next_match:
+            next_page = int(next_match.group(1))
+            query.message.edit_text(
+                HELP_STRINGS,
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, HELPABLE, "help")),
             )
 
         elif back_match:
-            keyb = paginate_modules(0, HELPABLE, "help")
-            # Add aditional button if staff user detected
-            if (
-                user.id in DEV_USERS
-                or user.id in SUDO_USERS
-                or user.id in SUPPORT_USERS
-            ):
-                keyb += [[InlineKeyboardButton(text="Staff",
-                                               callback_data="help_staff")]]
-
             query.message.edit_text(
                 text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(keyb),
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, HELPABLE, "help")),
             )
 
         # ensure no spinny white circle
+        #   query.message.delete()
         context.bot.answer_callback_query(query.id)
     except Exception as excp:
         if excp.message == "Message is not modified":
@@ -336,30 +373,6 @@ def help_button(update, context):
         else:
             query.message.edit_text(excp.message)
             LOGGER.exception("Exception in help buttons. %s", str(query.data))
-
-
-@run_async
-@typing_action
-def staff_help(update, context):
-    chat = update.effective_chat
-    user = update.effective_user
-
-    if chat.type != chat.PRIVATE:
-        update.effective_message.reply_text(
-            "Contact me in PM to get the list of staff's command"
-        )
-        return
-
-    if user.id in DEV_USERS or user.id in SUDO_USERS or user.id in SUPPORT_USERS:
-        update.effective_message.reply_text(
-            text=STAFF_HELP_STRINGS,
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Modules help", callback_data="help_back")]]
-            ),
-        )
-    else:
-        update.effective_message.reply_text("You can't access this command")
 
 
 @run_async
@@ -629,9 +642,12 @@ def main():
 
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
-    help_staff_handler = CommandHandler(
-        "staffhelp", staff_help, filters=CustomFilters.support_filter
-    )
+    start_callback_handler = CallbackQueryHandler(
+        send_start, pattern=r"bot_start")
+    dispatcher.add_handler(start_callback_handler)
+    startstop_callback_handler = CallbackQueryHandler(
+        start_stop, pattern=r"close_menu")
+    dispatcher.add_handler(startstop_callback_handler)
 
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(
@@ -646,7 +662,7 @@ def main():
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
-    dispatcher.add_handler(help_staff_handler)
+    # dispatcher.add_handler(help_staff_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(is_chat_allowed_handler)
