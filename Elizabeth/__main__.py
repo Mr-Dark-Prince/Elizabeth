@@ -43,23 +43,21 @@ Hey there! my name is *{dispatcher.bot.first_name}*.
 Any questions on how to use me? use /help
 """
 
-buttons = [
-    [
-        InlineKeyboardButton(
-            text="Add to Group 👥", url="t.me/userbotindobot?startgroup=true"
-        ),
-        InlineKeyboardButton(
-            text="Gban Logs 🚫", url="https://t.me/UserIndoBotBannedLog"
-        ),
-    ]
-]
+buttons = [[
+    InlineKeyboardButton(text="Add to Group 👥",
+                         url="t.me/HarleyQuinn_RoBot?startgroup=true"),
+    InlineKeyboardButton(text="Support Group 🎙️",
+                         url="https://t.me/MegatronSupportGroup"),
+]]
 
-
-buttons += [[InlineKeyboardButton(text="Help & Commands ❔",
-                                  url=f"t.me/{dispatcher.bot.username}?start=help"),
-             InlineKeyboardButton(text="Support Group 🎗️",
-                                  url="https://t.me/userbotindo"),
+buttons += [[InlineKeyboardButton(text="Commands ❓",
+                                  callback_data="help_back"),
+             InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
+                                  url="https://t.me/joinchat/AAAAAExdk4x2AeQSTzBnfA"),
              ]]
+
+buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
+                                  callback_data="close_menu")]]
 
 
 HELP_STRINGS = f"""
