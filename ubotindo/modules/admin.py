@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import html
 import os
 
@@ -23,24 +7,24 @@ from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
-from ubotindo import dispatcher
-from ubotindo.modules.connection import connected
-from ubotindo.modules.disable import DisableAbleCommandHandler
-from ubotindo.modules.helper_funcs.admin_rights import (
+from Elizabeth import dispatcher
+from Elizabeth.modules.connection import connected
+from Elizabeth.modules.disable import DisableAbleCommandHandler
+from Elizabeth.modules.helper_funcs.admin_rights import (
     user_can_changeinfo,
     user_can_pin,
     user_can_promote,
 )
-from ubotindo.modules.helper_funcs.alternate import typing_action
-from ubotindo.modules.helper_funcs.chat_status import (
+from Elizabeth.modules.helper_funcs.alternate import typing_action
+from Elizabeth.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
     user_admin,
 )
-from ubotindo.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from ubotindo.modules.log_channel import loggable
-from ubotindo.modules.sql import admin_sql as sql
+from Elizabeth.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from Elizabeth.modules.log_channel import loggable
+from Elizabeth.modules.sql import admin_sql as sql
 
 
 @run_async
@@ -62,7 +46,7 @@ def promote(update, context):
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("mention one.... 🤷🏻‍♂.")
+        message.reply_text("mention one.....")
         return ""
 
     user_member = chat.get_member(user_id)
@@ -89,7 +73,7 @@ def promote(update, context):
         can_pin_messages=bot_member.can_pin_messages,
     )
 
-    message.reply_text("Promoted🧡")
+    message.reply_text("Promoted👍")
     return (
         "<b>{}:</b>"
         "\n#PROMOTED"
