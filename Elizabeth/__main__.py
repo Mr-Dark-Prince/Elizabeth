@@ -46,20 +46,22 @@ Any questions on how to use me? use /help
 buttons = [
     [
         InlineKeyboardButton(
-            text="Add to Group 👥", url="t.me/userbotindobot?startgroup=true"
+        text="Help & Commands ❔", callback_data="help_back"
         ),
         InlineKeyboardButton(
-            text="Gban Logs 🚫", url="https://t.me/UserIndoBotBannedLog"
+        text="About", callback_data="aboutmanu_"
         ),
-    ]
+    ]    
 ]
 
-
-buttons += [[InlineKeyboardButton(text="Help & Commands ❔",
-                                  url=f"t.me/{dispatcher.bot.username}?start=help"),
-             InlineKeyboardButton(text="Support Group 🎗️",
-                                  url="https://t.me/userbotindo"),
-             ]]
+buttons += [
+    [
+        InlineKeyboardButton(
+            text="Add to Group 👥", url="t.me/zoldycktmbot?startgroup=true"
+        ),
+       
+    ]
+]
 
 
 HELP_STRINGS = f"""
