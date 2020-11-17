@@ -1,4 +1,4 @@
-# 🍀 ELIZABETH...🔥
+# 🍀ELIZABETH..🔥
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/UserBotIndo/)
@@ -9,7 +9,6 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/userbotindo/UserIndoBot/graphs/commit-activity)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/userbotindo/UserIndoBot/?ref=repository-badge)
 
-📁 <b>ഹിറോക്കുവിലേക്ക് ഡെപ്ലോയ് ചെയ്യുന്നതിന് താഴെ കാണുന്ന ബട്ടൺ ഞെക്കുക... 😁
-⚠️ വർക്ക്‌ ആയില്ലേൽ എന്നെ തെറി വിളിക്കരുത് 🙄🚶....</b>
+👇 <b>DEPLOY TO HEROKU📤.</b>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/p-rinc-e/malayalam_tgbot)
