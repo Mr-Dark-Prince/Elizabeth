@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import json
 import os
 import time
@@ -23,22 +7,22 @@ from telegram import ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-# from ubotindo.modules.sql import warns_sql as warnssql
-import ubotindo.modules.sql.blacklist_sql as blacklistsql
+# from Elizabeth.modules.sql import warns_sql as warnssql
+import Elizabeth.modules.sql.blacklist_sql as blacklistsql
 
-# from ubotindo.modules.sql import cust_filters_sql as filtersql
-# import ubotindo.modules.sql.welcome_sql as welcsql
-import ubotindo.modules.sql.locks_sql as locksql
-import ubotindo.modules.sql.notes_sql as sql
+# from Elizabeth.modules.sql import cust_filters_sql as filtersql
+# import Elizabeth.modules.sql.welcome_sql as welcsql
+import Elizabeth.modules.sql.locks_sql as locksql
+import Elizabeth.modules.sql.notes_sql as sql
 
-# from ubotindo.modules.rules import get_rules
-import ubotindo.modules.sql.rules_sql as rulessql
-from ubotindo import DEV_USERS, LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher
-from ubotindo.__main__ import DATA_IMPORT
-from ubotindo.modules.connection import connected
-from ubotindo.modules.helper_funcs.alternate import typing_action
-from ubotindo.modules.helper_funcs.chat_status import user_admin
-from ubotindo.modules.sql import disable_sql as disabledsql
+# from Elizabeth.modules.rules import get_rules
+import Elizabeth.modules.sql.rules_sql as rulessql
+from Elizabeth import DEV_USERS, LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher
+from Elizabeth.__main__ import DATA_IMPORT
+from Elizabeth.modules.connection import connected
+from Elizabeth.modules.helper_funcs.alternate import typing_action
+from Elizabeth.modules.helper_funcs.chat_status import user_admin
+from Elizabeth.modules.sql import disable_sql as disabledsql
 
 
 @run_async
