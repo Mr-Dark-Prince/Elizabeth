@@ -17,8 +17,8 @@ FILENAME = __name__.rsplit(".", 1)[-1]
 if is_module_loaded(FILENAME):
     from telegram.ext.dispatcher import run_async
 
-    from ubotindo.modules.helper_funcs.chat_status import is_user_admin, user_admin
-    from ubotindo.modules.sql import disable_sql as sql
+    from Elizabeth.modules.helper_funcs.chat_status import is_user_admin, user_admin
+    from Elizabeth.modules.sql import disable_sql as sql
 
     DISABLE_CMDS = []
     DISABLE_OTHER = []
