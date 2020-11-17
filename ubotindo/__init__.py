@@ -112,7 +112,7 @@ if ENV:
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
 
 else:
-    from ubotindo.config import Development as Config
+    from Elizabeth.config import Development as Config
 
     TOKEN = Config.API_KEY
     try:
@@ -192,7 +192,7 @@ else:
 # Telethon
 api_id = TELETHON_ID
 api_hash = TELETHON_HASH
-client = TelegramClient("ubotindo", api_id, api_hash)
+client = TelegramClient("Elizabeth", api_id, api_hash)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 
