@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import re
 import time
 from html import escape
@@ -34,23 +18,23 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-import ubotindo.modules.sql.welcome_sql as sql
-from ubotindo import DEV_USERS, LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher, spamwtc
-from ubotindo.modules.helper_funcs.alternate import send_message, typing_action
-from ubotindo.modules.helper_funcs.chat_status import is_user_ban_protected, user_admin
-from ubotindo.modules.helper_funcs.misc import (
+import Elizabeth.modules.sql.welcome_sql as sql
+from Elizabeth import DEV_USERS, LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher, spamwtc
+from Elizabeth.modules.helper_funcs.alternate import send_message, typing_action
+from Elizabeth.modules.helper_funcs.chat_status import is_user_ban_protected, user_admin
+from Elizabeth.modules.helper_funcs.misc import (
     build_keyboard,
     build_keyboard_parser,
     revert_buttons,
 )
-from ubotindo.modules.helper_funcs.msg_types import get_welcome_type
-from ubotindo.modules.helper_funcs.string_handling import (
+from Elizabeth.modules.helper_funcs.msg_types import get_welcome_type
+from Elizabeth.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
     markdown_to_html,
 )
-from ubotindo.modules.log_channel import loggable
-from ubotindo.modules.sql.global_bans_sql import is_user_gbanned
+from Elizabeth.modules.log_channel import loggable
+from Elizabeth.modules.sql.global_bans_sql import is_user_gbanned
 
 VALID_WELCOME_FORMATTERS = [
     "first",
