@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import logging
 import os
 import sys
@@ -28,7 +12,7 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-LOGGER.info("Starting ubotindo...")
+LOGGER.info("Starting Elizabeth...")
 
 # if version < 3.8, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 8:
@@ -125,7 +109,7 @@ if ENV:
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
 
 else:
-    from ubotindo.config import Development as Config
+    from Elizabeth.config import Development as Config
 
     TOKEN = Config.API_KEY
     try:
@@ -204,7 +188,7 @@ else:
 # Telethon
 api_id = TELETHON_ID
 api_hash = TELETHON_HASH
-client = TelegramClient("ubotindo", api_id, api_hash)
+client = TelegramClient("Elizabeth", api_id, api_hash)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 
@@ -221,7 +205,7 @@ STAFF_USERS = list(STAFF)
 WHITELIST_USERS = list(WHITELIST_USERS)
 
 # Load at end to ensure all prev variables have been set
-from ubotindo.modules.helper_funcs.handlers import CustomCommandHandler  # noqa
+from Elizabeth.modules.helper_funcs.handlers import CustomCommandHandler  # noqa
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
