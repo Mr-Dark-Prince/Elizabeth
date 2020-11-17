@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 from typing import Union
 
 from future.utils import string_types
@@ -21,11 +5,11 @@ from telegram import Chat, ParseMode, Update
 from telegram.ext import CommandHandler, MessageHandler
 from telegram.utils.helpers import escape_markdown
 
-from ubotindo import dispatcher
-from ubotindo.modules.connection import connected
-from ubotindo.modules.helper_funcs.alternate import send_message, typing_action
-from ubotindo.modules.helper_funcs.handlers import CMD_STARTERS
-from ubotindo.modules.helper_funcs.misc import is_module_loaded
+from Elizabeth import dispatcher
+from Elizabeth.modules.connection import connected
+from Elizabeth.modules.helper_funcs.alternate import send_message, typing_action
+from Elizabeth.modules.helper_funcs.handlers import CMD_STARTERS
+from Elizabeth.modules.helper_funcs.misc import is_module_loaded
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
