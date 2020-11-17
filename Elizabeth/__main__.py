@@ -715,7 +715,7 @@ def main():
 
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
-    help_staff_handler = CommandHandler(
+    # help_staff_handler = CommandHandler(
         "staffhelp", staff_help, filters=CustomFilters.support_filter
     )
 
@@ -732,7 +732,7 @@ def main():
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
-    dispatcher.add_handler(help_staff_handler)
+    # dispatcher.add_handler(help_staff_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(is_chat_allowed_handler)
