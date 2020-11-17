@@ -39,24 +39,18 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hey there! my name is *{dispatcher.bot.first_name}*.
-Any questions on how to use me? use /help
+Hi.. I'm *{dispatcher.bot.first_name}*.
+
+
+[⚠️ Not completed🍀](https://t.me/P_RINC_E)
 """
 
-buttons = [[
-    InlineKeyboardButton(text="Add to Group 👥",
-                         url="t.me/HarleyQuinn_RoBot?startgroup=true"),
-    InlineKeyboardButton(text="Support Group 🎙️",
-                         url="https://t.me/MegatronSupportGroup"),
-]]
-
-buttons += [[InlineKeyboardButton(text="Commands ❓",
+buttons = [[InlineKeyboardButton(text="Help and Commands ❓",
                                   callback_data="help_back"),
-             InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
-                                  url="https://t.me/joinchat/AAAAAExdk4x2AeQSTzBnfA"),
-             ]]
+]]
+             
 
-buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
+buttons += [[InlineKeyboardButton(text="Close the Menu 🔒",
                                   callback_data="close_menu")]]
 
 
@@ -229,21 +223,14 @@ def send_start(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     first_name = update.effective_user.first_name
     text = PM_START_TEXT
-    buttons = [[
-        InlineKeyboardButton(text="Add to Group 👥",
-                             url="t.me/HarleyQuinn_RoBot?startgroup=true"),
-        InlineKeyboardButton(text="Support Group 🎙️",
-                             url="https://t.me/MegatronSupportGroup"),
+    buttons = [[InlineKeyboardButton(text="Help and Commands ❓",
+                                  callback_data="help_back"),
     ]]
+             
 
-    buttons += [[InlineKeyboardButton(text="Commands ❓",
-                                      callback_data="help_back"),
-                 InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
-                                      url="https://t.me/joinchat/AAAAAExdk4x2AeQSTzBnfA"),
-                 ]]
+    buttons += [[InlineKeyboardButton(text="Close the Menu 🔒",
+                                  callback_data="close_menu")]]
 
-    buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
-                                      callback_data="close_menu")]]
 
     update.effective_message.reply_text(
         PM_START_TEXT,
