@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import html
 from typing import Optional
 
@@ -23,18 +7,18 @@ from telegram.ext import CommandHandler, Filters
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
-from ubotindo import LOGGER, dispatcher
-from ubotindo.modules.helper_funcs.admin_rights import user_can_ban
-from ubotindo.modules.helper_funcs.alternate import typing_action
-from ubotindo.modules.helper_funcs.chat_status import (
+from Elizabeth import LOGGER, dispatcher
+from Elizabeth.modules.helper_funcs.admin_rights import user_can_ban
+from Elizabeth.modules.helper_funcs.alternate import typing_action
+from Elizabeth.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     is_user_admin,
     user_admin,
 )
-from ubotindo.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from ubotindo.modules.helper_funcs.string_handling import extract_time
-from ubotindo.modules.log_channel import loggable
+from Elizabeth.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from Elizabeth.modules.helper_funcs.string_handling import extract_time
+from Elizabeth.modules.log_channel import loggable
 
 
 @run_async
