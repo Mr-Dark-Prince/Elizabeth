@@ -716,8 +716,8 @@ def main():
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
     # help_staff_handler = CommandHandler(
-        "staffhelp", staff_help, filters=CustomFilters.support_filter
-    )
+    #   "staffhelp", staff_help, filters=CustomFilters.support_filter
+    # )
 
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(
