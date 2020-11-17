@@ -1,5 +1,5 @@
 from telethon import events
-from ubotindo import client
+from Elizabeth import client
 
 
 def register(**args):
