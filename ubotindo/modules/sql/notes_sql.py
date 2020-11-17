@@ -4,8 +4,8 @@ import threading
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, func, distinct
 
-from ubotindo.modules.helper_funcs.msg_types import Types
-from ubotindo.modules.sql import SESSION, BASE
+from Elizabeth.modules.helper_funcs.msg_types import Types
+from Elizabeth.modules.sql import SESSION, BASE
 
 
 class Notes(BASE):
