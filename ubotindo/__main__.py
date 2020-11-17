@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import importlib
 import traceback
 import html
@@ -27,7 +11,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryH
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from ubotindo import (
+from Elizabeth import (
     dispatcher,
     DEV_USERS,
     SUDO_USERS,
@@ -46,29 +30,17 @@ from ubotindo import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from ubotindo.modules import ALL_MODULES
-from ubotindo.modules.purge import client
-from ubotindo.modules.helper_funcs.chat_status import is_user_admin
-from ubotindo.modules.helper_funcs.filters import CustomFilters
-from ubotindo.modules.helper_funcs.misc import paginate_modules
-from ubotindo.modules.helper_funcs.alternate import typing_action
+from Elizabeth.modules import ALL_MODULES
+from Elizabeth.modules.purge import client
+from Elizabeth.modules.helper_funcs.chat_status import is_user_admin
+from Elizabeth.modules.helper_funcs.filters import CustomFilters
+from Elizabeth.modules.helper_funcs.misc import paginate_modules
+from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
 Hey there! my name is *{dispatcher.bot.first_name}*.
 Any questions on how to use me? use /help
-
-Join Our [Group](https://t.me/userbotindo) If You wanna Report Issue 🙂
-
-I'm here to make your group management fun and easy!
-I have lots of handy features ☺️ such as :
-
-• flood control.         • Note'S keeping system.
-• Warning System.   • Predetermined Filters.
-
-*Managed With ❤️ By :* [UserbotIndo Team](https://t.me/userbotindo)
-
-Wanna Add me to your Group? Just click the button below!
 """
 
 buttons = [
@@ -150,7 +122,7 @@ GDPR = []
 
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module(
-        "ubotindo.modules." + module_name)
+        "Elizabeth.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
