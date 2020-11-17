@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import html
 
 from alphabet_detector import AlphabetDetector
@@ -23,19 +7,19 @@ from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
-import ubotindo.modules.sql.locks_sql as sql
-from ubotindo import DEV_USERS, LOGGER, SUDO_USERS, dispatcher
-from ubotindo.modules.connection import connected
-from ubotindo.modules.disable import DisableAbleCommandHandler
-from ubotindo.modules.helper_funcs.alternate import send_message, typing_action
-from ubotindo.modules.helper_funcs.chat_status import (
+import Elizabeth.modules.sql.locks_sql as sql
+from Elizabeth import DEV_USERS, LOGGER, SUDO_USERS, dispatcher
+from Elizabeth.modules.connection import connected
+from Elizabeth.modules.disable import DisableAbleCommandHandler
+from Elizabeth.modules.helper_funcs.alternate import send_message, typing_action
+from Elizabeth.modules.helper_funcs.chat_status import (
     can_delete,
     is_bot_admin,
     is_user_admin,
     user_admin,
     user_not_admin,
 )
-from ubotindo.modules.log_channel import loggable
+from Elizabeth.modules.log_channel import loggable
 
 ad = AlphabetDetector()
 
