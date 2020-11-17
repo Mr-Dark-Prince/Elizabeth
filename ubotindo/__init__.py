@@ -210,7 +210,7 @@ STAFF_USERS = list(STAFF)
 WHITELIST_USERS = list(WHITELIST_USERS)
 
 # Load at end to ensure all prev variables have been set
-from ubotindo.modules.helper_funcs.handlers import CustomCommandHandler  # noqa
+from Elizabeth.modules.helper_funcs.handlers import CustomCommandHandler  # noqa
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
