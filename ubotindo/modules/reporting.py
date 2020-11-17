@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import html
 from typing import Optional
 
@@ -35,11 +19,11 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-from ubotindo import LOGGER, dispatcher
-from ubotindo.modules.helper_funcs.alternate import typing_action
-from ubotindo.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from ubotindo.modules.log_channel import loggable
-from ubotindo.modules.sql import reporting_sql as sql
+from Elizabeth import LOGGER, dispatcher
+from Elizabeth.modules.helper_funcs.alternate import typing_action
+from Elizabeth.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Elizabeth.modules.log_channel import loggable
+from Elizabeth.modules.sql import reporting_sql as sql
 
 REPORT_GROUP = 5
 
