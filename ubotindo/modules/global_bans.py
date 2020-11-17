@@ -8,7 +8,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, run_async
 from telegram.utils.helpers import mention_html
 
 import Elizabeth.modules.sql.global_bans_sql as sql
-from ubotindo import (
+from Elizabeth import (
     DEV_USERS,
     GBAN_LOGS,
     LOGGER,
