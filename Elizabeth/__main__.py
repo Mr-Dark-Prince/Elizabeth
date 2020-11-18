@@ -46,12 +46,16 @@ PM_START_TEXT = f"""
 [💡Source code](https://github.com/P-RINC-E/ELIZABETH)
 """
 
-buttons = [[InlineKeyboardButton(text="Help and Commands ❓",
+buttons = [[InlineKeyboardButton(text="➡️ Help and Commands ⬅️",
                                   callback_data="help_back"),
+]]
+
+buttons += [[InlineKeyboardButton(text="⚠️ Source Code ⚠️",
+                                  url="https://github.com/P-RINC-E/ELIZABETH"),
 ]]
              
 
-buttons += [[InlineKeyboardButton(text="Close the Menu 🔒",
+buttons += [[InlineKeyboardButton(text="🔒 Close the Menu 🔒",
                                   callback_data="close_menu")]]
 
 
