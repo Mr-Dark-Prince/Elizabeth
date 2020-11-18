@@ -9,4 +9,4 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/userbotindo/UserIndoBot/graphs/commit-activity)
 
 # <b>DEPLOY TO HEROKU📤.</b>
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/p-rinc-e/malayalam_tgbot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/p-rinc-e/elizabeth)
