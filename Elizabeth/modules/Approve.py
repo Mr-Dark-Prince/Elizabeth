@@ -22,7 +22,7 @@ async def is_register_admin(chat, user):
 
         return isinstance(
             (
-                await tbot(functions.channels.GetParticipantRequest(chat, user))
+                await client(functions.channels.GetParticipantRequest(chat, user))
             ).participant,
             (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
         )
