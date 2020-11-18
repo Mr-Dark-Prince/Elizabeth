@@ -6,7 +6,7 @@ from telethon import types
 from telethon.tl import functions
 
 
-db = client["Elizabeth"]
+db = client
 approved_users = db.approve
 
 
