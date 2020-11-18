@@ -1,12 +1,10 @@
 geopy
-pymongo
 future
 emoji
 requests
 Telethon==1.16.4
 sqlalchemy
 python-telegram-bot==12.8
-dnspython==2.0.0
 psycopg2-binary
 pythonping
 feedparser
@@ -32,7 +30,7 @@ youtube-dl
 wikipedia
 spamwatch
 bleach
-git+https://github.com/TomyPrs/python-markdown2.git
+git+https://github.com/p-rinc-e/python-markdown2.git
 alphabet_detector
 tswift
 covid
