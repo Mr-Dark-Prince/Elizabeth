@@ -12,7 +12,7 @@ approved_users = db.approve
 
 
 async def can_approve_users(message):
-    result = await tbot(functions.channels.GetParticipantRequest(
+    result = await client(functions.channels.GetParticipantRequest(
         channel=message.chat_id,
         user_id=message.sender_id,
     ))
