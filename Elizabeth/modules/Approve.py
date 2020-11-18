@@ -52,6 +52,8 @@ async def is_register_admin(chat, user):
 async def approve(event):
     if event.fwd_from:
         return
+    if MONGO_DB_URI is None:
+        return
     chat_id = event.chat.id
     sender = event.sender_id
     reply_msg = await event.get_reply_message()
@@ -112,6 +114,8 @@ async def approve(event):
 async def disapprove(event):
     if event.fwd_from:
         return
+    if MONGO_DB_URI is None:
+        return
     chat_id = event.chat.id
     sender = event.sender_id
     reply_msg = await event.get_reply_message()
@@ -171,6 +175,8 @@ async def disapprove(event):
 async def checkst(event):
     if event.fwd_from:
         return
+    if MONGO_DB_URI is None:
+        return
     chat_id = event.chat.id
     sender = event.sender_id
     reply_msg = await event.get_reply_message()
@@ -224,6 +230,8 @@ async def checkst(event):
 async def apprlst(event):
     print("😁")
     if event.fwd_from:
+        return
+    if MONGO_DB_URI is None:
         return
     chat_id = event.chat.id
     sender = event.sender_id
