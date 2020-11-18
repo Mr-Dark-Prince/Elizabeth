@@ -57,7 +57,7 @@ async def approve(event):
     approved_userss = approved_users.find({})
 
     if event.is_group:
-        if not await can_approve_users(message=event):
+        if await can_approve_users(message=event):
             return
     else:
         return
@@ -119,7 +119,7 @@ async def disapprove(event):
     approved_userss = approved_users.find({})
 
     if event.is_group:
-        if not await can_approve_users(message=event):
+        if await can_approve_users(message=event):
             return
     else:
         return
