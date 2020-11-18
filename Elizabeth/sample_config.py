@@ -61,6 +61,7 @@ class Config(object):
     SPAMWATCH_API = None  # Your SpamWatch token
     WALL_API = None
     LASTFM_API_KEY = None
+    MONGO_DB_URI = None
 
 
 class Production(Config):
