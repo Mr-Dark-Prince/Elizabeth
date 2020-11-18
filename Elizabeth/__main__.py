@@ -41,8 +41,7 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 PM_START_TEXT = f"""
 Hi.. I'm *{dispatcher.bot.first_name}*.
 
-
-[⚠️ Not completed🍀](https://t.me/P_RINC_E)
+⚠️ Not completed🍀
 """
 
 buttons = [[InlineKeyboardButton(text="Help and Commands ❓",
