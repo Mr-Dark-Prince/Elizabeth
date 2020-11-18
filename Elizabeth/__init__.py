@@ -4,7 +4,13 @@ import sys
 import spamwatch
 from telethon import TelegramClient
 import telegram.ext as tg
+import time
+from logging import basicConfig
+from logging import DEBUG
+from logging import getLogger
+from logging import INFO
 
+from telethon import TelegramClient
 # enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
