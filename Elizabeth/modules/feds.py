@@ -1,19 +1,3 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 import csv
 import json
 import os
@@ -33,8 +17,8 @@ from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext import CallbackQueryHandler, CommandHandler, run_async
 from telegram.utils.helpers import mention_html, mention_markdown
 
-import ubotindo.modules.sql.feds_sql as sql
-from ubotindo import (
+import Elizabeth.modules.sql.feds_sql as sql
+from Elizabeth import (
     DEV_USERS,
     LOGGER,
     MESSAGE_DUMP,
@@ -43,19 +27,19 @@ from ubotindo import (
     WHITELIST_USERS,
     dispatcher,
 )
-from ubotindo.modules.disable import DisableAbleCommandHandler
-from ubotindo.modules.helper_funcs.alternate import (
+from Elizabeth.modules.disable import DisableAbleCommandHandler
+from Elizabeth.modules.helper_funcs.alternate import (
     send_action,
     send_message,
     typing_action,
 )
-from ubotindo.modules.helper_funcs.chat_status import is_user_admin
-from ubotindo.modules.helper_funcs.extraction import (
+from Elizabeth.modules.helper_funcs.chat_status import is_user_admin
+from Elizabeth.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
 )
-from ubotindo.modules.helper_funcs.string_handling import markdown_parser
+from Elizabeth.modules.helper_funcs.string_handling import markdown_parser
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
 # Federation by MrYacha 2018-2019
