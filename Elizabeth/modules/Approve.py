@@ -3,7 +3,6 @@ from Elizabeth.events import register
 from telethon import types
 from telethon.tl import functions
 
-client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client["Elizabeth"]
 approved_users = db.approve
