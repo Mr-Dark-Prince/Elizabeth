@@ -97,7 +97,6 @@ if ENV:
     CERT_PATH = os.environ.get("CERT_PATH")
 
     DB_URI = os.environ.get("DATABASE_URL")
-    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()
     NO_LOAD = os.environ.get("NO_LOAD", "").split()
@@ -114,6 +113,13 @@ if ENV:
     TELETHON_HASH = os.environ.get("TL_HASH", None)
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
+
+    from Elizabeth.modules.helper_funcs.handlers import CustomCommandHandler
+
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+
+    tg.CommandHandler = CustomCommandHandler
+
 
 else:
     from Elizabeth.config import Development as Config
