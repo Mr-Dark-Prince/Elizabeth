@@ -1,5 +1,5 @@
 # ELIZABETH..☘️
-https://telegra.ph/file/e3d7a1517f5d9a4c32806.jpg
+![logo](https://telegra.ph/file/e3d7a1517f5d9a4c32806.jpg)
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://github.com/UserBotIndo/)
 
@@ -10,3 +10,5 @@ https://telegra.ph/file/e3d7a1517f5d9a4c32806.jpg
 
 # <b>DEPLOY TO HEROKU📤.</b>
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/p-rinc-e/elizabeth)
+
+
