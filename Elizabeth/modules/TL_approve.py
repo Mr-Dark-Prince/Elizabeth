@@ -7,7 +7,7 @@ from telethon.tl import functions
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client["Elizabeth_TgBot"]
+db = client["Tintumon"]
 approved_users = db.approve
 
 
