@@ -1,4 +1,6 @@
 from Elizabeth import client
+from pymongo import MongoClient
+from Elizabeth import MONGO_DB_URI, client
 from Elizabeth.events import register
 from telethon import types
 from telethon.tl import functions
