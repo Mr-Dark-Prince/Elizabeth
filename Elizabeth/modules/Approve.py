@@ -3,6 +3,9 @@ from Elizabeth.events import register
 from telethon import types
 from telethon.tl import functions
 
+db = client["Elizabeth"]
+approved_users = db.approve
+
 
 async def can_approve_users(message):
     result = await client(
