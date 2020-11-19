@@ -7,18 +7,18 @@
          "plan": "heroku-postgresql"
       }
    ],
-   "description": "🌚 മലയാളം ടെലിഗ്രാം ഗ്രൂപ്പ്‌ മാനേജർ ബോട്ട് 🍀.",
+   "description": "Telegram group help bot🍀.",
    "env": {
       "ALLOW_EXCL": {
-         "description": "😁ഇതിൽ ഒന്നും ചെയ്യണ്ട",
+         "description": "No need change",
          "value": "True"
       },
       "TL_APP_ID": {
-         "description": "നിങ്ങളുടെ ആപ്പ് ഐഡി എഴുതു.. App_id ഇവിടെ ലഭിക്കും ➡️ my.telegram.org .",
+         "description": "Your App_id. Get it from ➡️ my.telegram.org .",
          "value": ""
       },
       "TL_HASH": {
-         "description": "നിങ്ങളുടെ ഹാഷ് കീ എഴുതു.. Hash_key ഇവിടെ ലഭിക്കും ➡️ my.telegram.org.",
+         "description": "Your hash_key. Get it from ➡️ my.telegram.org.",
          "value": ""
       },
       "MESSAGE_DUMP": {
