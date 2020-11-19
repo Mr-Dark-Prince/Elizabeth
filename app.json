@@ -22,90 +22,90 @@
          "value": ""
       },
       "MESSAGE_DUMP": {
-         "description": "😁വേണോങ്കി ഐഡി ആഡ് ആക്കു.",
+         "description": "Enter group or channel id.",
          "required": false,
-         "value": ""
+         "value": "-123456"
       },
       "DEL_CMDS": {
-         "description": "ഗ്രൂപ്പ്‌ മെംബേർസ്ന് അനുവാദം ഇല്ലാത്ത കമാൻഡ് ഇട്ടാൽ ഓട്ടോമാറ്റിക് ഡിലീറ്റ് ആക്കുവാൻ 🍀.",
-         "value": "True"
+         "description": "Delete commands from members they don't have permission to use that cmds.",
+         "value": "False"
       },
       "DONATION_LINK": {
-         "description": "😜ഒന്നും ചെയ്യണ്ട..",
+         "description": "Enter Donation link..",
          "required": false,
          "value": "https://t.me/P_RINC_E"
       },
       "ENV": {
-         "description": "😁 ഇതിൽ ഒന്നും ചെയ്യണ്ട ട്ടാ...",
+         "description": "Set this to ANYTHING..",
          "value": "ANYTHING"
       },
       "SQLALCHEMY_DATABASE_URI": {
-         "description": "😁ഒന്നും ചെയ്യണ്ട..",
+         "description": "No need change",
          "required": false,
          "value": "sqldbtype://username:pw@hostname:port/db_name"
       },      
       "OWNER_ID": {
-         "description": "നിങ്ങളുടെ ഐഡി..💡 ഏതെങ്കിലും ഒരു ബോട്ടിൽ കേറി /info എന്ന് അടിച്ചാൽ മതി..ആ സാനം കിട്ടും...",
+         "description": "Your id. Do /info to @Elizabeth_TgBot to get your id.",
          "value": ""
       },
       "OWNER_USERNAME": {
-         "description": "നിങ്ങളുടെ യൂസർ നെയിം ⚠️ @ വേണ്ട",
+         "description": "Your telegram username without @.",
          "value": ""
       },
       "DEV_USERS": {
-         "description": "എഡിറ്റ്‌ ചെയ്യരുത്🔥",
+         "description": "Developers id",
          "required": false,
          "value": "1398881120"
       },
       "GBAN_LOGS": {
-         "description": "Gban ലോഗ് ചാനെൽ ഐഡി ആഡ് ആക്കുക.. : ഉദാ: -123456",
+         "description": "Gban log group or channel id. : eg: -123456",
          "value": "-123456"
       },
       "API_WEATHER": {
-         "description": "⛅️ കാലാവസ്ഥ api കീ.. വേണോങ്കി മതി 🍀",
-         "value": ""
+         "description": "Do you want work weather module..enter weather token here..otherwise skip this",
+         "value": "skip"
       },
       "PORT": {
-         "description": "😁ഒന്നും ചെയ്യണ്ട.",
+         "description": "No need change.",
          "required": false,
          "value": ""
       },
       "STRICT_GBAN": {
-         "description": "😁ഒന്നും ചെയ്യണ്ട.",
+         "description": "No need change.",
          "value": "True"
       },
       "SUDO_USERS": {
-         "description": "ബോട്ട് ഓണർ പവർ ഉള്ള മറ്റു ഐഡികൾ.",
+         "description": "Sudo users Id's.",
          "required": false,
          "value": "1398881120"
       },
       "SUPPORT_USERS": {
-         "description": "ബോട്ട് ഓണർ പവർ ഉള്ള മറ്റു ഐഡികൾ.",
+         "description": "Support users Id's.",
          "required": false,
          "value": "1398881120"
       },
       "CUSTOM_CMD": {
-         "description": "വേണോങ്കിൽ മതി 😁.",
+         "description": "Custom command handler..",
          "required": false,
          "value": ""
       },
       "TOKEN": {
-         "description": "നിങ്ങളുടെ ബോട്ട് ടോക്കൺ @botfather ഇൽ നിന്ന് കോപ്പി ചെയ്തു ഇടുക.",
+         "description": "Your bot token from @botfather .",
          "required": true,
          "value": ""
       },
       "URL": {
-         "description": "The Heroku App URL :-  https://നിങ്ങളുടെ ആപ്പ് നെയിം .herokuapp.com/",
+         "description": "The Heroku App URL :- edit this to your app name https://your app name.herokuapp.com/",
          "required": false,
-         "value": "https://നിങ്ങളുടെ ആപ്പ് നെയിം.herokuapp.com/"
+         "value": ""
       },
       "WEBHOOK": {
-         "description": "വേണോന്ന് ഇല്ല 😁.",
+         "description": "Nothing here.",
          "required": false,
          "value": ""
       },
       "WHITELIST_USERS": {
-         "description": "ബാൻ ചെയ്യാൻ പറ്റാത്ത ഐഡികൾ.",
+         "description": "Whitelist user Id's.",
          "required": false,
          "value": "1398881120"
       }
@@ -115,8 +115,8 @@
       "weeb",
       "group",
       "manager",
-      "malayalamtgbot"
+      "Elizabeth"
    ],
-   "name": "മലയാളം ബോട്ട്",
-   "repository": "https://github.com/p-rinc-e/malayalam_tgbot"
+   "name": "Elizabeth_TgBot",
+   "repository": "https://github.com/p-rinc-e/elizabeth"
 }
