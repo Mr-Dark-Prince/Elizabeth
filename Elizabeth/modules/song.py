@@ -12,7 +12,8 @@ async def _(event):
     if event.fwd_from:
         return
 
-    message = update.effective_message
+    message = if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
     text = message.text[len('/song '):]
     dl(cmd)
     cmd = event.pattern_match.group(1)
