@@ -8,7 +8,7 @@ from telethon.tl import functions
 from Elizabeth.events import register
 
 
-import instantmusic,subprocess
+import instantmusic , subprocess
 os.system("rm -rf *.mp3")
     
 
