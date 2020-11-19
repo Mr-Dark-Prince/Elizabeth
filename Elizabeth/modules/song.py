@@ -25,7 +25,7 @@ async def _(event):
     bro = 'for f in *.webm; do      mv -- "$f" "${f%.webm}.mp3"; done'
     os.system(bro)
     l = glob.glob("*.mp3")
-    loa = xxx
+    loa = l[0]
     await event.reply("sending the song")
     await event.client.send_file(
                 event.chat_id,
