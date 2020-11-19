@@ -22,10 +22,3 @@ async def _(event):
     message.reply_text(reply_text)
     message.reply_audio(audio=sng)
     os.remove(sng)
-    
-__help__ = """
- - /song songname : download any song"""
-
-__mod_name__ = "Songs"
-song_handle = DisableAbleCommandHandler("song", song)
-dispatcher.add_handler(song_handle)
