@@ -7,6 +7,8 @@ from telethon import types
 from telethon.tl import functions
 from Elizabeth.events import register
 
+pip install spotdl
+
 
 @register(pattern="^/song (.*)")
 async def _(event):
