@@ -7,8 +7,6 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
 
 from Elizabeth.events import register
-from ..utils import admin_cmd, edit_or_reply, sudo_cmd
-from . import CMD_HELP, name_dl, reply_id, runcmd, song_dl, video_dl, yt_search
 
 # =========================================================== #
 #                           STRINGS                           #
