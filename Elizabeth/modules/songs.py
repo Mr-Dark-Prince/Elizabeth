@@ -26,7 +26,7 @@ async def _(event):
         return
 
     cat = pybase64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "`wi8..! I am finding your song....`")
+    catevent = await event.reply("`wi8..! I am finding your song....`")
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
