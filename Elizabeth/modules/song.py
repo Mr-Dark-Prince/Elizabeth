@@ -6,7 +6,7 @@ from Elizabeth.modules.Elizabeth import dl, db
 import os
 
 @run_async
-def song(bot: Bot, update: Update):
+def song(update, context):
     message = update.effective_message
     text = message.text[len('/song '):]
     dl(cmd)
