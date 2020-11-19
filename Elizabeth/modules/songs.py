@@ -20,6 +20,23 @@ SONGBOT_BLOCKED_STRING = "<code>Please unblock @songdl_bot and try again</code>"
 # =========================================================== #
 
 
+async def yt_search(cat):
+    try:
+        cat = urllib.parse.quote(cat)
+        html = urllib.request.urlopen(
+            "https://www.youtube.com/results?search_query=" + cat
+        )
+        user_data = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+        video_link = None
+        if user_data:
+            video_link = "https://www.youtube.com/watch?v=" + user_data[0]
+        if video_link:
+            return video_link
+        return "Couldnt fetch results"
+    except:
+        return "Couldnt fetch results"
+
+
 @register(pattern="^/song (.*)")
 async def _(event):
     if event.fwd_from:
