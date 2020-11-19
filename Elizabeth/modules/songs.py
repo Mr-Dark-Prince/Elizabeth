@@ -22,16 +22,9 @@ SONGBOT_BLOCKED_STRING = "<code>Please unblock @songdl_bot and try again</code>"
 
 @register(pattern="^/song (.*)")
 async def _(event):
-    reply_to_id = event.message.id
-    reply = await event.get_reply_message()
-    if event.pattern_match.group(2):
-        query = event.pattern_match.group(2)
-    elif reply:
-        if reply.message:
-            query = reply.message
-    else:
-        await edit_or_reply(event, "`What I am Supposed to find `")
+    if event.fwd_from:
         return
+
     cat = pybase64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     catevent = await edit_or_reply(event, "`wi8..! I am finding your song....`")
     video_link = await yt_search(str(query))
