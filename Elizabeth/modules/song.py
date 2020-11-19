@@ -1,33 +1,46 @@
+
+from telethon import events
+from Elizabeth.events import register
 from Elizabeth import client
+import subprocess
+from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
+import io
+import asyncio
+import time
+
 import glob
 import os
-import spotdl
-import subprocess
-from telethon import types
-from telethon.tl import functions
-from Elizabeth.events import register
+try:
+ import instantmusic , subprocess
+except:
+ os.system("pip install instantmusic")
+ 
 
 
-import instantmusic , subprocess
 os.system("rm -rf *.mp3")
+
+
+def bruh(name):
+    
+    os.system("instantmusic -q -s "+name)
     
 
 @register(pattern="^/song (.*)")
 async def _(event):
     if event.fwd_from:
         return
+    DELAY_BETWEEN_EDITS = 0.3
+    PROCESS_RUN_TIME = 100
     cmd = event.pattern_match.group(1)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    await event.reply("ok finding the song")
-    os.system("instantmusic -q -s "+cmd)
-    bro = 'for f in *.webm; do      mv -- "$f" "${f%.webm}.mp3"; done'
-    os.system(bro)
+    await event.edit("ok finding the song")    
+    bruh(str(cmd))
     l = glob.glob("*.mp3")
     loa = l[0]
-    await event.reply("sending the song")
-    await event.client.send_file(
+    await event.edit("sending song")
+    await borg.send_file(
                 event.chat_id,
                 loa,
                 force_document=True,
@@ -37,5 +50,3 @@ async def _(event):
             )
     os.system("rm -rf *.mp3")
     subprocess.check_output("rm -rf *.mp3",shell=True)
-
-
