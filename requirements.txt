@@ -11,6 +11,7 @@ pybase64
 feedparser
 html2text
 spotdl
+validators
 pickledb
 redis
 pytz
