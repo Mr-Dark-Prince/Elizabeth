@@ -6,7 +6,6 @@ Telethon==1.16.4
 sqlalchemy
 python-telegram-bot==12.8
 ffmpeg
-avprobe
 avconv
 pySmartDL
 psycopg2-binary
