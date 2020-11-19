@@ -75,6 +75,21 @@ async def progress(
             await event.edit("{}\n{}".format(type_of_ps, tmp))
 
 
+def humanbytes(size):
+    """Input size in bytes,
+    outputs in a human readable format"""
+    # https://stackoverflow.com/a/49361727/4723940
+    if not size:
+        return ""
+    # 2 ** 10 = 1024
+    power = 2 ** 10
+    raised_to_pow = 0
+    dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
+    while size > power:
+        size /= power
+        raised_to_pow += 1
+    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+
 
 @register(pattern="^/song (.*)")
 async def download_video(v_url):  
