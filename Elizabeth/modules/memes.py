@@ -476,7 +476,14 @@ Some dank memes for fun or whatever!
  × /warm: Hug a user warmly, or get hugged if not a reply.
  × /punch: Punch a user, or get punched if not a reply.
  × /police: Give Police siren Animation
-
+ × /weebify <text>: weebify your text!
+ × /bubble <text>: bubble your text!
+ × /fbubble <text>: bubble-filled your text!
+ × /square <text>: square your text!
+ × /fsquare <text>: square-filled your text!
+ × /blue <text>: bluify your text!
+ × /latin <text>: latinify your text!
+ × /lined <text>: lined your text!
 *Regex based memes:*
 
 `/decide` can be also used with regex like: `Elizabeth What? <question>: randomly answer "Yes, No" etc.`
