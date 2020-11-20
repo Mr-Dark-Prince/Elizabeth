@@ -132,6 +132,4 @@ async def download_video(v_url):
             v_url.chat_id,
             f"{rip_data['id']}.mp3",
             supports_streaming=True,
-            parse_mode="html",
-            reply_to=reply_to_id,
-            )
+            parse_mode="html")
