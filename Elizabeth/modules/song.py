@@ -125,7 +125,8 @@ async def download_video(v_url):
         return
     if song:
         await rkp.edit(f"`Preparing to upload song:`\
-        \n**{rip_data['title']}**")
+        \n**{rip_data['title']}**\
+        \nby **{rip_data['uploader']}**")
         await v_url.client.send_file(
             v_url.chat_id,
             f"{rip_data['id']}.mp3)
