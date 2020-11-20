@@ -40,15 +40,7 @@ except:
 
 @register(pattern="^/song (.*)")
 async def download_video(v_url):
-     
-    reply_to_id = await reply_id(v_url)
-    reply = await v_url.get_reply_message()
-    if event.pattern_match.group(2):
-        query = event.pattern_match.group(2)
-    elif reply:
-        if reply.message:
-            query = reply.message
-    else:
+
     lazy = v_url ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
 
     if not sender.id == me.id:
@@ -139,6 +131,4 @@ async def download_video(v_url):
             v_url.chat_id,
             f"{rip_data['id']}.mp3",
             supports_streaming=True,
-            parse_mode="html",
-            reply_to=reply_to_id,
-    )
+            parse_mode="html")
