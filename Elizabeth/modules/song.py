@@ -128,5 +128,4 @@ async def download_video(v_url):
         \nby *{rip_data['uploader']}*")
         await v_url.client.send_file(
             v_url.chat_id,
-            f"{rip_data['id']}.mp3",
-            supports_streaming=True
+            f"{rip_data['id']}.mp3")))
