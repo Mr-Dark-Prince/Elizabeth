@@ -134,4 +134,3 @@ async def download_video(v_url):
                 DocumentAttributeAudio(duration=int(rip_data['duration']),
                                        title=str(rip_data['title']),
                                        performer=str(rip_data['uploader']))
-            ]
