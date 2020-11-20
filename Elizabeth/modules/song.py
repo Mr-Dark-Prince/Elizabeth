@@ -39,8 +39,9 @@ except:
 	pass
 
 @register(pattern="^/song (.*)")
-async def download_video(v_url):  
-
+async def download_video(v_url):
+     
+    reply_to_id = await reply_id(v_url)
     lazy = v_url ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
 
     if not sender.id == me.id:
