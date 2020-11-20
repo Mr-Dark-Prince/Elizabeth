@@ -40,10 +40,8 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 PM_START_TEXT = f"""
 `Hi.. I'm` *{dispatcher.bot.first_name}*.
-
-⚠️`Not completed`🍀
-
-[💡Source code](https://github.com/P-RINC-E/ELIZABETH)
+`I'm a group manager bot
+click help button below..`
 """
 
 buttons = [[InlineKeyboardButton(text="➡️ Help and Commands ⬅️",
