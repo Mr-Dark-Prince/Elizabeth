@@ -130,8 +130,5 @@ async def download_video(v_url):
         await v_url.client.send_file(
             v_url.chat_id,
             f"{rip_data['id']}.mp3)
-            f"{rip_data['title']}.mp3")))
         os.remove(f"{rip_data['id']}.mp3")
-        await v_url.delete()
-
 
