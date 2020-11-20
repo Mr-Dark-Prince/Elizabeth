@@ -659,13 +659,13 @@ done easily using the bot._
  ➩ /setsticker: As a reply to some sticker to set it as group sticker set!
  ➩ /setdescription: <description> Sets new chat description in group.
 
-*Note*: _To set group sticker set chat must needs to have min 100 members._
+*Note*: To set group sticker set chat must needs to have min 100 members.
 
-_An example of promoting someone to admins:_
-`/promote @username`; _this promotes a user to admins._
+An example of promoting someone to admins:
+`/promote @username`; This promotes a user to admins.
 """
 
-__mod_name__ = "ADMIN"
+__mod_name__ = "ADMINS"
 
 PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
