@@ -639,33 +639,33 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-Lazy to promote or demote someone for admins? Want to see basic information about chat? \
+_Lazy to promote or demote someone for admins? Want to see basic information about chat? \
 All stuff about chatroom such as admin lists, pinning or grabbing an invite link can be \
-done easily using the bot.
+done easily using the bot._
 
- × /adminlist: list of admins in the chat
+ ➩ /adminlist: list of admins in the chat
 
 *Admin only:*
- × /pin: Silently pins the message replied to - add `loud`, `notify` or `violent` to give notificaton to users.
- × /unpin: Unpins the currently pinned message.
- × /permanentpin: Set a permanent pin for supergroup chat, when an admin or telegram channel change pinned message, bot will change pinned message immediatelly
- × /invitelink: Gets private chat's invitelink.
- × /promote: Promotes the user replied to.
- × /demote: Demotes the user replied to.
- × /settitle: Sets a custom title for an admin which is promoted by bot.
- × /setgpic: As a reply to file or photo to set group profile pic!
- × /delgpic: Same as above but to remove group profile pic.
- × /setgtitle <newtitle>: Sets new chat title in your group.
- × /setsticker: As a reply to some sticker to set it as group sticker set!
- × /setdescription: <description> Sets new chat description in group.
+ ➩ /pin: Silently pins the message replied to - add `loud`, `notify` or `violent` to give notificaton to users.
+ ➩ /unpin: Unpins the currently pinned message.
+ ➩ /permanentpin: Set a permanent pin for supergroup chat, when an admin or telegram channel change pinned message, bot will change pinned message immediatelly
+ ➩ /invitelink: Gets private chat's invitelink.
+ ➩ /promote: Promotes the user replied to.
+ ➩ /demote: Demotes the user replied to.
+ ➩ /settitle: Sets a custom title for an admin which is promoted by bot.
+ ➩ /setgpic: As a reply to file or photo to set group profile pic!
+ ➩ /delgpic: Same as above but to remove group profile pic.
+ ➩ /setgtitle <newtitle>: Sets new chat title in your group.
+ ➩ /setsticker: As a reply to some sticker to set it as group sticker set!
+ ➩ /setdescription: <description> Sets new chat description in group.
 
-*Note*: To set group sticker set chat must needs to have min 100 members.
+*Note*: _To set group sticker set chat must needs to have min 100 members._
 
-An example of promoting someone to admins:
-`/promote @username`; this promotes a user to admins.
+_An example of promoting someone to admins:_
+`/promote @username`; _this promotes a user to admins._
 """
 
-__mod_name__ = "Admin"
+__mod_name__ = "ADMIN"
 
 PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
