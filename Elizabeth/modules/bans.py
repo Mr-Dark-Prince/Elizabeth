@@ -392,47 +392,48 @@ def unban(update, context):
 
 
 __help__ = """
-*BAN*
+*BAN AND MUTE*
 Some people need to be publicly banned; spammers, annoyances, or just trolls.
 This module allows you to do that easily, by exposing some common actions, so everyone will see!
 
- × /kickme: Kicks the user who issued the command
- × /banme: Bans the user who issued the command
+ ➩ /kickme: Kicks the user who issued the command
+ ➩ /banme: Bans the user who issued the command
 *Admin only:*
- × /ban <userhandle>: Bans a user. (via handle, or reply)
- × /tban <userhandle> x(m/h/d): Bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- × /unban <userhandle>: Unbans a user. (via handle, or reply)
- × /kick <userhandle>: Kicks a user, (via handle, or reply)
- × /mute <userhandle>: Silences a user. Can also be used as a reply, muting the replied to user.
- × /tmute <userhandle> x(m/h/d): Mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- × /unmute <userhandle>: Unmutes a user. Can also be used as a reply, muting the replied to user.
+ ➩ /ban <userhandle>: Bans a user. (via handle, or reply)
+ ➩ /tban <userhandle> x(m/h/d): Bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+ ➩ /unban <userhandle>: Unbans a user. (via handle, or reply)
+ ➩ /kick <userhandle>: Kicks a user, (via handle, or reply)
+ ➩ /mute <userhandle>: Silences a user. Can also be used as a reply, muting the replied to user.
+ ➩ /tmute <userhandle> x(m/h/d): Mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+ ➩ /unmute <userhandle>: Unmutes a user. Can also be used as a reply, muting the replied to user.
 
-An example of temporarily mute someone:
-`/tmute @username 2h`; This mutes a user for 2 hours.
+ An example of temporarily mute someone:
+ ➩ `/tmute @username 2h`; This mutes a user for 2 hours.
 
-An example of temporarily banning someone:
-`/tban @username 2h`; this bans a user for 2 hours.
+ An example of temporarily banning someone:
+ ➩ `/tban @username 2h`; this bans a user for 2 hours.
 
+*WARNINGS*
  If you're looking for a way to automatically warn users when they say certain things, use the /addwarn command.
  An example of setting multiword warns filter:
- × `/addwarn "very angry" This is an angry user`
+ ➩ `/addwarn "very angry" This is an angry user`
  This will automatically warn a user that triggers "very angry", with reason of 'This is an angry user'.
  An example of how to set a new multiword warning:
-`/warn @user Because warning is fun`
+ ➩ `/warn @user Because warning is fun`
 
- × /warns <userhandle>: Gets a user's number, and reason, of warnings.
- × /warnlist: Lists all current warning filters
+ ➩ /warns <userhandle>: Gets a user's number, and reason, of warnings.
+ ➩ /warnlist: Lists all current warning filters
 
 *Admin only:*
- × /warn <userhandle>: Warns a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
- × /resetwarn <userhandle>: Resets the warnings for a user. Can also be used as a reply.
- × /rmwarn <userhandle>: Removes latest warn for a user. It also can be used as reply.
- × /unwarn <userhandle>: Same as /rmwarn
- × /addwarn <keyword> <reply message>: Sets a warning filter on a certain keyword. If you want your keyword to \
-be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is an angry user`.
- × /nowarn <keyword>: Stops a warning filter
- × /warnlimit <num>: Sets the warning limit
- × /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just kick.
+ ➩ /warn <userhandle>: Warns a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+ ➩ /resetwarn <userhandle>: Resets the warnings for a user. Can also be used as a reply.
+ ➩ /rmwarn <userhandle>: Removes latest warn for a user. It also can be used as reply.
+ ➩ /unwarn <userhandle>: Same as /rmwarn
+ ➩ /addwarn <keyword> <reply message>: Sets a warning filter on a certain keyword. If you want your keyword to \
+ be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is an angry user`.
+ ➩ /nowarn <keyword>: Stops a warning filter
+ ➩ /warnlimit <num>: Sets the warning limit
+ ➩ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just kick.
 
  ⚠️ `Read from top`
 """
