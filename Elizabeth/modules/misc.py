@@ -671,6 +671,8 @@ def paste(update, context):
 __help__ = """
 An "odds and ends" module for small, simple commands which don't really fit anywhere
 
+ × /afk <reason>: Mark yourself as AFK.
+ × brb <reason>: Same as the afk command - but not a command.
  × /id: Get the current group id. If used by replying to a message, gets that user's id.
  × /info: Get information about a user.
  × /wiki : Search wikipedia articles.
@@ -689,7 +691,7 @@ An "odds and ends" module for small, simple commands which don't really fit anyw
  × /lastfm: returns what you're scrobbling on last.fm.
 """
 
-__mod_name__ = "Miscs"
+__mod_name__ = "MISCS"
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
 INFO_HANDLER = DisableAbleCommandHandler("info", info, pass_args=True)
