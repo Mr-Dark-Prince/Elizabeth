@@ -25,7 +25,7 @@ async def _(event):
     if event.fwd_from:
         return
 
-    reply_to_id = await reply_id(event)
+    reply_to_id = event.message.id
     reply = await event.get_reply_message()
     if event.pattern_match.group(2):
         query = event.pattern_match.group(2)
