@@ -42,8 +42,9 @@ except:
 async def download_video(v_url):  
 
     lazy = v_url ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
-    if lazy.reply_to_msg_id:
-        reply_to_id = lazy.reply_to_msg_id
+
+    if not sender.id == me.id:
+        rkp = await lazy.reply("`processing...`")
     else:
     	rkp = await lazy.edit("`processing...`")   
     url = v_url.pattern_match.group(1)
@@ -125,7 +126,9 @@ async def download_video(v_url):
     if song:
         await rkp.edit(f"`Preparing to upload song:`\
         \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
+        \nby **{rip_data['uploader']}**")
         await v_url.client.send_file(
             v_url.chat_id,
             f"{rip_data['id']}.mp3")
+
+
