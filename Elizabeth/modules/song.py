@@ -22,6 +22,9 @@ SONG_SENDING_STRING = "<code>yeah..! i found something wi8..🥰...</code>"
 
 @register(pattern="^/song (.*)")
 async def _(event):
+    if event.fwd_from:
+        return
+
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
     if event.pattern_match.group(2):
