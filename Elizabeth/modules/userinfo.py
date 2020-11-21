@@ -154,19 +154,14 @@ def __user_info__(user_id):
 
 
 __help__ = """
-Writing something about yourself is cool, whether to make people know about yourself or \
-promoting your profile.
-
-All bios are displayed on /info command.
+ ➩ /info: Get information about a user.
+ ➩ /id: Get the current group id. If used by replying to a message, gets that user's id. 
  ➩ /afk <reason>: Mark yourself as AFK.
  ➩ brb <reason>: Same as the afk command - but not a command.
- ➩ /id: Get the current group id. If used by replying to a message, gets that user's id.
- ➩ /info: Get information about a user.
-
- × /setbio <text>: While replying, will save another user's bio
- × /bio: Will get your or another user's bio. This cannot be set by yourself.
- × /setme <text>: Will set your info
- × /me: Will get your or another user's info
+ ➩ /setbio <text>: While replying, will save another user's bio
+ ➩ /bio: Will get your or another user's bio. This cannot be set by yourself.
+ ➩ /setme <text>: Will set your info
+ ➩ /me: Will get your or another user's info
 
 An example of setting a bio for yourself:
 `/setme I work for Telegram`; Bio is set to yourself.
