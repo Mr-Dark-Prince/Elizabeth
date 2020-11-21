@@ -1,3 +1,5 @@
 __help__ """
- Coming soon 🍀
+ 💡 coming soon
 """
+
+__mod_name__ = "🏮ELIZABETH TOOLS🏮"
