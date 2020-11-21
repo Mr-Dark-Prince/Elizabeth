@@ -81,9 +81,13 @@ async def _(event):
         allow_cache=False,
         caption=query,
         reply_to=reply_to_id,
-        )
-        os.system("rm -rf *.mp3")
-    except Exception:
-        await event.reply("I am getting too many requests !\nPlease try again later.")
+        progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
+            progress(d, t, event, c_time, "[UPLOAD]", loa)
+        ),
+    )
+    await event.delete()
+    os.system("rm -rf *.mp3")
+    os.remove(thumb_image)
+    subprocess.check_output("rm -rf *.mp3", shell=True)
 
    
