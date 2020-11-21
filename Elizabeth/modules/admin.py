@@ -639,10 +639,6 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-_Lazy to promote or demote someone for admins? Want to see basic information about chat? \
-All stuff about chatroom such as admin lists, pinning or grabbing an invite link can be \
-done easily using the bot._
-
  ➩ /adminlist: list of admins in the chat
 
 *Admin only:*
@@ -658,6 +654,9 @@ done easily using the bot._
  ➩ /setgtitle <newtitle>: Sets new chat title in your group.
  ➩ /setsticker: As a reply to some sticker to set it as group sticker set!
  ➩ /setdescription: <description> Sets new chat description in group.
+ ➩ /del: Deletes the message you replied to
+ ➩ /purge: Deletes all messages between this and the replied to message.
+
 
 ◉ *Note*: To set group sticker set chat must needs to have min 100 members.
 
