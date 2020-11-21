@@ -669,26 +669,23 @@ def paste(update, context):
 
 
 __help__ = """
-An "odds and ends" module for small, simple commands which don't really fit anywhere
-
- × /afk <reason>: Mark yourself as AFK.
- × brb <reason>: Same as the afk command - but not a command.
- × /id: Get the current group id. If used by replying to a message, gets that user's id.
- × /info: Get information about a user.
- × /wiki : Search wikipedia articles.
- × /rmeme: Sends random meme scraped from reddit.
- × /ud <query> : Search stuffs in urban dictionary.
- × /wall <query> : Get random wallpapers directly from bot!
- × /reverse : Reverse searches image or stickers on google.
- × /lyrics <query> : You can either enter just the song name or both the artist and song name.
- × /covid <country name>: Give stats about COVID-19.
- × /paste : Paste any text file to Nekobin.
- × /gdpr: Deletes your information from the bot's database. Private chats only.
- × /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
+ ➩ /wiki : Search wikipedia articles.
+ ➩ /getsticker: Reply to a sticker to me to upload its raw PNG file.
+ ➩ /kang: Reply to a sticker to add it to your pack.
+ ➩ /stickerid: Reply to a sticker to me to tell you its file ID.
+ ➩ /rmeme: Sends random meme scraped from reddit.
+ ➩ /ud <query> : Search stuffs in urban dictionary.
+ ➩ /wall <query> : Get random wallpapers directly from bot!
+ ➩ /reverse : Reverse searches image or stickers on google.
+ ➩ /lyrics <query> : You can either enter just the song name or both the artist and song name.
+ ➩ /covid <country name>: Give stats about COVID-19.
+ ➩ /paste : Paste any text file to Nekobin.
+ ➩ /gdpr: Deletes your information from the bot's database. Private chats only.
+ ➩ /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
 *Last.FM*
- × /setuser <username>: sets your last.fm username.
- × /clearuser: removes your last.fm username from the bot's database.
- × /lastfm: returns what you're scrobbling on last.fm.
+ ➩ /setuser <username>: sets your last.fm username.
+ ➩ /clearuser: removes your last.fm username from the bot's database.
+ ➩ /lastfm: returns what you're scrobbling on last.fm.
 """
 
 __mod_name__ = "MISCS"
