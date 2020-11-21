@@ -158,6 +158,10 @@ Writing something about yourself is cool, whether to make people know about your
 promoting your profile.
 
 All bios are displayed on /info command.
+ ➩ /afk <reason>: Mark yourself as AFK.
+ ➩ brb <reason>: Same as the afk command - but not a command.
+ ➩ /id: Get the current group id. If used by replying to a message, gets that user's id.
+ ➩ /info: Get information about a user.
 
  × /setbio <text>: While replying, will save another user's bio
  × /bio: Will get your or another user's bio. This cannot be set by yourself.
