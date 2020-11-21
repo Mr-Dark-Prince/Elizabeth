@@ -36,7 +36,7 @@ def getmusic(get, DEFAULT_AUDIO_QUALITY):
             video_link = link.get("href")
             break
 
-    video_link = "http://www.youtube.com/" + video_link
+    video_link = "http://www.youtube.com/"
     command = (
         "youtube-dl --write-thumbnail --extract-audio --audio-format mp3 --audio-quality " +
         DEFAULT_AUDIO_QUALITY +
