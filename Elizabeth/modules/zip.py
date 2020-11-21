@@ -117,7 +117,7 @@ async def _(event):
         reply_message = await event.get_reply_message()
         try:
             c_time = time.time()
-            downloaded_file_name = await tbot.download_media(
+            downloaded_file_name = await client.download_media(
                 reply_message, TEMP_DOWNLOAD_DIRECTORY
             )
         except Exception as e:  
@@ -159,7 +159,7 @@ async def _(event):
                         )
                     ]
                 try:
-                    await tbot.send_file(
+                    await client.send_file(
                         event.chat_id,
                         single_file,
                         force_document=force_document,
@@ -169,7 +169,7 @@ async def _(event):
                         attributes=document_attributes
                     )
                 except Exception as e:
-                    await tbot.send_message(
+                    await client.send_message(
                         event.chat_id,
                         "{} caused `{}`".format(caption_rts, str(e)),
                         reply_to=event.message.id,
