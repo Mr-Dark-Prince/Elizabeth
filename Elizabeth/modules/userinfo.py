@@ -163,6 +163,8 @@ All bios are displayed on /info command.
  × /bio: Will get your or another user's bio. This cannot be set by yourself.
  × /setme <text>: Will set your info
  × /me: Will get your or another user's info
+× /stickerid: Reply to a sticker to me to tell you its file ID.
+
 
 An example of setting a bio for yourself:
 `/setme I work for Telegram`; Bio is set to yourself.
@@ -173,7 +175,7 @@ Reply to user's message: `/setbio He is such cool person`.
 *Notice:* Do not use /setbio against yourself!
 """
 
-__mod_name__ = "Bios/Abouts"
+__mod_name__ = "INFO"
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
 GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio, pass_args=True)
