@@ -46,7 +46,7 @@ async def _(event):
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
+        reply_message = await event.get_reply_message("🤔 Are you admin?")
         try:
             c_time = time.time()
             downloaded_file_name = await event.client.download_media(
