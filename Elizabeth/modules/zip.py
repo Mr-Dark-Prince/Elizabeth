@@ -42,7 +42,7 @@ async def _(event):
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
        return
    
-    mone = await event.reply()
+    mone = await event.reply("`⏳️Please wait...`")
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
