@@ -1,4 +1,4 @@
-__help__ """
+__help__ = """
  💡 coming soon
 """
 
