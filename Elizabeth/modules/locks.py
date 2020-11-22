@@ -612,16 +612,17 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
+*LOCKING*
 Do stickers annoy you? or want to avoid people sharing links? or pictures? \
 You're in the right place!
 The locks module allows you to lock away some common items in the \
 telegram world; the bot will automatically delete them!
 
- × /locktypes: Lists all possible locktypes
+ ➩ /locktypes: Lists all possible locktypes
 *Admin only:*
- × /lock <type>: Lock items of a certain type (not available in private)
- × /unlock <type>: Unlock items of a certain type (not available in private)
- × /locks: The current list of locks in this chat.
+ ➩ /lock <type>: Lock items of a certain type (not available in private)
+ ➩ /unlock <type>: Unlock items of a certain type (not available in private)
+ ➩ /locks: The current list of locks in this chat.
 
 Locks can be used to restrict a group's users.
 eg:
@@ -632,9 +633,23 @@ Locking bots will stop non-admins from adding bots to the chat.
 Note:
  • Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
  • Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
+
+*DISABLE/ENABLE*
+Not everyone wants every feature that the bot offers. Some commands are best \
+left unused; to avoid spam and abuse.
+
+This allows you to disable some commonly used commands, so noone can use them. \
+It'll also allow you to autodelete them, stopping people from bluetexting.
+
+ ➩ /cmds: Check the current status of disabled commands
+
+*Admin only:*
+ ➩ /enable <cmd name>: Enable that command
+ ➩ /disable <cmd name>: Disable that command
+ ➩ /listcmds: List all possible disablable commands
 """
 
-__mod_name__ = "Locks"
+__mod_name__ = "LOCKING"
 
 LOCKTYPES_HANDLER = DisableAbleCommandHandler("locktypes", locktypes)
 # , filters=Filters.group)
