@@ -5,11 +5,13 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from Elizabeth.events import register
 from Elizabeth import client
-#from google_images_download import google_images_download
 import sys
 import shutil
 from re import findall
+from telethon import *
+from telethon.tl import functions
 from telethon.tl import types
+from telethon.tl.types import *
 import html2text
 
 
