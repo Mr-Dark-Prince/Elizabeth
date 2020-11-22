@@ -689,7 +689,13 @@ __help__ = """
  ➩ /setuser <username>: sets your last.fm username.
  ➩ /clearuser: removes your last.fm username from the bot's database.
  ➩ /lastfm: returns what you're scrobbling on last.fm.
+*Android*
+ ➩ /magisk - Gets the latest magisk release for Stable/Beta/Canary.
+ ➩ /device <codename> - Gets android device basic info from its codename.
+ ➩ /twrp <codename> -  Gets latest twrp for the android device using the codename.
+ ➩ /los <codename> - Gets Latest los build.
 
+ ⚠️ `Read from top`
 """
 
 __mod_name__ = "MISCS"
