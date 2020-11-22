@@ -11,12 +11,6 @@ from Elizabeth import LOGGER, client
 from telethon import types
 from telethon.tl import functions
 
-
-from alexa.events import register
-from alexa import LOGGER, tbot
-from telethon import types
-from telethon.tl import functions
-
 langi = "en"
 
 async def is_register_admin(chat, user):
