@@ -496,7 +496,7 @@ All regex filters can be disabled incase u don't want... like: `/disable metoo`.
 
 """
 
-__mod_name__ = "Memes"
+__mod_name__ = "MEMES"
 
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 DECIDE_HANDLER = DisableAbleMessageHandler(
