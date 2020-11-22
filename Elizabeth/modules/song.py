@@ -14,6 +14,7 @@ from pySmartDL import SmartDL
 from telethon.tl.types import DocumentAttributeVideo, DocumentAttributeAudio
 from telethon import events
 from Elizabeth.events import register
+from Elizabeth.utils import progress
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from validators.url import url
@@ -131,4 +132,30 @@ async def download_video(v_url):
             v_url.chat_id,
             f"{rip_data['id']}.mp3",
             supports_streaming=True,
-            parse_mode="html")
+            attributes=[
+                DocumentAttributeAudio(duration=int(rip_data['duration']),
+                                       title=str(rip_data['title']),
+                                       performer=str(rip_data['uploader']))
+            ],
+            progress_callback=lambda d, t: asyncio.get_event_loop(
+            ).create_task(
+                progress(d, t, v_url, c_time, "Uploading..",
+                         f"{rip_data['title']}.mp3")))
+        os.remove(f"{rip_data['id']}.mp3")
+        await v_url.delete()
+    elif video:
+        await rkp.edit(f"`Preparing to upload song :`\
+        \n**{rip_data['title']}**\
+        \nby *{rip_data['uploader']}*")
+        await v_url.client.send_file(
+            v_url.chat_id,
+            f"{rip_data['id']}.mp4",
+            supports_streaming=True,
+            caption=url,
+            progress_callback=lambda d, t: asyncio.get_event_loop(
+            ).create_task(
+                progress(d, t, v_url, c_time, "Uploading..",
+                         f"{rip_data['title']}.mp4")))
+        os.remove(f"{rip_data['id']}.mp4")
+        await rkp.delete()
+
