@@ -460,18 +460,6 @@ def __chat_settings__(chat_id, user_id):
         sql.does_chat_gban(chat_id))
 
 
-__help__ = """
-*Admin only:*
- × /spamshield <on/off/yes/no>: Will disable or enable the effect of Spam protection in your group.
-
-Spam shield uses Combot Anti Spam, @Spamwatch API and Global bans to remove Spammers as much as possible from your chatroom!
-
-*What is SpamWatch?*
-
-SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bitcoin spammers and unsavoury characters.
-Userbotindobot will constantly help banning spammers off from your group automatically So, you don't have to worry about spammers storming your group[.](https://telegra.ph/file/c1051d264a5b4146bd71e.jpg)
-"""
-
 __mod_name__ = "Spam Shield"
 
 GBAN_HANDLER = CommandHandler(
