@@ -439,7 +439,7 @@ This module allows you to do that easily, by exposing some common actions, so ev
 """
 
 
-__mod_name__ = "RESTRICTING"
+__mod_name__ = "RESTRICT"
 
 BAN_HANDLER = CommandHandler("ban", ban, pass_args=True, filters=Filters.group)
 TEMPBAN_HANDLER = CommandHandler(
