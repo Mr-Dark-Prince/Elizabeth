@@ -1,4 +1,5 @@
 __help__ = """
+ ➩ /imdb <movie name> Get imdb result from imbd.com
  ➩ /google <text input> Gets google search result
  ➩ /song <song name> Get that song from YouTube 
  ➩ /weather <city>: Gets weather information of particular place!
