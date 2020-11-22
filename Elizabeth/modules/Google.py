@@ -9,6 +9,7 @@ from Elizabeth import client
 import sys
 import shutil
 from re import findall
+from telethon.tl import types
 import html2text
 
 
