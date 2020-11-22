@@ -682,10 +682,14 @@ __help__ = """
  ➩ /paste : Paste any text file to Nekobin.
  ➩ /gdpr: Deletes your information from the bot's database. Private chats only.
  ➩ /markdownhelp: Quick summary of how markdown works in telegram - can only be called in private chats.
+ ➩ /tr or /tl: - To translate to your language, by default language is set to english, use `/tr <lang code>` for some other language!
+ ➩ /spell: - As a reply to get grammar corrected text of gibberish message.
+ ➩ /tts: - To some message to convert it into audio format!
 *Last.FM*
  ➩ /setuser <username>: sets your last.fm username.
  ➩ /clearuser: removes your last.fm username from the bot's database.
  ➩ /lastfm: returns what you're scrobbling on last.fm.
+
 """
 
 __mod_name__ = "MISCS"
