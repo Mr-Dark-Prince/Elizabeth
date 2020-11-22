@@ -3,6 +3,7 @@ __help__ = """
  ➩ /google <text input> Gets google search result
  ➩ /img <object> Gets google image results
  ➩ /app <app name> Search application from play store
+ ➩ /phone <full number> Check Details 
  ➩ /song <song name> Get that song from YouTube 
  ➩ /weather <city>: Gets weather information of particular place!
  ➩ /zip: Reply to a telegram file to compressing in .zip format
