@@ -560,22 +560,22 @@ Save data for future users with notes!
 
 Notes are great to save random tidbits of information; a phone number, a nice gif, a funny picture - anything!
 
- × /get <notename>: Get the note with this notename
- × #<notename>: Same as /get
- × /notes or /saved: Lists all saved notes in the chat
+ ➩ /get <notename>: Get the note with this notename
+ ➩ #<notename>: Same as /get
+ ➩ /notes or /saved: Lists all saved notes in the chat
 
 If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can \
 be useful when updating a current note.
 
 *Admin only:*
- × /save <notename> <notedata>: Saves notedata as a note with name notename
+ ➩ /save <notename> <notedata>: Saves notedata as a note with name notename
 A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a \
 `buttonurl:` section, as such: `[somelink](buttonurl:example.com)`. Check /markdownhelp for more info.
- × /save <notename>: Saves the replied message as a note with name notename
- × /clear <notename>: Clears note with this name
+ ➩ /save <notename>: Saves the replied message as a note with name notename
+ ➩ /clear <notename>: Clears note with this name
 
 *Chat creator only:*
- × /rmallnotes: Clear all notes saved in chat at once.
+ ➩ /rmallnotes: Clear all notes saved in chat at once.
 
  An example of how to save a note would be via:
 `/save Data This is some data!`
@@ -589,7 +589,7 @@ Tip: to retrieve a note without the formatting, use /get <notename> noformat
 This will retrieve the note and send it without formatting it; getting you the raw markdown, allowing you to make easy edits.
 """
 
-__mod_name__ = "Notes"
+__mod_name__ = "NOTES"
 
 GET_HANDLER = CommandHandler("get", cmd_get, pass_args=True)
 HASH_GET_HANDLER = MessageHandler(Filters.regex(r"^#[^\s]+"), hash_get)
