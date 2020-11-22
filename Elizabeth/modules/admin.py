@@ -656,6 +656,9 @@ __help__ = """
  ➩ /setdescription: <description> Sets new chat description in group.
  ➩ /del: Deletes the message you replied to
  ➩ /purge: Deletes all messages between this and the replied to message.
+ ➩ /spamshield <on/off/yes/no>: Will disable or enable the effect of Spam protection in your group.
+
+Spam shield uses Combot Anti Spam, @Spamwatch API and Global bans to remove Spammers as much as possible from your chatroom!
 
 
 ◉ *Note*: To set group sticker set chat must needs to have min 100 members.
