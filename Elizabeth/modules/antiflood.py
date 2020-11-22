@@ -370,13 +370,13 @@ Blacklists are used to stop certain triggers from being said in a group. Any tim
 
 *NOTE*: Blacklists do not affect group admins.
 
- × /blacklist: View the current blacklisted words.
+ ➩ /blacklist: View the current blacklisted words.
 
 Admin only:
- × /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
- × /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
- × /rmblacklist <triggers>: Same as above.
- × /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
+ ➩ /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
+ ➩ /unblacklist <triggers>: Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
+ ➩ /rmblacklist <triggers>: Same as above.
+ ➩ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
 
 *FLOOD CONTROL*
 You know how sometimes, people join, send 100 messages, and ruin your chat? With antiflood, that happens no more!
@@ -384,12 +384,12 @@ You know how sometimes, people join, send 100 messages, and ruin your chat? With
 Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood \
 will result in restricting that user.
 
- × /flood: Get the current flood control setting
+ ➩ /flood: Get the current flood control setting
 
 *Admin only*:
 
- × /setflood <int/'no'/'off'>: enables or disables flood control
- × /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
+ ➩ /setflood <int/'no'/'off'>: enables or disables flood control
+ ➩ /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
 
  Note:
  - Value must be filled for tban and tmute!
