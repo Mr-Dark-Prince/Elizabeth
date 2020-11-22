@@ -35,15 +35,6 @@ def getmusic(get, DEFAULT_AUDIO_QUALITY):
         if "/watch?v=" in link.get("href"):
             # May change when Youtube Website may get updated in the future.
             video_link = link.get("href")
-            break
-
-    video_link = "http://www.youtube.com/" + video_link
-    command = (
-        "youtube-dl --write-thumbnail --extract-audio --audio-format mp3 --audio-quality " +
-        DEFAULT_AUDIO_QUALITY +
-        " " +
-        video_link)
-    os.system(command)
 
 
 # For getvideosong
