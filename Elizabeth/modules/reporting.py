@@ -239,7 +239,7 @@ def __user_settings__(user_id):
         sql.user_should_report(user_id))
 
 
-__mod_name__ = "Reporting"
+__mod_name__ = "REPPORTS"
 
 __help__ = """
 We're all busy people who don't have time to monitor our groups 24/7. But how do you \
@@ -249,7 +249,7 @@ Presenting reports; if someone in your group thinks someone needs reporting, the
 an easy way to call all admins.
 
 *Admin only:*
- × /reports <on/off>: Change report setting, or view current status.
+ ➩ /reports <on/off>: Change report setting, or view current status.
    • If done in pm, toggles your status.
    • If in chat, toggles that chat's status.
 
