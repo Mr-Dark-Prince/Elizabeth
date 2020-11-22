@@ -6,7 +6,7 @@ from bing_image_downloader import downloader
 
 
 from Elizabeth import client
-from Elizabeth.Events import register
+from Elizabeth.events import register
 
 
 async def is_register_admin(chat, user):
