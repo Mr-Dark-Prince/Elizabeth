@@ -124,6 +124,7 @@ async def download_video(v_url):
     except Exception as e:
         await rkp.edit(f"{str(type(e)): {str(e)}}")
         return
+    c_time = time.time()
     if song:
         await rkp.edit(f"`Preparing to upload song:`\
         \n**{rip_data['title']}**\
