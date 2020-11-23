@@ -84,9 +84,9 @@
       "value": "",
       "required": true
     },
-    "SPAMWATCH_API": {
-      "description": "Get it from @spamwatchbot.",
-      "value": "",
+    "TEMP_DOWNLOAD_DIRECTORY": {
+      "description": "Do not edit this.",
+      "value": "./",
       "required": false
     },
     "OWNER_USERNAME": {
