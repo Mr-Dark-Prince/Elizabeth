@@ -38,7 +38,7 @@ async def _(event):
        return
 
     start = datetime.now()
-    input_str = event.pattern_match.group(1)
+    input_str = event.pattern_match.group(2)
     input_sgra = input_str.split("-")
     if len(input_sgra) == 3:
         yyyy = input_sgra[0]
