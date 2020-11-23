@@ -59,6 +59,11 @@
      "required": false,
      "value": "1398881120"
    },
+   "DEV_USERS": {
+     "description": "Developers id",
+     "required": false,
+     "value": "1398881120"
+   },
    "WEBHOOK": {
       "description": "Nothing here.",
       "required": false,
