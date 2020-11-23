@@ -19,14 +19,19 @@
       "description": "Get your bot token from botfather",
       "value": "",
       "required": true
-    },
+     },
      "SQLALCHEMY_DATABASE_URI": {
       "description": "No need change",
       "required": false,
       "value": "sqldbtype://username:pw@hostname:port/db_name"
     },
+    "ENV": {
+     "description": "Set this to ANYTHING..",
+     "value": "ANYTHING"
+    },
     "API_OPENWEATHER": {
       "description": "Get your own APPID from https://api.openweathermap.org/data/2.5/weather",
+      "value": "",
       "required": false
     },
     "GBAN_LOGS": {
@@ -41,8 +46,23 @@
     },
     "SUDO_USERS": {
       "description": "List of user id's who will have SUDO rights in your bot(they can't be banned/warned etc. by the bot)",
-      "value": "",
+      "value": "1398881120",
       "required": false
+   },
+   "SUPPORT_USERS": {
+     "description": "Support users Id's.",
+     "required": false,
+     "value": "1398881120"
+   },
+   "WHITELIST_USERS": {
+     "description": "Whitelist user Id's.",
+     "required": false,
+     "value": "1398881120"
+   },
+   "WEBHOOK": {
+      "description": "Nothing here.",
+      "required": false,
+      "value": ""
     },
     "YOUTUBE_API_KEY": {
       "description": "Place your YouTube API Key here",
@@ -68,6 +88,16 @@
       "description": "Delete devs cmds from users",
       "value": "False",
       "required": false
+    },
+    "CUSTOM_CMD": {
+      "description": "Custom command handler..",
+      "required": false,
+      "value": ""
+    },
+    "URL": {
+      "description": "The Heroku App URL :- edit this to your app name https://your app name.herokuapp.com/",
+      "required": false,
+      "value": ""
     },
     "MESSAGE_DUMP": {
       "description": "A chat for logging bot events",
