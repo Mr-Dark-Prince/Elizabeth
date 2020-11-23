@@ -19,8 +19,8 @@
       "description": "Get your bot token from botfather",
       "value": "",
       "required": true
-     },
-     "SQLALCHEMY_DATABASE_URI": {
+    },
+    "SQLALCHEMY_DATABASE_URI": {
       "description": "No need change",
       "required": false,
       "value": "sqldbtype://username:pw@hostname:port/db_name"
@@ -48,11 +48,11 @@
       "description": "List of user id's who will have SUDO rights in your bot(they can't be banned/warned etc. by the bot)",
       "value": "1398881120",
       "required": false
-   },
-   "SUPPORT_USERS": {
-     "description": "Support users Id's.",
-     "required": false,
-     "value": "1398881120"
+    },
+    "SUPPORT_USERS": {
+      "description": "Support users Id's.",
+      "required": false,
+      "value": "1398881120"
    },
    "WHITELIST_USERS": {
      "description": "Whitelist user Id's.",
@@ -61,6 +61,11 @@
    },
    "WEBHOOK": {
       "description": "Nothing here.",
+      "required": false,
+      "value": ""
+    },
+    "PORT": {
+      "description": "No need change.",
       "required": false,
       "value": ""
     },
@@ -118,6 +123,10 @@
       "description": "Get one from https://wall.alphacoders.com/api.php",
       "value": "",
       "required": false
+    },   
+    "ALLOW_EXCL": {
+      "description": "No need change",
+      "value": "True"
     },
     "STRICT_GBAN": {
       "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned",
