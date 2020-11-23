@@ -4,7 +4,8 @@ __help__ = """
  ➩ /img <object> Gets google image results
  ➩ /app <app name> Search application from play store
  ➩ /phone <full number> Check Details 
- ➩ /song <song name> Get that song from YouTube 
+ ➩ /song <song name> or <YouTube link> Get that song from YouTube.
+ ➩ /video <video name> <YouTube link> Get that video from YouTube.
  ➩ /weather <city>: Gets weather information of particular place!
  ➩ /zip: Reply to a telegram file to compressing in .zip format
  ➩ /unzip: Reply to a telegram file to decompress it from the .zip format
