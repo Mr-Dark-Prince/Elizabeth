@@ -66,4 +66,4 @@ __help__ = """
  ➩ /reverse : Reverse searches image or stickers on google.
 """
 
-__mod_name__ = "🌍GOOGLE"
+__mod_name__ = "🌍 GOOGLE"
