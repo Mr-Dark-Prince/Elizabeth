@@ -676,7 +676,6 @@ __help__ = """
  ➩ /rmeme: Sends random meme scraped from reddit.
  ➩ /ud <query> : Search stuffs in urban dictionary.
  ➩ /wall <query> : Get random wallpapers directly from bot!
- ➩ /reverse : Reverse searches image or stickers on google.
  ➩ /lyrics <query> : You can either enter just the song name or both the artist and song name.
  ➩ /covid <country name>: Give stats about COVID-19.
  ➩ /paste : Paste any text file to Nekobin.
