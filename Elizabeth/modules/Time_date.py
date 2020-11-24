@@ -81,13 +81,11 @@ async def _(event):
     if event.fwd_from:
         return
 
-    if event.is_group:
-        if await is_register_admin(event.input_chat, event.message.sender_id):
-            pass
-        elif event.chat_id == iid and event.sender_id == userss:
-            pass
-        else:
+     if event.is_group:
+       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
+          await event.reply("😜 Hai.. You are not admin..🤭 You can't use this command.. But you can use in my pm🙈")
             return
+
     message = event.text
 
     try:
