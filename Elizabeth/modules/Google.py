@@ -63,7 +63,7 @@ __help__ = """
 
  ➩ /img <object> Gets google image results
 
-
+ ➩ /reverse : Reverse searches image or stickers on google.
 """
 
 __mod_name__ = "🌍GOOGLE"
