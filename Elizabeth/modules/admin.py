@@ -23,13 +23,13 @@ from Elizabeth.modules.helper_funcs.chat_status import (
     user_admin,
 )
 from Elizabeth.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from ubotindo.modules.helper_funcs.admin_rights import (
+from Elizabeth.modules.helper_funcs.admin_rights import (
     user_can_pin,
     user_can_promote,
     user_can_changeinfo,
 )
-from ubotindo.modules.helper_funcs.alternate import typing_action
-from ubotindo.modules.connection import connected
+from Elizabeth.modules.helper_funcs.alternate import typing_action
+from Elizabeth.modules.connection import connected
 from Elizabeth.modules.log_channel import loggable
 
 
