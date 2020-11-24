@@ -52,7 +52,9 @@ buttons += [[InlineKeyboardButton(text="🌍 ADD ME TO YOUR GROUP 🌍",
                                   url="t.me/Elizabeth_TgBot?startgroup=true"),
 ]]
 
-buttons += [[InlineKeyboardButton(text="💌 SOURCE CODE HERE 💌",
+buttons += [[InlineKeyboardButton(text="💾SOURCE CODE",
+                                  url="https://github.com/P-RINC-E/ELIZABETH"),
+             InlineKeyboardButton(text="💌 OWNER",
                                   url="https://github.com/P-RINC-E/ELIZABETH"),
 ]]
 
