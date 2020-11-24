@@ -4,7 +4,7 @@ import html
 import json
 import re
 from typing import Optional
-
+import os
 from telegram import Message, Chat, User
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
@@ -39,9 +39,12 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-`Hi.. I'm` *{dispatcher.bot.first_name}*.
-`I'm a group manager bot
-click help button below..`
+Hi.. I'm *{dispatcher.bot.first_name}*.
+The Group Managing bot
+
+You can Use Me Efficiently to Manage Your Groups
+
+For Help Check Out The Buttons Below..
 """
 
 buttons = [[InlineKeyboardButton(text="➡️ Help and Commands ⬅️",
@@ -60,6 +63,7 @@ buttons += [[InlineKeyboardButton(text="🔒 Close the Menu 🔒",
 HELP_STRINGS = f"""
 Click on the buttons below to get documentation about specific modules!"""
 
+START_IMG = "https://telegra.ph/file/bd72857322159140bec6b.jpg"
 
 STAFF_HELP_STRINGS = """Hey there staff users. Nice to see you :)
 Here is all the staff's commands. Users above has the command access for all commands below.
@@ -195,7 +199,7 @@ def start(update, context):
 
         else:
             update.effective_message.reply_photo(
-                "https://telegra.ph/file/bd72857322159140bec6b.jpg"
+                START_IMG,
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
