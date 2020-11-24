@@ -39,8 +39,9 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hi.. I'm [ELIZABETH🍀](https://telegra.ph/file/281aaa468756db0769df0.jpg)
-For Help Check Out The Buttons Below..
+`Hi.. I'm` [ELIZABETH🍀](https://telegra.ph/file/281aaa468756db0769df0.jpg)
+`I'm here to help you manage your groups!
+Click Help button to find out more about how to use me to my full potential..`
 """
 
 buttons = [[InlineKeyboardButton(text="➡️ Help and Commands ⬅️",
@@ -57,7 +58,8 @@ buttons += [[InlineKeyboardButton(text="🔒 Close the Menu 🔒",
 
 
 HELP_STRINGS = f"""
-Click on the buttons below to get documentation about specific modules!"""
+`Hi.. I'm` [ELIZABETH🍀](https://telegra.ph/file/281aaa468756db0769df0.jpg)
+`Click on the buttons below to get documentation about specific modules..`"""
 
 
 STAFF_HELP_STRINGS = """Hey there staff users. Nice to see you :)
