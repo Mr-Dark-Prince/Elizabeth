@@ -42,7 +42,7 @@ PM_START_TEXT = f"""
 Hi.. I'm *{dispatcher.bot.first_name}*.
 The Group Managing bot
 
-You can Use Me Efficiently   to Manage Your Groups
+You can Use Me Efficiently to Manage Your Groups
 
 For Help Check Out The Buttons Below..
 """
@@ -63,7 +63,7 @@ buttons += [[InlineKeyboardButton(text="🔒 Close the Menu 🔒",
 HELP_STRINGS = f"""
 Click on the buttons below to get documentation about specific modules!"""
 
-START_IMG = "https://telegra.ph/file/e3d7a1517f5d9a4c32806.jpg"
+START_IMG = "https://telegra.ph/file/bd72857322159140bec6b.jpg"
 
 STAFF_HELP_STRINGS = """Hey there staff users. Nice to see you :)
 Here is all the staff's commands. Users above has the command access for all commands below.
