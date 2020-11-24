@@ -9,25 +9,6 @@ from telethon import types
 from telethon.tl import functions
 
 
-async def is_register_admin(chat, user):
-    if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
-
-        return isinstance(
-            (await client(functions.channels.GetParticipantRequest(chat, user))).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
-        )
-    elif isinstance(chat, types.InputPeerChat):
-
-        ui = await client.get_peer_id(user)
-        ps = (await client(functions.messages.GetFullChatRequest(chat.chat_id))) \
-            .full_chat.participants.participants
-        return isinstance(
-            next((p for p in ps if p.user_id == ui), None),
-            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
-        )
-    else:
-        return None
-
 def generate_time(to_find: str, findtype: List[str]) -> str:
     data = requests.get(
         f"http://api.timezonedb.com/v2.1/list-time-zone"
@@ -80,11 +61,6 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
 async def _(event):
     if event.fwd_from:
         return
-
-     if event.is_group:
-       if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-          await event.reply("😜 Hai.. You are not admin..🤭 You can't use this command.. But you can use in my pm🙈")
-            return
 
     message = event.text
 
