@@ -39,11 +39,7 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Hi.. I'm *{dispatcher.bot.first_name}*.
-The Group Managing bot
-
-You can Use Me Efficiently to Manage Your Groups
-
+Hi.. I'm [ELIZABETH🍀](https://telegra.ph/file/281aaa468756db0769df0.jpg)
 For Help Check Out The Buttons Below..
 """
 
