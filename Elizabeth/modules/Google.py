@@ -57,3 +57,8 @@ async def _(event):
         output_str += "[{}]({})\n{}\n".format(text, url, last)       
     await event.reply("{}".format(output_str), link_preview=False, parse_mode='Markdown')
 
+
+__help__ = """
+"""
+
+__mod_name__ = "🌍GOOGLE"
