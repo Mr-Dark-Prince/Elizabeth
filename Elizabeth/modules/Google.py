@@ -59,6 +59,11 @@ async def _(event):
 
 
 __help__ = """
+ ➩ /google <text input> Gets google search result
+
+ ➩ /img <object> Gets google image results
+
+
 """
 
 __mod_name__ = "🌍GOOGLE"
