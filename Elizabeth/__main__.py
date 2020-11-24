@@ -194,7 +194,8 @@ def start(update, context):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
+            update.effective_message.reply_photo(
+                "https://telegra.ph/file/bd72857322159140bec6b.jpg"
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
