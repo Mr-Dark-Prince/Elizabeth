@@ -110,6 +110,9 @@ if ENV:
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
+    CASH_API_KEY = os.environ.get("CASH_API_KEY", None)
+    TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
+
 
 else:
     from Elizabeth.config import Development as Config
