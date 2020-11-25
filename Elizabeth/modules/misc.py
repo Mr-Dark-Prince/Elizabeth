@@ -669,6 +669,9 @@ def paste(update, context):
 
 
 __help__ = """
+ ➩ /cash: currency converter
+Example:
+  `/cash 1 USD INR`
  ➩ /wiki : Search wikipedia articles.
  ➩ /getsticker: Reply to a sticker to me to upload its raw PNG file.
  ➩ /kang: Reply to a sticker to add it to your pack.
@@ -697,7 +700,7 @@ __help__ = """
  ⚠️ `Read from top`
 """
 
-__mod_name__ = "MISCS"
+__mod_name__ = "EXTRAS"
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True)
 INFO_HANDLER = DisableAbleCommandHandler("info", info, pass_args=True)
