@@ -64,6 +64,8 @@ __help__ = """
  ➩ /img <object> Gets google image results
 
  ➩ /reverse : Reverse searches image or stickers on google.
+
+ ➩ /gps <location> Get gps location
 """
 
 __mod_name__ = "🌍 GOOGLE"
