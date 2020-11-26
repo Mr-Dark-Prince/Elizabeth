@@ -543,8 +543,10 @@ Spam shield uses Combot Anti Spam, @Spamwatch API and Global bans to remove Spam
 ◉ An example of promoting someone to admins:
  ➩ `/promote @username`; This promotes a user to admins.
 
- ➩ zombies: counts the number of deleted account in your group
- ➩ `zombies clean`: Remove deleted accounts from group..
+ ➩ /zombies: counts the number of deleted account in your group
+ ➩ `/zombies clean`: Remove deleted accounts from group..
+
+ ⚠️ Read from top
 """
 
 __mod_name__ = "ADMINS"
