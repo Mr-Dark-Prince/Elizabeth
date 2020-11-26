@@ -538,11 +538,13 @@ __help__ = """
 
 Spam shield uses Combot Anti Spam, @Spamwatch API and Global bans to remove Spammers as much as possible from your chatroom!
 
-
 ◉ *Note*: To set group sticker set chat must needs to have min 100 members.
 
 ◉ An example of promoting someone to admins:
  ➩ `/promote @username`; This promotes a user to admins.
+
+ ➩ zombies: counts the number of deleted account in your group
+ ➩ `zombies clean`: Remove deleted accounts from group..
 """
 
 __mod_name__ = "ADMINS"
