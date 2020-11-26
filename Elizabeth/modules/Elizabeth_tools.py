@@ -5,9 +5,9 @@ __help__ = """
 
  ➩ /phone <full number> Check Details 
 
- ➩ /song <song name> or <YouTube link> Get that song from YouTube.
+ ➩ /song <songname artist(optional)>: uploads the song in it's best quality available
 
- ➩ /video <video name> or <YouTube link> Get that video from YouTube.
+ ➩ /video <songname artist(optional)>: uploads the video song in it's best quality available
 
  ➩ /weather <city>: Gets weather information of particular place!
 
