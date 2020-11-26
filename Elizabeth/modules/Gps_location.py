@@ -12,7 +12,7 @@ async def is_register_admin(chat, user):
 
         return isinstance(
             (await
-             Client(functions.channels.GetParticipantRequest(chat,
+             client(functions.channels.GetParticipantRequest(chat,
                                                            user))).participant,
             (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
         )
@@ -28,3 +28,32 @@ async def is_register_admin(chat, user):
     return None
 
 GMAPS_LOC = "https://maps.googleapis.com/maps/api/geocode/json"
+
+
+@register(pattern="^/gps (.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    if event.is_group:
+     if not (await is_register_admin(event.input_chat, event.message.sender_id)):
+       await event.reply("😜 Hai.. You are not admin..🤭 You can't use this command.. But you can use in my pm🙈")
+       return
+
+    args = event.pattern_match.group(1)
+
+    try:
+        geolocator = Nominatim(user_agent="SkittBot")
+        location = args
+        geoloc = geolocator.geocode(location)
+        longitude = geoloc.longitude
+        latitude = geoloc.latitude
+        gm = "https://www.google.com/maps/search/{},{}".format(
+            latitude, longitude)
+        await client.send_file(event.chat_id, file=types.InputMediaGeoPoint(types.InputGeoPoint(float(latitude), float(longitude))))
+        await event.reply(
+            "Open with: [Google Maps]({})".format(gm),
+            link_preview=False,
+        )
+    except Exception as e:
+        print(e)
+        await event.reply("I can't find that")
