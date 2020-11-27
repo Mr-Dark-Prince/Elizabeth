@@ -33,6 +33,8 @@ async def edit_or_reply(
     if len(text) < 4096:
         parse_mode = parse_mode or "md"
         if event.reply_to_msg_id:
+            return reply_to_id
+
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview
                 )
