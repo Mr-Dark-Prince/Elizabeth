@@ -46,7 +46,7 @@ def LastOnline(user: User):
 def FullName(user: User):
     return user.first_name + " " + user.last_name if user.last_name else user.first_name
 
-@client.on_message(filters.command('whois'))
+client.on(events.NewMessage(pattern="^/whois"))
 async def whois(client, message):
     cmd = message.command
     if not message.reply_to_message and len(cmd) == 1:
