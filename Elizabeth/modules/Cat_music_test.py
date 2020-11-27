@@ -141,8 +141,8 @@ async def _(event):
         return
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
-    if event.pattern_match.group(2):
-        query = event.pattern_match.group(2)
+    if event.pattern_match.group(1):
+        query = event.pattern_match.group(1)
     elif reply:
         if reply.message:
             query = reply.message
