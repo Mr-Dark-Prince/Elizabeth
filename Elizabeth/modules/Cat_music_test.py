@@ -13,8 +13,6 @@ from validators.url import url
 
 async def reply_id(event):
     reply_to_id = None
-    if event.sender_id
-        reply_to_id = event.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     return reply_to_id
@@ -34,8 +32,8 @@ async def edit_or_reply(
     reply_to = await event.get_reply_message()
     if len(text) < 4096:
         parse_mode = parse_mode or "md"
-        if event.sender_id
-            if reply_to:
+        if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview
                 )
