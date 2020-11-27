@@ -118,7 +118,7 @@ async def _(event):
         except ValueError:
             pass
         try:
-            async with tbot.action(event.chat, 'typing'):
+            async with client.action(event.chat, 'typing'):
                 rep = api_client.think_thought(sesh, query)
                 await event.reply(rep)
         except CFError as e:
