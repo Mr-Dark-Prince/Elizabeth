@@ -4,8 +4,7 @@ import base64
 import os
 from pathlib import Path
 from Elizabeth import client
-from Elizabeth.events import രജിസ്റ്റർ
-from Elizabeth.config import config
+from Elizabeth.events import register
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
@@ -33,7 +32,6 @@ async def edit_or_reply(
     reply_to = await event.get_reply_message()
     if len(text) < 4096:
         parse_mode = parse_mode or "md"
-        if event.sender_id in Config.SUDO_USERS:
             if reply_to:
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview
