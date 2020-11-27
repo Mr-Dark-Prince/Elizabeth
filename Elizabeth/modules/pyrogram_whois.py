@@ -5,6 +5,7 @@ from pyrogram.types import User, Message
 from pyrogram.raw import functions
 from pyrogram.errors import PeerIdInvalid
 from Elizabeth import client
+from Elizabeth.events import register
 
 def ReplyCheck(message: Message):
     reply_id = None
