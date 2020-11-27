@@ -1,4 +1,4 @@
-pyrogram
+
 geopy
 future
 emoji
