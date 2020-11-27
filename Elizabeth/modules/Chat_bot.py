@@ -43,7 +43,7 @@ async def _(event):
     global api_client
     chat = event.chat
     send = await event.get_sender()
-    user = await tbot.get_entity(send)
+    user = await client.get_entity(send)
     is_chat = sql.is_chat(chat.id)
     if not is_chat:
         ses = api_client.create_session()
@@ -65,7 +65,7 @@ async def _(event):
         return
     chat = event.chat
     send = await event.get_sender()
-    user = await tbot.get_entity(send)
+    user = await client.get_entity(send)
     is_chat = sql.is_chat(chat.id)
     if not is_chat:
         await event.reply("AI isn't enabled here in the first place!")
