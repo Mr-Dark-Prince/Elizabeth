@@ -108,6 +108,7 @@ if ENV:
     TELETHON_HASH = os.environ.get("TL_HASH", None)
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
+    LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     CASH_API_KEY = os.environ.get("CASH_API_KEY", None)
