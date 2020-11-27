@@ -1,3 +1,4 @@
+# ported by @P_PRINC_E 
 import asyncio
 import base64
 import os
@@ -188,8 +189,7 @@ async def _(event):
         caption=f"<b><i>➥ Song :- {query}</i></b>\n<b><i>➥ Uploaded by :- {hmention}</i></b>",
         thumb=catthumb,
         supports_streaming=True,
-        parse_mode="html",
-        reply_to=reply_to_id,
+        parse_mode="html"
     )
     await catevent.delete()
     for files in (catthumb, song_file):
