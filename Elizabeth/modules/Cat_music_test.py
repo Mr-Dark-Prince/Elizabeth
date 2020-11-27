@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 from Elizabeth import client
 from Elizabeth.events import register
+from Elizabeth.sample_config import config
 
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
@@ -13,6 +14,8 @@ from validators.url import url
 
 async def reply_id(event):
     reply_to_id = None
+    if event.sender_id in Config.SUDO_USERS:
+        reply_to_id = event.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     return reply_to_id
@@ -32,6 +35,8 @@ async def edit_or_reply(
     reply_to = await event.get_reply_message()
     if len(text) < 4096:
         parse_mode = parse_mode or "md"
+        if event.sender_id in Config.SUDO_USERS:
+            if reply_to:
                 return await reply_to.reply(
                     text, parse_mode=parse_mode, link_preview=link_preview
                 )
@@ -80,6 +85,7 @@ async def edit_or_reply(
     await event.client.send_file(event.chat_id, file_name, caption=caption)
     await event.delete()
     os.remove(file_name)
+
 
 
 async def yt_search(cat):
