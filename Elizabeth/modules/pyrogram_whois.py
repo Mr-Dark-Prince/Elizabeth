@@ -7,6 +7,8 @@ from pyrogram.errors import PeerIdInvalid
 from Elizabeth import client
 from Elizabeth.events import register
 
+from telethon import events
+
 def ReplyCheck(message: Message):
     reply_id = None
 
