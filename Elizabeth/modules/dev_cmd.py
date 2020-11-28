@@ -25,4 +25,4 @@ Here is all the staff's commands.
 × /gbanlist: Get the list of currently gbanned users.
 """
 
-__mod_name__ = "🌳 DEV"
+__mod_name__ = "DEVS"
