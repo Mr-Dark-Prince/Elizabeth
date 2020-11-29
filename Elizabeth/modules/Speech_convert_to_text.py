@@ -100,7 +100,10 @@ async def _(event):
 
 
 __help__ = """
- ➩ /stt: Reply to a voice message to extract text from it...(⚠️ English only)
+
+ ➩ /stt: Reply to a voice message(⚠️ English only) to extract text from it...
 """
 
+
 ___mod_name__ = "SPEECH"
+
