@@ -431,24 +431,7 @@ This allows you to connect to a chat's database, and add things to it without th
  ➩ /helpconnect: List available commands that can be used remotely
 
 *Admin only:*
- ➩ /allowconnect <yes/no>: allow a user to connect to a chat
-
-*Logger*
-Recent actions are nice, but they don't help you log every action taken by the bot. This is why you need log channels!
-
-Log channels can help you keep track of exactly what the other admins are doing. \
-Bans, Mutes, warns, notes - everything can be moderated.
-
-*Admin only:*
-➩ /logchannel: Get log channel info
-➩ /setlog: Set the log channel.
-➩ /unsetlog: Unset the log channel.
-
-Setting the log channel is done by:
-× Add the bot to your channel, as an admin. This is done via the "add administrators" tab.
-× Send /setlog to your channel.
-× Forward the /setlog command to the group you wish to be logged.
-× Congratulations! All is set!
+ ➩ /allowconnect <yes/no>: allow a user to connect to a chat..
 """
 
 CONNECT_CHAT_HANDLER = CommandHandler("connect", connect_chat, pass_args=True)
