@@ -1,7 +1,7 @@
 {
   "name": "Elizabeth_TgBot",
   "description": "A Powerful Telegram Bot written in PTB and Telethon",
-  "logo": "https://telegra.ph/file/e3d7a1517f5d9a4c32806.jpg",
+  "logo": "https://telegra.ph/file/bd72857322159140bec6b.jpg",
   "keywords": ["telegram-bot"],
   "repository": "https://github.com/p-rinc-e/elizabeth.git",
   "env": {
