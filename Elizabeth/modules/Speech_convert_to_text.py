@@ -97,3 +97,10 @@ async def _(event):
             os.remove(required_file_name)
     else:
         await event.reply("Reply to a voice message, to get the text out of it.")
+
+
+__help__ = """
+ ➩ /stt: Reply to a voice message to extract text from it...(⚠️ English only)
+"""
+
+___mod_name__ = "SPEECH"
