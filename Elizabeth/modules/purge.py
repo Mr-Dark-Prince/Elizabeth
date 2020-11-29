@@ -86,4 +86,14 @@ async def delete_msg(event):
     await event.client.delete_messages(chat, remove)
 
 
-__mod_name__ = "Purges"
+__help__ = ""'
+Deleting messages made easy with this command. Bot purges \
+messages all together or individually.
+
+*Admin only:*
+ ➩ /del: Deletes the message you replied to
+ ➩ /purge: Deletes all messages between this and the replied to message.
+"""
+
+
+__mod_name__ = "DELETE"
