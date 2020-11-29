@@ -469,7 +469,7 @@ Admin only:
  ➩ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words.
 """
 
-__mod_name__ = "Blacklists"
+__mod_name__ = "B LIST"
 
 
 BLACKLIST_HANDLER = DisableAbleCommandHandler(
