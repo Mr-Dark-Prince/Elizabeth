@@ -41,7 +41,7 @@ async def _(event):
         return
     if event.is_group:
      if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-       await event.reply("😜 Hai.. You are not admin..🤭 You can't use this command.. But you can use in my pm🙈")
+       await event.reply("😁 Hi.. You are not admin..🤨 You can't use this command.. But you can use in my pm🙈")
        return
 
     start = datetime.now()
