@@ -105,5 +105,5 @@ __help__ = """
 """
 
 
-___mod_name__ = "SPEECH"
+__mod_name__ = "SPEECH"
 
