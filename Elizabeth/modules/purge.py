@@ -86,7 +86,7 @@ async def delete_msg(event):
     await event.client.delete_messages(chat, remove)
 
 
-__help__ = ""'
+__help__ = """
 Deleting messages made easy with this command. Bot purges \
 messages all together or individually.
 
