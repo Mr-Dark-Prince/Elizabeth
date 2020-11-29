@@ -687,10 +687,7 @@ Example:
  ➩ /tr or /tl: - To translate to your language, by default language is set to english, use `/tr <lang code>` for some other language!
  ➩ /spell: - As a reply to get grammar corrected text of gibberish message.
  ➩ /tts: - To some message to convert it into audio format!
-*Last.FM*
- ➩ /setuser <username>: sets your last.fm username.
- ➩ /clearuser: removes your last.fm username from the bot's database.
- ➩ /lastfm: returns what you're scrobbling on last.fm.
+
 *Android*
  ➩ /magisk - Gets the latest magisk release for Stable/Beta/Canary.
  ➩ /device <codename> - Gets android device basic info from its codename.
