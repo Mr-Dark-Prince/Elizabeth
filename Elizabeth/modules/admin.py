@@ -532,8 +532,6 @@ __help__ = """
  ➩ /setgtitle <newtitle>: Sets new chat title in your group.
  ➩ /setsticker: As a reply to some sticker to set it as group sticker set!
  ➩ /setdescription: <description> Sets new chat description in group.
- ➩ /del: Deletes the message you replied to
- ➩ /purge: Deletes all messages between this and the replied to message.
  ➩ /spamshield <on/off/yes/no>: Will disable or enable the effect of Spam protection in your group.
 
 Spam shield uses Combot Anti Spam, @Spamwatch API and Global bans to remove Spammers as much as possible from your chatroom!
