@@ -127,7 +127,7 @@ async def download_video(v_url):
         \n**{ytdl_data['title']}**\
         \nby *{ytdl_data['uploader']}*"
         )
-        await tbot.send_file(
+        await client.send_file(
             v_url.chat_id,
             f"{ytdl_data['id']}.mp3",
             supports_streaming=True,
@@ -148,7 +148,7 @@ async def download_video(v_url):
         \n**{ytdl_data['title']}**\
         \nby *{ytdl_data['uploader']}*"
         )
-        await tbot.send_file(
+        await client.send_file(
             v_url.chat_id,
             f"{ytdl_data['id']}.mp4",
             supports_streaming=True,
