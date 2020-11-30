@@ -100,10 +100,11 @@ async def _(event):
 
 
 __help__ = """
+ ➩ /tts <lang | text>: Returns a speech note of the text provided..
 
  ➩ /stt: Reply to a voice message(⚠️ English only) to extract text from it...
 """
 
 
-__mod_name__ = "SPEECH"
+__mod_name__ = "GTTS"
 
