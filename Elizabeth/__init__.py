@@ -9,7 +9,12 @@ import telegram.ext as tg
 # enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.INFO)
+    handlers=[
+        logging.FileHandler("Elizabeth-log.txt"),
+        logging.StreamHandler(),
+    ],
+    level=logging.INFO,
+)
 
 LOGGER = logging.getLogger(__name__)
 
