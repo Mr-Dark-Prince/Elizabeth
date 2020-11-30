@@ -12,7 +12,7 @@ from psutil import boot_time, cpu_percent, disk_usage, virtual_memory
 from spamwatch import __version__ as __sw__
 from telegram import ParseMode, __version__
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, Filters
+from telegram.ext import CommandHandler, Filters, run_async
 
 from Elizabeth import MESSAGE_DUMP, OWNER_ID, dispatcher
 from Elizabeth.modules.helper_funcs.alternate import typing_action
