@@ -44,7 +44,7 @@ async def download_video(v_url):
        if not (await is_register_admin(event.input_chat, event.message.sender_id)):
           await v_url.reply("😜 Hai.. You are not admin..🤭 You can't use this command.. But you can use in my pm🙈")
           return
-    """ For .ytdl command, download media from YouTube and many other sites. """
+
     url = v_url.pattern_match.group(2)
     type = v_url.pattern_match.group(1).lower()
     lmao = await v_url.reply("`Preparing to download...`")
