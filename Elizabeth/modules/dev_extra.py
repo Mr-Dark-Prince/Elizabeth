@@ -31,7 +31,7 @@ LEAVE_HANDLER = CommandHandler("leave", leave)
 
 dispatcher.add_handler(LEAVE_HANDLER)
 
-__mod_name__ "devss"
+__mod_name__ = "devss"
 
 
 
