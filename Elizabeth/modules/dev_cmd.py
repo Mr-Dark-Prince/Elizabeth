@@ -27,7 +27,9 @@ Here is all the staff's commands.
 *SUPPORT USERS*
 ➩ /gban <userid>: global ban a user.
 ➩ /ungban <userid>: remove currently gbanned user.
-➩ /gbanlist: Get the list of currently gbanned users."""
+➩ /gbanlist: Get the list of currently gbanned users.
+
 """
+
 
 __mod_name__ = "DEVS"
