@@ -170,6 +170,19 @@ def restart(update, context):
     os.system("bash start")
 
 
+@run_async
+@typing_action
+def get_bot_ip(update, context):
+    """Sends the bot's IP address, so as to be able to ssh in if necessary.
+    OWNER ONLY.
+    """
+    res = requests.get("http://ipinfo.io/ip")
+    update.message.reply_text(res.text)
+
+
+IP_HANDLER = CommandHandler(
+    "ip", get_bot_ip, filters=Filters.chat(OWNER_ID)
+)
 PING_HANDLER = CommandHandler(
     "ping", ping, filters=CustomFilters.sudo_filter
 )
@@ -192,6 +205,7 @@ RESTART_HANDLER = CommandHandler(
     "reboot", restart, filters=CustomFilters.dev_filter
 )
 
+dispatcher.add_handler(IP_HANDLER)
 dispatcher.add_handler(SPEED_HANDLER)
 dispatcher.add_handler(PING_HANDLER)
 dispatcher.add_handler(SYS_STATUS_HANDLER)
