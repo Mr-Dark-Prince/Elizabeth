@@ -27,3 +27,11 @@ def leave(update, context):
         update.effective_message.reply_text("Send a valid chat ID")
 
 
+LEAVE_HANDLER = CommandHandler("leave", leave)
+
+dispatcher.add_handler(LEAVE_HANDLER)
+
+__mod_name__ "devss"
+
+
+
