@@ -19,6 +19,7 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 from Elizabeth.modules.helper_funcs.filters import CustomFilters
 
 
+@run_async
 @typing_action
 def leavechat(update, context):
     args = context.args
@@ -47,6 +48,7 @@ def leavechat(update, context):
             return
 
 
+
 @typing_action
 def ping(update, context):
     msg = update.effective_message
@@ -59,7 +61,7 @@ def ping(update, context):
     )
 
 
-
+@run_async
 @typing_action
 def speedtst(update, context):
     message = update.effective_message
@@ -84,6 +86,7 @@ def speedtst(update, context):
     )
 
 
+@run_async
 @typing_action
 def system_status(update, context):
     uptime = datetime.datetime.fromtimestamp(boot_time()).strftime(
@@ -125,6 +128,7 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
+@run_async
 @typing_action
 def gitpull(update, context):
     sent_msg = update.effective_message.reply_text(
@@ -139,6 +143,7 @@ def gitpull(update, context):
     sent_msg.edit_text(sent_msg_text)
 
 
+@run_async
 @typing_action
 def restart(update, context):
     user = update.effective_message.from_user
@@ -166,26 +171,25 @@ def restart(update, context):
 
 
 PING_HANDLER = CommandHandler(
-    "ping", ping, filters=CustomFilters.sudo_filter, run_async=True
+    "ping", ping, filters=CustomFilters.sudo_filter
 )
 SPEED_HANDLER = CommandHandler(
-    "speedtest", speedtst, filters=CustomFilters.sudo_filter, run_async=True
+    "speedtest", speedtst, filters=CustomFilters.sudo_filter
 )
 SYS_STATUS_HANDLER = CommandHandler(
-    "sysinfo", system_status, filters=CustomFilters.dev_filter, run_async=True
+    "sysinfo", system_status, filters=CustomFilters.dev_filter
 )
 LEAVECHAT_HANDLER = CommandHandler(
     ["leavechat", "leavegroup", "leave"],
     leavechat,
     pass_args=True,
-    filters=CustomFilters.dev_filter,
-    run_async=True,
+    filters=CustomFilters.dev_filter
 )
 GITPULL_HANDLER = CommandHandler(
-    "gitpull", gitpull, filters=CustomFilters.dev_filter, run_async=True
+    "gitpull", gitpull, filters=CustomFilters.dev_filter
 )
 RESTART_HANDLER = CommandHandler(
-    "reboot", restart, filters=CustomFilters.dev_filter, run_async=True
+    "reboot", restart, filters=CustomFilters.dev_filter
 )
 
 dispatcher.add_handler(SPEED_HANDLER)
