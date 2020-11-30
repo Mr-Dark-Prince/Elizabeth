@@ -33,3 +33,6 @@ async def is_register_admin(chat, user):
             (types.ChatParticipantAdmin, types.ChatParticipantCreator),
         )
     return None
+
+
+@register(pattern="^/tts (.*)")
