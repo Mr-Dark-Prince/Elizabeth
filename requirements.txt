@@ -16,6 +16,7 @@ pybase64
 feedparser
 html2text
 spotdl
+langdetect==1.0.8
 validators
 pickledb
 redis
