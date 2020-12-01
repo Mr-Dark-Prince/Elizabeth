@@ -3,7 +3,7 @@ import os
 
 import requests
 from emoji import UNICODE_EMOJI
-from googletrans import Translator
+from mtranslate import Translator
 from gtts import gTTS
 from telegram import ChatAction
 from telegram.ext import run_async
@@ -109,7 +109,7 @@ def spellcheck(update, context):
 
 __mod_name__ = "Translate"
 
-# dispatcher.add_handler(DisableAbleCommandHandler(
+dispatcher.add_handler(DisableAbleCommandHandler(
     ["tr", "tl"], gtrans, pass_args=True))
 # dispatcher.add_handler(DisableAbleCommandHandler("tts", gtts, pass_args=True))
 dispatcher.add_handler(DisableAbleCommandHandler("spell", spellcheck))
