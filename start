@@ -1,0 +1,7 @@
+if [ -f Elizabeth.session ]; then
+    kill $(pgrep -f 'python3 -m Elizabeth')
+    rm -f Elizabeth.session-journal Elizabeth.session
+fi
+
+# start
+python3 -m Elizabeth
