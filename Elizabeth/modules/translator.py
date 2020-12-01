@@ -31,7 +31,7 @@ def gtrans(update, context):
         if emoji in translate_text:
             translate_text = translate_text.replace(emoji, "")
 
-    translate = translate()
+    translator = translate()
     try:
         translated = translate.translate(translate_text, dest=lang)
         trl = translated.src
