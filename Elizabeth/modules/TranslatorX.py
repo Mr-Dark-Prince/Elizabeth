@@ -28,4 +28,5 @@ async def _(event):
         await event.reply(translated)
     except Exception as exc:
         print(exc)
-        await event.reply("**Server Error !**\nTry Again.")
+        await event.reply("**Server Error ⚠️**\nTry Again.")
+
