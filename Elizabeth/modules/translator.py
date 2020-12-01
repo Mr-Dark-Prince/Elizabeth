@@ -3,7 +3,7 @@ import os
 
 import requests
 from emoji import UNICODE_EMOJI
-from mtranslate import Translator
+from mtranslate import translate
 from gtts import gTTS
 from telegram import ChatAction
 from telegram.ext import run_async
@@ -31,9 +31,9 @@ def gtrans(update, context):
         if emoji in translate_text:
             translate_text = translate_text.replace(emoji, "")
 
-    translator = Translator()
+    translator = translate()
     try:
-        translated = translator.translate(translate_text, dest=lang)
+        translated = translate.translate(translate_text, dest=lang)
         trl = translated.src
         results = translated.text
         msg.reply_text(
