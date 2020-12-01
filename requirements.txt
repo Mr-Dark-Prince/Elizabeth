@@ -6,7 +6,7 @@ Telethon==1.16.4
 sqlalchemy
 pylast
 python-telegram-bot==12.8
-mtranslate==1.7
+mtranslate
 ffmpeg
 pySmartDL
 youtube-search-python
