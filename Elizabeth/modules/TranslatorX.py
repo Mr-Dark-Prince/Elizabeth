@@ -31,4 +31,3 @@ async def _(event):
     except Exception as exc:
         print(exc)
         await event.reply("**Server Error ⚠️**\nTry Again.")
-
