@@ -13,7 +13,7 @@ from Elizabeth.modules.disable import DisableAbleCommandHandler
 from Elizabeth.modules.helper_funcs.alternate import send_action, typing_action
 
 
-
+@run_async
 @typing_action
 def gtrans(update, context):
     msg = update.effective_message
@@ -31,7 +31,7 @@ def gtrans(update, context):
         if emoji in translate_text:
             translate_text = translate_text.replace(emoji, "")
 
-    translator = translate()
+    translate = translate()
     try:
         translated = translate.translate(translate_text, dest=lang)
         trl = translated.src
