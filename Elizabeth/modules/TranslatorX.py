@@ -36,10 +36,7 @@ async def is_register_admin(chat, user):
 
 @register(pattern="^/tr (.*)")
 async def _(event):
-    if event.is_group:
-     if not (await is_register_admin(event.input_chat, event.message.sender_id)):
-          await event.reply("You are not Admin 😡")
-          return
+
     input_str = event.pattern_match.group(1)
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
