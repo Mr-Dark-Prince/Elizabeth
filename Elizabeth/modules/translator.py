@@ -13,7 +13,7 @@ from Elizabeth.modules.disable import DisableAbleCommandHandler
 from Elizabeth.modules.helper_funcs.alternate import send_action, typing_action
 
 
-@run_async
+
 @typing_action
 def gtrans(update, context):
     msg = update.effective_message
@@ -43,7 +43,7 @@ def gtrans(update, context):
         msg.reply_text("Error! invalid language code.")
 
 
-@run_async
+
 @send_action(ChatAction.RECORD_AUDIO)
 def gtts(update, context):
     msg = update.effective_message
@@ -109,7 +109,7 @@ def spellcheck(update, context):
 
 __mod_name__ = "Translate"
 
-dispatcher.add_handler(DisableAbleCommandHandler(
+# dispatcher.add_handler(DisableAbleCommandHandler(
     ["tr", "tl"], gtrans, pass_args=True))
 # dispatcher.add_handler(DisableAbleCommandHandler("tts", gtts, pass_args=True))
 dispatcher.add_handler(DisableAbleCommandHandler("spell", spellcheck))
