@@ -18,6 +18,7 @@ from telethon.tl.types import *
 @register(pattern="^/tr (.*)")
 async def _(event):
 
+ try:
     input_str = event.pattern_match.group(1)
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
