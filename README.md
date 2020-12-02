@@ -7,6 +7,6 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/p-rinc-e/Elizabeth/graphs/commit-activity)
 
 # <b>DEPLOY TO HEROKU ⬇️.</b>
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/p-rinc-e/elizabeth)
 
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
