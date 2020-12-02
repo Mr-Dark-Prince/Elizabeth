@@ -1,6 +1,6 @@
 # ELIZABETH
 <p align="center">
-    <a href="https://github.com/p-rinc-e/test/commits/master"><img src="https://img.shields.io/github/last-commit/p-rinc-e/test/master?label=Last%20Commit&style=flat-square&logo=github&color=F10070" alt="Commit" /></a>
+    <a href="https://github.com/p-rinc-e/Elizabeth/commits/master"><img src="https://img.shields.io/github/last-commit/p-rinc-e/Elizabeth/master?label=Last%20Commit&style=flat-square&logo=github&color=F10070" alt="Commit" /></a>
 
 
 ![logo](https://telegra.ph/file/bd72857322159140bec6b.jpg)
