@@ -40,20 +40,20 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 PM_START_TEXT = f"""
 `Hi..Welcome` 👀
-`I'm` [ELIZABETH🍀](https://telegra.ph/file/281aaa468756db0769df0.jpg)
-`I'm here to help you manage your groups.. Click Help button to find out more about how to use me to my full potential..`
+`I'm` [BOSS😎](https://telegra.ph/file/6e2abc0a41754d488abb5.jpg)
+`I'm here to help my master don't expect any help 😉.. Click Help button to find out more about how to use me to my full potential..`
 """
 
-buttons = [[InlineKeyboardButton(text="➡️ HELP AND COMMANDS ⬅️",
+buttons = [[InlineKeyboardButton(text="🧐 HELP AND COMMANDS 🧐",
                                   callback_data="help_back"),
 ]]
 
-buttons += [[InlineKeyboardButton(text="🌍 ADD ME TO YOUR GROUP 🌍",
+buttons += [[InlineKeyboardButton(text="⚠️ ADD ME TO YOUR GROUP ⚠️",
                                   url="t.me/Elizabeth_TgBot?startgroup=true"),
 ]]
 
-buttons += [[InlineKeyboardButton(text="💾SOURCE CODE",
-                                  url="https://github.com/P-RINC-E/ELIZABETH"),
+buttons += [[InlineKeyboardButton(text="💎SOURCE CODE",
+                                  url="https://t.me/jacob_paul1"),
              InlineKeyboardButton(text="🌳SUPPORT",
                                   url="https://t.me/ELIZABETH_SUPPORT"),
 ]]
