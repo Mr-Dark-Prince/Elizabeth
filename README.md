@@ -1,7 +1,10 @@
 # ELIZABETH
 <p align="center">
     <a href="https://github.com/p-rinc-e/Elizabeth/commits/master"><img src="https://img.shields.io/github/last-commit/p-rinc-e/Elizabeth/master?label=Last%20Commit&style=flat-square&logo=github&color=F10070" alt="Commit" /></a>
-
+    <a href="https://github.com/p-rinc-e/Elizabeth/stargazers"><img src="https://img.shields.io/github/stars/p-rinc-e/Elizabeth?label=Stars&style=flat-square&logo=github&color=F10070" alt="Stars" /></a>
+    <a href="https://github.com/p-rinc-e/Elizabeth/network/members"><img src="https://img.shields.io/github/forks/p-rinc-e/Elizabeth?label=Fork&style=flat-square&logo=github&color=F10070" alt="Fork" /></a>
+    <a href="https://www.codacy.com/gh/p-rinc-e/Elizabeth/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=p-rinc-e/Elizabeth&amp;utmcampaign=Badge_Grade"><img src="https://img.shields.io/codacy/grade/a3a19d2b551641039ec7edc3aa7b8c5d?style=flat-square&logo=codacy&color=F10070" alt="codacy badge"/></a>
+</p>
 
 ![logo](https://telegra.ph/file/bd72857322159140bec6b.jpg)
 💌 Reach me on Telegram [Elizabeth](https://t.me/Elizabeth_tgbot)
