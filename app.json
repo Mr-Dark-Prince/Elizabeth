@@ -120,7 +120,7 @@
     "MESSAGE_DUMP": {
       "description": "A chat for logging bot events.. ⚠️ Remember :- You must add your bot to that group.. Otherwise telethon modules never works.. Eg songs etc💌",
       "value": "",
-      "required": True
+      "required": true
     },
     "TIME_API_KEY": {
       "description": "Required for timezone information",
