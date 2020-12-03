@@ -16,7 +16,7 @@
       "required": true
     },
     "TOKEN": {
-      "description": "Get your bot token from botfather",
+      "description": "Get your bot token from @botfather",
       "value": "",
       "required": true
     },
@@ -43,7 +43,7 @@
       "required": false
     },
     "GBAN_LOGS": {
-      "description": "The group id for logging all gbans",
+      "description": "The group id for logging all gbans.. ⚠️ Remember:- You must add your bot to that group..",
       "value": "",
       "required": true
     },
@@ -118,9 +118,9 @@
       "value": ""
     },
     "MESSAGE_DUMP": {
-      "description": "A chat for logging bot events",
+      "description": "A chat for logging bot events.. ⚠️ Remember :- You must add your bot to that group.. Otherwise telethon modules never works.. Eg songs etc💌",
       "value": "",
-      "required": false
+      "required": True
     },
     "TIME_API_KEY": {
       "description": "Required for timezone information",
