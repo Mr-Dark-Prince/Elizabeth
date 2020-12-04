@@ -213,7 +213,7 @@ def new_member(update, context):
 
                 context.bot.send_message(
                     MESSAGE_DUMP,
-                    "UserbotindoBot have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>".format(
+                    "Elizabeth have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>".format(
                         chat.title,
                         chat.id),
                     parse_mode=ParseMode.HTML,
