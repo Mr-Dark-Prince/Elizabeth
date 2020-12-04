@@ -266,7 +266,7 @@ def gdpr(update, context):
 
     update.effective_message.reply_text(
         "Your personal data has been deleted.\n\nNote that this will not unban "
-        "you from any chats, as that is telegram data, not UserbotindoBot data. "
+        "you from any chats, as that is telegram data, not Elizabeth_tgbot data. "
         "Flooding, warns, and gbans are also preserved, as of "
         "[this](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-erasure/), "
         "which clearly states that the right to erasure does not apply "
