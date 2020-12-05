@@ -382,7 +382,7 @@ def ud(update, context):
 @typing_action
 def src(update, context):
     update.effective_message.reply_text(
-        "Hey there! You can find what makes me click [here](https://github.com/MoveAngel/UserbotindoBot.git).",
+        "Hey there! You can find what makes me click [here](https://github.com/p-rinc-e/elizabeth.git).",
         parse_mode=ParseMode.MARKDOWN,
         disable_web_page_preview=True,
     )
@@ -718,7 +718,7 @@ STAFFLIST_HANDLER = CommandHandler(
     "staffids", staff_ids, filters=Filters.user(OWNER_ID)
 )
 REDDIT_MEMES_HANDLER = DisableAbleCommandHandler("rmeme", rmemes)
-# SRC_HANDLER = CommandHandler("source", src, filters=Filters.private)
+SRC_HANDLER = CommandHandler("source", src, filters=Filters.private)
 COVID_HANDLER = CommandHandler("covid", covid)
 PASTE_HANDLER = CommandHandler("paste", paste)
 
@@ -734,7 +734,7 @@ dispatcher.add_handler(WIKI_HANDLER)
 dispatcher.add_handler(GETLINK_HANDLER)
 dispatcher.add_handler(STAFFLIST_HANDLER)
 dispatcher.add_handler(REDDIT_MEMES_HANDLER)
-# dispatcher.add_handler(SRC_HANDLER)
+dispatcher.add_handler(SRC_HANDLER)
 dispatcher.add_handler(LYRICS_HANDLER)
 dispatcher.add_handler(COVID_HANDLER)
 dispatcher.add_handler(PASTE_HANDLER)
