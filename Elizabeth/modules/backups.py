@@ -339,9 +339,9 @@ def export_data(update, context):
     context.bot.sendDocument(
         current_chat_id,
         document=open(
-            "Userindo-Bot{}.backup".format(chat_id),
+            "Elizabeth-Bot{}.backup".format(chat_id),
             "rb"),
-        caption="*Successfully backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Userindobot-Backup` is specially made for notes.".format(
+        caption="*Successfully backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Elizabeth-Backup` is specially made for notes.".format(
             chat.title,
             chat_id,
             tgl),
