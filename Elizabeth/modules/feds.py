@@ -1395,10 +1395,10 @@ def fed_ban_list(update, context):
                 backups += json.dumps(json_parser)
                 backups += "\n"
             with BytesIO(str.encode(backups)) as output:
-                output.name = "Userbotindobot_fbanned_users.json"
+                output.name = "Elizabeth_fbanned_users.json"
                 update.effective_message.reply_document(
                     document=output,
-                    filename="UserbotIndo_fbanned_users.json",
+                    filename="Elizabeth_fbanned_users.json",
                     caption="Total {} User are blocked by the Federation {}.".format(
                         len(getfban),
                         info["fname"]),
@@ -1439,10 +1439,10 @@ def fed_ban_list(update, context):
                     ))
                 backups += "\n"
             with BytesIO(str.encode(backups)) as output:
-                output.name = "Userbotindobot_fbanned_users.csv"
+                output.name = "Elizabeth_fbanned_users.csv"
                 update.effective_message.reply_document(
                     document=output,
-                    filename="Userbotindobot_fbanned_users.csv",
+                    filename="Elizabeth_fbanned_users.csv",
                     caption="Total {} User are blocked by Federation {}.".format(
                         len(getfban),
                         info["fname"]),
