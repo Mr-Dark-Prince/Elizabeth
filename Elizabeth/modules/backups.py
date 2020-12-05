@@ -7,15 +7,15 @@ from telegram import ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-# from Elizabeth.modules.sql import warns_sql as warnssql
+from Elizabeth.modules.sql import warns_sql as warnssql
 import Elizabeth.modules.sql.blacklist_sql as blacklistsql
 
-# from Elizabeth.modules.sql import cust_filters_sql as filtersql
-# import Elizabeth.modules.sql.welcome_sql as welcsql
+from Elizabeth.modules.sql import cust_filters_sql as filtersql
+import Elizabeth.modules.sql.welcome_sql as welcsql
 import Elizabeth.modules.sql.locks_sql as locksql
 import Elizabeth.modules.sql.notes_sql as sql
 
-# from Elizabeth.modules.rules import get_rules
+from Elizabeth.modules.rules import get_rules
 import Elizabeth.modules.sql.rules_sql as rulessql
 from Elizabeth import DEV_USERS, LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher
 from Elizabeth.__main__ import DATA_IMPORT
