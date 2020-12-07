@@ -58,7 +58,7 @@ I have lots of handy features ☺️ such as :
 • flood control.         • Note'S keeping system.
 • Warning System.   • Predetermined Filters.
 
-*Managed With ❤️ By :* [UserbotIndo Team](https://t.me/userbotindo)
+*Managed With ❤️ By :* [༄ᶦᶰᵈ᭄𖤓𝐏 𝐑 𝐈 𝐍 𝐂 𝐄™ 🇮🇳](https://t.me/p_rinc_e)
 
 Wanna Add me to your Group? Just click the button below!
 """
@@ -66,10 +66,10 @@ Wanna Add me to your Group? Just click the button below!
 buttons = [
     [
         InlineKeyboardButton(
-            text="Add to Group 👥", url="t.me/userbotindobot?startgroup=true"
+            text="Add to Group 👥", url="t.me/elizabeth_tgbot?startgroup=true"
         ),
         InlineKeyboardButton(
-            text="Gban Logs 🚫", url="https://t.me/UserIndoBotBannedLog"
+            text="Gban Logs 🚫", url="https://t.me/telegram"
         ),
     ]
 ]
@@ -82,7 +82,7 @@ buttons += [
             url=f"t.me/{dispatcher.bot.username}?start=help",
         ),
         InlineKeyboardButton(
-            text="Support Group 🎗️", url="https://t.me/userbotindo"
+            text="Support Group 🎗️", url="https://t.me/Elizabeth_Support"
         ),
     ]
 ]
@@ -259,7 +259,7 @@ def start(update, context):
 
         else:
             update.effective_message.reply_photo(
-                "https://i.ibb.co/zJdLsyg/Userindobot.png",
+                "https://telegra.ph/file/bd72857322159140bec6b.jpg",
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
@@ -351,7 +351,7 @@ def help_button(update, context):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⬅️ Back", callback_data="help_back"
+                                text="⬅️Go Back⬅️", callback_data="help_back"
                             )
                         ]
                     ]
