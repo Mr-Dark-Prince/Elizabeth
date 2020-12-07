@@ -15,9 +15,10 @@ FILENAME = __name__.rsplit(".", 1)[-1]
 
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
-    from telegram.ext.dispatcher import run_async
-
-    from Elizabeth.modules.helper_funcs.chat_status import is_user_admin, user_admin
+    from Elizabeth.modules.helper_funcs.chat_status import (
+        is_user_admin,
+        user_admin,
+    )
     from Elizabeth.modules.sql import disable_sql as sql
 
     DISABLE_CMDS = []
@@ -52,7 +53,8 @@ if is_module_loaded(FILENAME):
 
                         if not (
                             command[0].lower() in self.command
-                            and command[1].lower() == message.bot.username.lower()
+                            and command[1].lower()
+                            == message.bot.username.lower()
                         ):
                             return None
 
@@ -62,11 +64,14 @@ if is_module_loaded(FILENAME):
                             user = update.effective_user
                             # disabled, admincmd, user admin
                             if sql.is_command_disabled(
-                                    chat.id, command[0].lower()):
+                                chat.id, command[0].lower()
+                            ):
                                 # check if command was disabled
                                 is_disabled = command[
                                     0
-                                ] in ADMIN_CMDS and is_user_admin(chat, user.id)
+                                ] in ADMIN_CMDS and is_user_admin(
+                                    chat, user.id
+                                )
                                 if not is_disabled:
                                     return None
                                 else:
@@ -89,7 +94,6 @@ if is_module_loaded(FILENAME):
                     chat.id, self.friendly
                 )
 
-    @run_async
     @user_admin
     @typing_action
     def disable(update, context):
@@ -124,18 +128,21 @@ if is_module_loaded(FILENAME):
                     )
                 else:
                     text = "Disabled the use of `{}` command!".format(
-                        disable_cmd)
-                send_message(update.effective_message, text,
-                             parse_mode=ParseMode.MARKDOWN)
-            else:
+                        disable_cmd
+                    )
                 send_message(
                     update.effective_message,
-                    "This command can't be disabled")
+                    text,
+                    parse_mode=ParseMode.MARKDOWN,
+                )
+            else:
+                send_message(
+                    update.effective_message, "This command can't be disabled"
+                )
 
         else:
             send_message(update.effective_message, "What should I disable?")
 
-    @run_async
     @user_admin
     @typing_action
     def enable(update, context):
@@ -170,18 +177,21 @@ if is_module_loaded(FILENAME):
                     )
                 else:
                     text = "Enabled the use of `{}` command!".format(
-                        enable_cmd)
-                send_message(update.effective_message, text,
-                             parse_mode=ParseMode.MARKDOWN)
-            else:
+                        enable_cmd
+                    )
                 send_message(
                     update.effective_message,
-                    "Is that even disabled?")
+                    text,
+                    parse_mode=ParseMode.MARKDOWN,
+                )
+            else:
+                send_message(
+                    update.effective_message, "Is that even disabled?"
+                )
 
         else:
             send_message(update.effective_message, "What should I enable?")
 
-    @run_async
     @user_admin
     # @typing_action
     def list_cmds(update, context):
@@ -206,9 +216,9 @@ if is_module_loaded(FILENAME):
         for cmd in disabled:
             result += " - `{}`\n".format(escape_markdown(cmd))
         return "The following commands are currently restricted:\n{}".format(
-            result)
+            result
+        )
 
-    @run_async
     @typing_action
     def commands(update, context):
         chat = update.effective_chat
@@ -226,8 +236,9 @@ if is_module_loaded(FILENAME):
             chat = update.effective_chat
 
         text = build_curr_disabled(chat.id)
-        send_message(update.effective_message, text,
-                     parse_mode=ParseMode.MARKDOWN)
+        send_message(
+            update.effective_message, text, parse_mode=ParseMode.MARKDOWN
+        )
 
     def __import_data__(chat_id, data):
         disabled = data.get("disabled", {})
@@ -245,37 +256,34 @@ if is_module_loaded(FILENAME):
     def __chat_settings__(chat_id, user_id):
         return build_curr_disabled(chat_id)
 
+    __mod_name__ = "Disabling"
 
     __help__ = """
-    *DISABLE/ENABLE*
-    Not everyone wants every feature that the bot offers. Some commands are best \
-    left unused; to avoid spam and abuse.
+Not everyone wants every feature that the bot offers. Some commands are best \
+left unused; to avoid spam and abuse.
 
-    This allows you to disable some commonly used commands, so noone can use them. \
-    It'll also allow you to autodelete them, stopping people from bluetexting.
+This allows you to disable some commonly used commands, so noone can use them. \
+It'll also allow you to autodelete them, stopping people from bluetexting.
 
-    ➩ /cmds: Check the current status of disabled commands
+ × /cmds: Check the current status of disabled commands
 
-    *Admin only:*
-    ➩ /enable <cmd name>: Enable that command
-    ➩ /disable <cmd name>: Disable that command
-    ➩ /listcmds: List all possible disablable commands
+*Admin only:*
+ × /enable <cmd name>: Enable that command
+ × /disable <cmd name>: Disable that command
+ × /listcmds: List all possible disablable commands
     """
-   
-    __mod_name__ = "DISABLE"
-
 
     DISABLE_HANDLER = CommandHandler(
-        "disable", disable, pass_args=True
-    )  # , filters=Filters.group)
+        "disable", disable, pass_args=True, run_async=True
+    )  # , filters=Filters.chat_type.groups)
     ENABLE_HANDLER = CommandHandler(
-        "enable", enable, pass_args=True
-    )  # , filters=Filters.group)
+        "enable", enable, pass_args=True, run_async=True
+    )  # , filters=Filters.chat_type.groups)
     COMMANDS_HANDLER = CommandHandler(
-        ["cmds", "disabled"], commands
-    )  # , filters=Filters.group)
-    # , filters=Filters.group)
-    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds)
+        ["cmds", "disabled"], commands, run_async=True
+    )  # , filters=Filters.chat_type.groups)
+    # , filters=Filters.chat_type.groups)
+    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds, run_async=True)
 
     dispatcher.add_handler(DISABLE_HANDLER)
     dispatcher.add_handler(ENABLE_HANDLER)

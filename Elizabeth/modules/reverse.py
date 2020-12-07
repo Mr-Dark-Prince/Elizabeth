@@ -6,7 +6,6 @@ from urllib.error import HTTPError, URLError
 import requests
 from bs4 import BeautifulSoup
 from telegram import InputMediaPhoto, TelegramError
-from telegram.ext import run_async
 
 from Elizabeth import dispatcher
 from Elizabeth.modules.disable import DisableAbleCommandHandler
@@ -18,7 +17,6 @@ useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 opener.addheaders = [("User-agent", useragent)]
 
 
-@run_async
 @typing_action
 def reverse(update, context):
     if os.path.isfile("okgoogle.png"):
@@ -81,7 +79,8 @@ def reverse(update, context):
             return
         except ValueError as VE:
             msg.reply_text(
-                f"{VE}\nPlease try again using http or https protocol.")
+                f"{VE}\nPlease try again using http or https protocol."
+            )
             return
     else:
         msg.reply_markdown(
@@ -96,9 +95,8 @@ def reverse(update, context):
             "image_content": "",
         }
         response = requests.post(
-            searchUrl,
-            files=multipart,
-            allow_redirects=False)
+            searchUrl, files=multipart, allow_redirects=False
+        )
         fetchUrl = response.headers["Location"]
 
         if response != 400:
@@ -112,7 +110,8 @@ def reverse(update, context):
             xx = context.bot.send_message(
                 chat_id,
                 "Google told me to go away.",
-                reply_to_message_id=rtmid)
+                reply_to_message_id=rtmid,
+            )
             return
 
         os.remove(imagename)
@@ -139,7 +138,6 @@ def reverse(update, context):
                 f"[{guess}]({fetchUrl})\n[Visually similar images]({imgspage})"
                 "\nCouldn't fetch any images.",
                 parse_mode="Markdown",
-                disable_web_page_preview=True,
             )
             return
 
@@ -176,8 +174,10 @@ def ParseSauce(googleurl):
         pass
 
     for similar_image in soup.findAll("input", {"class": "gLFyf"}):
-        url = "https://www.google.com/search?tbm=isch&q=" + \
-            urllib.parse.quote_plus(similar_image.get("value"))
+        url = (
+            "https://www.google.com/search?tbm=isch&q="
+            + urllib.parse.quote_plus(similar_image.get("value"))
+        )
         results["similar_images"] = url
 
     for best_guess in soup.findAll("div", attrs={"class": "r5a77d"}):
@@ -210,7 +210,7 @@ def scam(imgspage, lim):
 
 
 REVERSE_HANDLER = DisableAbleCommandHandler(
-    "reverse", reverse, pass_args=True, admin_ok=True
+    "reverse", reverse, pass_args=True, admin_ok=True, run_async=True
 )
 
 dispatcher.add_handler(REVERSE_HANDLER)

@@ -10,43 +10,30 @@ import requests
 import speedtest
 from psutil import boot_time, cpu_percent, disk_usage, virtual_memory
 from spamwatch import __version__ as __sw__
+from telethon import __version__, version
 from telegram import ParseMode, __version__
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, Filters, run_async
+from telegram.ext import CommandHandler, Filters
 
 from Elizabeth import MESSAGE_DUMP, OWNER_ID, dispatcher
 from Elizabeth.modules.helper_funcs.alternate import typing_action
 from Elizabeth.modules.helper_funcs.filters import CustomFilters
 
 
-@run_async
 @typing_action
 def leavechat(update, context):
+    bot = context.bot
     args = context.args
-    msg = update.effective_message
     if args:
-        chat_id = int(args[0])
-
+        chat_id = str(args[0])
+        del args[0]
+        try:
+            bot.leave_chat(int(chat_id))
+            update.effective_message.reply_text("Left the group successfully!")
+        except telegram.TelegramError:
+            update.effective_message.reply_text("Attempt failed.")
     else:
-        msg.reply_text("Bro.. Give Me ChatId And boom!!")
-    try:
-        titlechat = context.bot.get_chat(chat_id).title
-        context.bot.sendMessage(
-            chat_id,
-            "I'm here trying to survive, but this world is too cruel, goodbye everyone 😌",
-        )
-        context.bot.leaveChat(chat_id)
-        msg.reply_text("I have left the group {}".format(titlechat))
-
-    except BadRequest as excp:
-        if excp.message == "bot is not a member of the supergroup chat":
-            msg = update.effective_message.reply_text(
-                "I'Am not Joined The Group, Maybe You set wrong id or I Already Kicked out"
-            )
-
-        else:
-            return
-
+        update.effective_message.reply_text("Give me a valid chat id")
 
 
 @typing_action
@@ -61,7 +48,15 @@ def ping(update, context):
     )
 
 
-@run_async
+@typing_action
+def get_bot_ip(update, context):
+    """Sends the bot's IP address, so as to be able to ssh in if necessary.
+    OWNER ONLY.
+    """
+    res = requests.get("http://ipinfo.io/ip")
+    update.message.reply_text(res.text)
+
+
 @typing_action
 def speedtst(update, context):
     message = update.effective_message
@@ -86,7 +81,6 @@ def speedtst(update, context):
     )
 
 
-@run_async
 @typing_action
 def system_status(update, context):
     uptime = datetime.datetime.fromtimestamp(boot_time()).strftime(
@@ -110,8 +104,9 @@ def system_status(update, context):
     status += "<b>Ram usage:</b> <code>" + str(mem[2]) + " %</code>\n"
     status += "<b>Storage used:</b> <code>" + str(disk[3]) + " %</code>\n\n"
     status += "<b>Python version:</b> <code>" + python_version() + "</code>\n"
-    status += "<b>Library version:</b> <code>" + str(__version__) + "</code>\n"
-    status += "<b>Spamwatch API:</b> <code>" + str(__sw__) + "</code>\n"
+    status += "<b>PTB Lib version:</b> <code>" + str(__version__) + "</code>\n"
+    status += "<b>Telethon Lib Version:</b> <code>" + (version.__version__) + "</code>\n"
+    status += "<b>Spamwatch API:</b> <code>" + str(__sw__) + "</code>"
     context.bot.sendMessage(
         update.effective_chat.id, status, parse_mode=ParseMode.HTML
     )
@@ -128,7 +123,6 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@run_async
 @typing_action
 def gitpull(update, context):
     sent_msg = update.effective_message.reply_text(
@@ -143,7 +137,6 @@ def gitpull(update, context):
     sent_msg.edit_text(sent_msg_text)
 
 
-@run_async
 @typing_action
 def restart(update, context):
     user = update.effective_message.from_user
@@ -170,39 +163,30 @@ def restart(update, context):
     os.system("bash start")
 
 
-@run_async
-@typing_action
-def get_bot_ip(update, context):
-    """Sends the bot's IP address, so as to be able to ssh in if necessary.
-    OWNER ONLY.
-    """
-    res = requests.get("http://ipinfo.io/ip")
-    update.message.reply_text(res.text)
-
-
 IP_HANDLER = CommandHandler(
-    "ip", get_bot_ip, filters=Filters.chat(OWNER_ID)
+    "ip", get_bot_ip, filters=Filters.chat(OWNER_ID), run_async=True
 )
 PING_HANDLER = CommandHandler(
-    "ping", ping, filters=CustomFilters.sudo_filter
+    "ping", ping, filters=CustomFilters.sudo_filter, run_async=True
 )
 SPEED_HANDLER = CommandHandler(
-    "speedtest", speedtst, filters=CustomFilters.sudo_filter
+    "speedtest", speedtst, filters=CustomFilters.sudo_filter, run_async=True
 )
 SYS_STATUS_HANDLER = CommandHandler(
-    "sysinfo", system_status, filters=CustomFilters.dev_filter
+    "sysinfo", system_status, filters=CustomFilters.dev_filter, run_async=True
 )
 LEAVECHAT_HANDLER = CommandHandler(
     ["leavechat", "leavegroup", "leave"],
     leavechat,
     pass_args=True,
-    filters=CustomFilters.dev_filter
+    filters=CustomFilters.dev_filter,
+    run_async=True,
 )
 GITPULL_HANDLER = CommandHandler(
-    "gitpull", gitpull, filters=CustomFilters.dev_filter
+    "gitpull", gitpull, filters=CustomFilters.dev_filter, run_async=True
 )
 RESTART_HANDLER = CommandHandler(
-    "reboot", restart, filters=CustomFilters.dev_filter
+    "reboot", restart, filters=CustomFilters.dev_filter, run_async=True
 )
 
 dispatcher.add_handler(IP_HANDLER)

@@ -2,7 +2,6 @@ import html
 from typing import Optional
 
 from telegram import MAX_MESSAGE_LENGTH, Message, ParseMode, User
-from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import escape_markdown
 
 import Elizabeth.modules.sql.userinfo_sql as sql
@@ -12,7 +11,6 @@ from Elizabeth.modules.helper_funcs.alternate import typing_action
 from Elizabeth.modules.helper_funcs.extraction import extract_user
 
 
-@run_async
 @typing_action
 def about_me(update, context):
     message = update.effective_message  # type: Optional[Message]
@@ -42,7 +40,6 @@ def about_me(update, context):
         )
 
 
-@run_async
 @typing_action
 def set_about_me(update, context):
     message = update.effective_message  # type: Optional[Message]
@@ -69,7 +66,6 @@ def set_about_me(update, context):
             )
 
 
-@run_async
 @typing_action
 def about_bio(update, context):
     message = update.effective_message  # type: Optional[Message]
@@ -95,10 +91,10 @@ def about_bio(update, context):
         )
     else:
         update.effective_message.reply_text(
-            " Your bio  about you has been saved !")
+            " Your bio  about you has been saved !"
+        )
 
 
-@run_async
 @typing_action
 def set_about_bio(update, context):
     message = update.effective_message  # type: Optional[Message]
@@ -108,7 +104,8 @@ def set_about_bio(update, context):
         user_id = repl_message.from_user.id
         if user_id == message.from_user.id:
             message.reply_text(
-                "Are you looking to change your own ... ?? That 's it.")
+                "Are you looking to change your own ... ?? That 's it."
+            )
             return
         elif user_id == context.bot.id and sender.id not in DEV_USERS:
             message.reply_text("Only DEV USERS can change my information.")
@@ -136,7 +133,8 @@ def set_about_bio(update, context):
                 )
     else:
         message.reply_text(
-            " His bio can only be saved if someone MESSAGE as a REPLY")
+            " His bio can only be saved if someone MESSAGE as a REPLY"
+        )
 
 
 def __user_info__(user_id):
@@ -144,7 +142,8 @@ def __user_info__(user_id):
     me = html.escape(sql.get_user_me_info(user_id) or "")
     if bio and me:
         return "<b>About user:</b>\n{me}\n\n<b>What others say:</b>\n{bio}".format(
-            me=me, bio=bio)
+            me=me, bio=bio
+        )
     elif bio:
         return "<b>What others say:</b>\n{bio}\n".format(me=me, bio=bio)
     elif me:
@@ -154,14 +153,15 @@ def __user_info__(user_id):
 
 
 __help__ = """
- ➩ /info: Get information about a user.
- ➩ /id: Get the current group id. If used by replying to a message, gets that user's id. 
- ➩ /afk <reason>: Mark yourself as AFK.
- ➩ brb <reason>: Same as the afk command - but not a command.
- ➩ /setbio <text>: While replying, will save another user's bio
- ➩ /bio: Will get your or another user's bio. This cannot be set by yourself.
- ➩ /setme <text>: Will set your info
- ➩ /me: Will get your or another user's info
+Writing something about yourself is cool, whether to make people know about yourself or \
+promoting your profile.
+
+All bios are displayed on /info command.
+
+ × /setbio <text>: While replying, will save another user's bio
+ × /bio: Will get your or another user's bio. This cannot be set by yourself.
+ × /setme <text>: Will set your info
+ × /me: Will get your or another user's info
 
 An example of setting a bio for yourself:
 `/setme I work for Telegram`; Bio is set to yourself.
@@ -172,13 +172,21 @@ Reply to user's message: `/setbio He is such cool person`.
 *Notice:* Do not use /setbio against yourself!
 """
 
-__mod_name__ = "INFO"
+__mod_name__ = "Bios/Abouts"
 
-SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
-GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio, pass_args=True)
+SET_BIO_HANDLER = DisableAbleCommandHandler(
+    "setbio", set_about_bio, run_async=True
+)
+GET_BIO_HANDLER = DisableAbleCommandHandler(
+    "bio", about_bio, pass_args=True, run_async=True
+)
 
-SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me)
-GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me, pass_args=True)
+SET_ABOUT_HANDLER = DisableAbleCommandHandler(
+    "setme", set_about_me, run_async=True
+)
+GET_ABOUT_HANDLER = DisableAbleCommandHandler(
+    "me", about_me, pass_args=True, run_async=True
+)
 
 dispatcher.add_handler(SET_BIO_HANDLER)
 dispatcher.add_handler(GET_BIO_HANDLER)

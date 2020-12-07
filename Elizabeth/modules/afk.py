@@ -3,7 +3,7 @@ from time import sleep
 
 from telegram import MessageEntity
 from telegram.error import BadRequest
-from telegram.ext import Filters, MessageHandler, run_async
+from telegram.ext import Filters, MessageHandler
 
 import Elizabeth.modules.helper_funcs.fun_strings as fun
 from Elizabeth import dispatcher
@@ -18,9 +18,15 @@ AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
 
-@run_async
 def afk(update, context):
     args = update.effective_message.text.split(None, 1)
+
+    if not update.effective_user.id:
+        return
+
+    if update.effective_user.id in (777000, 1087968824):
+        return
+
     notice = ""
     if len(args) >= 2:
         reason = args[1]
@@ -34,14 +40,15 @@ def afk(update, context):
     afkstr = random.choice(fun.AFK)
     msg = update.effective_message
     afksend = msg.reply_text(
-        afkstr.format(
-            update.effective_user.first_name,
-            notice))
+        afkstr.format(update.effective_user.first_name, notice)
+    )
     sleep(5)
-    afksend.delete()
+    try:
+        afksend.delete()
+    except BadRequest:
+        return
 
 
-@run_async
 def no_longer_afk(update, context):
     user = update.effective_user
     message = update.effective_message
@@ -67,14 +74,14 @@ def no_longer_afk(update, context):
             ]
             chosen_option = random.choice(options)
             unafk = update.effective_message.reply_text(
-                chosen_option.format(firstname))
+                chosen_option.format(firstname)
+            )
             sleep(10)
             unafk.delete()
         except BaseException:
             return
 
 
-@run_async
 def reply_afk(update, context):
     bot = context.bot
     message = update.effective_message
@@ -99,7 +106,7 @@ def reply_afk(update, context):
 
             if ent.type == MessageEntity.MENTION:
                 user_id = get_user_id(
-                    message.text[ent.offset: ent.offset + ent.length]
+                    message.text[ent.offset : ent.offset + ent.length]
                 )
                 if not user_id:
                     # Should never happen, since for a user to become AFK they
@@ -139,31 +146,46 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             if int(userc_id) == int(user_id):
                 return
             res = "{} is afk".format(fst_name)
-            noreason = update.effective_message.reply_text(res)
-            sleep(10)
-            noreason.delete()
+            replafk = update.effective_message.reply_text(res)
         else:
             if int(userc_id) == int(user_id):
                 return
             res = "<b>{}</b> is away from keyboard! says it's because of <b>Reason:</b> <code>{}</code>".format(
-                fst_name, user.reason)
+                fst_name, user.reason
+            )
             replafk = update.effective_message.reply_text(
-                res, parse_mode="html")
-            sleep(10)
+                res, parse_mode="html"
+            )
+        sleep(10)
+        try:
             replafk.delete()
+        except BadRequest:
+            return
 
 
 def __gdpr__(user_id):
     sql.rm_afk(user_id)
 
 
-AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
+__help__ = """
+When marked as AFK, any mentions will be replied to with a message to say you're not available!
+
+ × /afk <reason>: Mark yourself as AFK.
+ × brb <reason>: Same as the afk command - but not a command.
+"""
+
+
+AFK_HANDLER = DisableAbleCommandHandler("afk", afk, run_async=True)
 AFK_REGEX_HANDLER = DisableAbleMessageHandler(
-    Filters.regex("(?i)brb"), afk, friendly="afk"
+    Filters.regex("(?i)brb"), afk, friendly="afk", run_async=True
 )
-NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.group, no_longer_afk)
+NO_AFK_HANDLER = MessageHandler(
+    Filters.all & Filters.chat_type.groups, no_longer_afk, run_async=True
+)
 AFK_REPLY_HANDLER = MessageHandler(
-    Filters.all & Filters.group & ~Filters.update.edited_message, reply_afk
+    Filters.all & Filters.chat_type.groups & ~Filters.update.edited_message,
+    reply_afk,
+    run_async=True,
 )
 
 

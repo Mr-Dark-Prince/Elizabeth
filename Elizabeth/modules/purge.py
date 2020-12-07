@@ -27,13 +27,15 @@ async def purge(event):
     chat = event.chat_id
     msgs = []
 
-    if not await is_administrator(user_id=event.from_id, message=event):
+    if not await is_administrator(user_id=event.sender_id, message=event):
         await event.reply("You're not an admin!")
         return
 
     msg = await event.get_reply_message()
     if not msg:
-        await event.reply("Reply to a message to select where to start purging from.")
+        await event.reply(
+            "Reply to a message to select where to start purging from."
+        )
         return
 
     try:
@@ -71,7 +73,7 @@ async def purge(event):
 @client.on(events.NewMessage(pattern="^/del$"))
 async def delete_msg(event):
 
-    if not await is_administrator(user_id=event.from_id, message=event):
+    if not await is_administrator(user_id=event.sender_id, message=event):
         await event.reply("You're not an admin!")
         return
 
@@ -91,9 +93,8 @@ Deleting messages made easy with this command. Bot purges \
 messages all together or individually.
 
 *Admin only:*
- ➩ /del: Deletes the message you replied to
- ➩ /purge: Deletes all messages between this and the replied to message.
+ × /del: Deletes the message you replied to
+ × /purge: Deletes all messages between this and the replied to message.
 """
 
-
-__mod_name__ = "DELETE"
+__mod_name__ = "Purges"

@@ -5,7 +5,6 @@ import requests
 from pytz import country_names as cname
 from telegram import ParseMode
 from telegram.error import BadRequest
-from telegram.ext import run_async
 
 from Elizabeth import API_WEATHER as APPID
 from Elizabeth import dispatcher
@@ -13,7 +12,6 @@ from Elizabeth.modules.disable import DisableAbleCommandHandler
 from Elizabeth.modules.helper_funcs.alternate import typing_action
 
 
-@run_async
 @typing_action
 def weather(update, context):
     args = context.args
@@ -112,7 +110,8 @@ def weather(update, context):
     del_msg = update.effective_message.reply_text(
         "{}".format(reply),
         parse_mode=ParseMode.MARKDOWN,
-        disable_web_page_preview=True)
+        disable_web_page_preview=True,
+    )
     time.sleep(30)
     try:
         del_msg.delete()
@@ -124,8 +123,18 @@ def weather(update, context):
             return
 
 
+__help__ = """
+Weather module:
+
+ × /weather <city>: Gets weather information of particular place!
+
+ \* To prevent spams weather command and the output will be deleted after 30 seconds
+"""
+
 __mod_name__ = "Weather"
 
-WEATHER_HANDLER = DisableAbleCommandHandler("weather", weather, pass_args=True)
+WEATHER_HANDLER = DisableAbleCommandHandler(
+    "weather", weather, pass_args=True, run_async=True
+)
 
 dispatcher.add_handler(WEATHER_HANDLER)

@@ -5,7 +5,7 @@ from io import BytesIO
 
 from telegram import ParseMode
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, run_async
+from telegram.ext import CommandHandler
 
 from Elizabeth.modules.sql import warns_sql as warnssql
 import Elizabeth.modules.sql.blacklist_sql as blacklistsql
@@ -25,7 +25,6 @@ from Elizabeth.modules.helper_funcs.chat_status import user_admin
 from Elizabeth.modules.sql import disable_sql as disabledsql
 
 
-@run_async
 @user_admin
 @typing_action
 def import_data(update, context):
@@ -52,7 +51,8 @@ def import_data(update, context):
     if msg.reply_to_message and msg.reply_to_message.document:
         try:
             file_info = context.bot.get_file(
-                msg.reply_to_message.document.file_id)
+                msg.reply_to_message.document.file_id
+            )
         except BadRequest:
             msg.reply_text(
                 "Try downloading and uploading the file yourself again, This one seem broken!"
@@ -76,7 +76,8 @@ def import_data(update, context):
             if data.get(str(chat.id)) is None:
                 if conn:
                     text = "Backup comes from another chat, I can't return another chat to chat *{}*".format(
-                        chat_name)
+                        chat_name
+                    )
                 else:
                     text = "Backup comes from another chat, I can't return another chat to this chat"
                 return msg.reply_text(text, parse_mode="markdown")
@@ -121,7 +122,6 @@ def import_data(update, context):
         msg.reply_text(text, parse_mode="markdown")
 
 
-@run_async
 @user_admin
 def export_data(update, context):
     chat_data = context.chat_data
@@ -195,34 +195,54 @@ def export_data(update, context):
                     buttonlist.append(
                         ("{}".format(btn.name), "{}".format(btn.url), False)
                     )
-            isicat += "###button###: {}<###button###>{}<###splitter###>".format(
-                note.value, str(buttonlist))
+            isicat += (
+                "###button###: {}<###button###>{}<###splitter###>".format(
+                    note.value, str(buttonlist)
+                )
+            )
             buttonlist.clear()
         elif note.msgtype == 2:
             isicat += "###sticker###:{}<###splitter###>".format(note.file)
         elif note.msgtype == 3:
-            isicat += "###file###:{}<###TYPESPLIT###>{}<###splitter###>".format(
-                note.file, note.value)
+            isicat += (
+                "###file###:{}<###TYPESPLIT###>{}<###splitter###>".format(
+                    note.file, note.value
+                )
+            )
         elif note.msgtype == 4:
-            isicat += "###photo###:{}<###TYPESPLIT###>{}<###splitter###>".format(
-                note.file, note.value)
+            isicat += (
+                "###photo###:{}<###TYPESPLIT###>{}<###splitter###>".format(
+                    note.file, note.value
+                )
+            )
         elif note.msgtype == 5:
-            isicat += "###audio###:{}<###TYPESPLIT###>{}<###splitter###>".format(
-                note.file, note.value)
+            isicat += (
+                "###audio###:{}<###TYPESPLIT###>{}<###splitter###>".format(
+                    note.file, note.value
+                )
+            )
         elif note.msgtype == 6:
-            isicat += "###voice###:{}<###TYPESPLIT###>{}<###splitter###>".format(
-                note.file, note.value)
+            isicat += (
+                "###voice###:{}<###TYPESPLIT###>{}<###splitter###>".format(
+                    note.file, note.value
+                )
+            )
         elif note.msgtype == 7:
-            isicat += "###video###:{}<###TYPESPLIT###>{}<###splitter###>".format(
-                note.file, note.value)
+            isicat += (
+                "###video###:{}<###TYPESPLIT###>{}<###splitter###>".format(
+                    note.file, note.value
+                )
+            )
         elif note.msgtype == 8:
             isicat += "###video_note###:{}<###TYPESPLIT###>{}<###splitter###>".format(
-                note.file, note.value)
+                note.file, note.value
+            )
         else:
             isicat += "{}<###splitter###>".format(note.value)
     for x in range(count):
-        notes["#{}".format(namacat.split("<###splitter###>")[x])] = "{}".format(
-            isicat.split("<###splitter###>")[x])
+        notes[
+            "#{}".format(namacat.split("<###splitter###>")[x])
+        ] = "{}".format(isicat.split("<###splitter###>")[x])
     # Rules
     rules = rulessql.get_rules(chat_id)
     # Blacklist
@@ -321,7 +341,7 @@ def export_data(update, context):
         },
     }
     baccinfo = json.dumps(backup, indent=4)
-    with open("Elizabeth-Bot{}.backup".format(chat_id), "w") as f:
+    with open("Elizabeth-tgbot{}.backup".format(chat_id), "w") as f:
         f.write(str(baccinfo))
     context.bot.sendChatAction(current_chat_id, "upload_document")
     tgl = time.strftime("%H:%M:%S - %d/%m/%Y", time.localtime(time.time()))
@@ -329,22 +349,18 @@ def export_data(update, context):
         context.bot.sendMessage(
             MESSAGE_DUMP,
             "*Successfully imported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`".format(
-                chat.title,
-                chat_id,
-                tgl),
+                chat.title, chat_id, tgl
+            ),
             parse_mode=ParseMode.MARKDOWN,
         )
     except BadRequest:
         pass
     context.bot.sendDocument(
         current_chat_id,
-        document=open(
-            "Elizabeth-Bot{}.backup".format(chat_id),
-            "rb"),
-        caption="*Successfully backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Elizabeth-Bot` Backup is specially made for notes.".format(
-            chat.title,
-            chat_id,
-            tgl),
+        document=open("Elizabeth-tgbot{}.backup".format(chat_id), "rb"),
+        caption="*Successfully backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Userindobot-Backup` is specially made for notes.".format(
+            chat.title, chat_id, tgl
+        ),
         timeout=360,
         reply_to_message_id=msg.message_id,
         parse_mode=ParseMode.MARKDOWN,
@@ -371,20 +387,22 @@ def get_chat(chat_id, chat_data):
         return {"status": False, "value": False}
 
 
-__mod_name__ = "BACKUPS"
+__mod_name__ = "Backups"
 
 __help__ = """
 *Only for chat administrator:*
 
- ➩ /import: Reply to the backup file for the Butler / Elizabeth group to import as much as possible, making transfers very easy! \
+ × /import: Reply to the backup file for the butler / emilia group to import as much as possible, making transfers very easy! \
  Note that files / photos cannot be imported due to telegram restrictions.
 
- ➩ /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons) \
+ × /export: Export group data, which will be exported are: rules, notes (documents, images, music, video, audio, voice, text, text buttons) \
 
 """
 
-IMPORT_HANDLER = CommandHandler("import", import_data)
-EXPORT_HANDLER = CommandHandler("export", export_data, pass_chat_data=True)
+# IMPORT_HANDLER = CommandHandler("import", import_data, run_async=True)
+# EXPORT_HANDLER = CommandHandler(
+#    "export", export_data, pass_chat_data=True, run_async=True
+# )
 
-dispatcher.add_handler(IMPORT_HANDLER)
-dispatcher.add_handler(EXPORT_HANDLER)
+# dispatcher.add_handler(IMPORT_HANDLER)
+# dispatcher.add_handler(EXPORT_HANDLER)

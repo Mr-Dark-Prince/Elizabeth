@@ -3,15 +3,13 @@ import os
 
 import requests
 from emoji import UNICODE_EMOJI
-from mtranslate import translate
+from google_trans_new import google_translator, LANGUAGES
 from gtts import gTTS
 from telegram import ChatAction
-from telegram.ext import run_async
 
 from Elizabeth import dispatcher
 from Elizabeth.modules.disable import DisableAbleCommandHandler
 from Elizabeth.modules.helper_funcs.alternate import send_action, typing_action
-
 
 
 @typing_action
@@ -22,7 +20,9 @@ def gtrans(update, context):
     if not lang:
         lang = "en"
     try:
-        translate_text = msg.reply_to_message.text or msg.reply_to_message.caption
+        translate_text = (
+            msg.reply_to_message.text or msg.reply_to_message.caption
+        )
     except AttributeError:
         return msg.reply_text("Give me the text to translate!")
 
@@ -31,16 +31,18 @@ def gtrans(update, context):
         if emoji in translate_text:
             translate_text = translate_text.replace(emoji, "")
 
+    translator = google_translator()
     try:
-        translated = translate.translate(translate_text, dest=lang)
-        trl = translated.src
-        results = translated.text
+        translated = translator.translate(translate_text, lang_tgt=lang)
+        source_lan = translator.detect(translate_text)[1].title()
+        des_lan = LANGUAGES.get(lang).title()
         msg.reply_text(
             "Translated from {} to {}.\n {}".format(
-                trl, lang, results))
+                source_lan, des_lan, translated
+            )
+        )
     except BaseException:
         msg.reply_text("Error! invalid language code.")
-
 
 
 @send_action(ChatAction.RECORD_AUDIO)
@@ -71,17 +73,14 @@ API_KEY = "6ae0c3a0-afdc-4532-a810-82ded0054236"
 URL = "http://services.gingersoftware.com/Ginger/correct/json/GingerTheText"
 
 
-@run_async
 @typing_action
 def spellcheck(update, context):
     if update.effective_message.reply_to_message:
         msg = update.effective_message.reply_to_message
 
         params = dict(
-            lang="US",
-            clientVersion="2.0",
-            apiKey=API_KEY,
-            text=msg.text)
+            lang="US", clientVersion="2.0", apiKey=API_KEY, text=msg.text
+        )
 
         res = requests.get(URL, params=params)
         changes = json.loads(res.text).get("LightGingerTheTextResult")
@@ -106,9 +105,21 @@ def spellcheck(update, context):
         )
 
 
+__help__ = """
+× /tr or /tl: - To translate to your language, by default language is set to english, use `/tr <lang code>` for some other language!
+× /spell: - As a reply to get grammar corrected text of gibberish message.
+× /tts: - To some message to convert it into audio format!
+"""
 __mod_name__ = "Translate"
 
-# dispatcher.add_handler(DisableAbleCommandHandler(
-#   ["tr", "tl"], gtrans, pass_args=True))
-# dispatcher.add_handler(DisableAbleCommandHandler("tts", gtts, pass_args=True))
-dispatcher.add_handler(DisableAbleCommandHandler("spell", spellcheck))
+dispatcher.add_handler(
+    DisableAbleCommandHandler(
+        ["tr", "tl"], gtrans, pass_args=True, run_async=True
+    )
+)
+dispatcher.add_handler(
+    DisableAbleCommandHandler("tts", gtts, pass_args=True, run_async=True)
+)
+dispatcher.add_handler(
+    DisableAbleCommandHandler("spell", spellcheck, run_async=True)
+)
