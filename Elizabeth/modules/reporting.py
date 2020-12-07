@@ -239,7 +239,7 @@ def __user_settings__(user_id):
         sql.user_should_report(user_id))
 
 
-__mod_name__ = "REPPORTS"
+__mod_name__ = "REPORTS"
 
 __help__ = """
 We're all busy people who don't have time to monitor our groups 24/7. But how do you \
