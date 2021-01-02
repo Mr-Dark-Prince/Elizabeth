@@ -30,16 +30,16 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("സോറി.. ആരെയാണ് അഡ്മിൻ ആക്കേണ്ടത്?.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("അഡ്മിൻ ആയ ഒരാളെ പിന്നും എങ്ങനെ ആണ് അഡ്മിൻ ആക്കുന്നത് 🙄?")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("എനിക്ക് എന്നെത്തന്നെ പ്രൊമോട്ട് ചെയ്യാൻ കഴിയില്ല...")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -55,7 +55,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("Successfully promoted!")
+    message.reply_text("അഡ്മിൻ ആക്കിയിട്ടുണ്ട് 😌!")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
@@ -76,20 +76,20 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("ആരെയാണ് അഡ്മിൻ സ്ഥാനത്തു നിന്ന് മറ്റേണ്ടത് 🙄?.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'creator':
-        message.reply_text("This person CREATED the chat, how would I demote them?")
+        message.reply_text("🙄 ഗ്രൂപ്പ്‌ ഉണ്ടാക്കിയ ആളിനെ എനിക്ക് ഒന്നും ചെയ്യാൻ പറ്റില്ല..")
         return ""
 
     if not user_member.status == 'administrator':
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("പ്രൊമോട്ട് ചെയ്യാത്ത ആളിനെ എങ്ങനെ ഡിമോട്ട് ചെയ്യും?!")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("😡 മനസ്സില്ല..പോ..")
         return ""
 
     try:
@@ -102,7 +102,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                               can_restrict_members=False,
                               can_pin_messages=False,
                               can_promote_members=False)
-        message.reply_text("Successfully demoted!")
+        message.reply_text("😁 അഡ്മിൻ സ്ഥാനത്തു നിന്ന് മാറ്റിയിട്ടുണ്ട്..!")
         return "<b>{}:</b>" \
                "\n#DEMOTED" \
                "\n<b>Admin:</b> {}" \
@@ -111,8 +111,8 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                                           mention_html(user_member.user.id, user_member.user.first_name))
 
     except BadRequest:
-        message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
-                           "user, so I can't act upon them!")
+        message.reply_text("എനിക്ക് കഴിയില്ല.., അയാളെ അഡ്മിൻ ആക്കിയത് വേറെ ആരോ ആണ്.."
+                           "എനിക്ക് ഒന്നും ചെയ്യാൻ പറ്റില്ല 😬!")
         return ""
 
 
