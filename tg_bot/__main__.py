@@ -30,8 +30,6 @@ PM_START_TEXT = """
 
 HELP_STRINGS = """
 ലഭ്യമായ കമാൻഡുകൾ അറിയാൻ ഓരോ ബോക്സും തുറന്നു നോക്കുക..
-{}
-And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
