@@ -183,14 +183,14 @@ def invite(bot: Bot, update: Update):
         bot_member = chat.get_member(bot.id)
         if bot_member.can_invite_users:
             invitelink = bot.exportChatInviteLink(chat.id)
-            linktext = "Successfully generated new link for *{}:*".format(chat.title)
+            linktext = "പുതിയ ഗ്രൂപ്പ്‌ ലിങ്ക് നിർമിച്ചു.. *{}:*".format(chat.title)
             link = "`{}`".format(invitelink)
             message.reply_text(linktext, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
             message.reply_text(link, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
         else:
-            message.reply_text("I don't have access to the invite link, try changing my permissions!")
+            message.reply_text("😒 എനിക്ക് ഇൻവിറ്റേഷൻ ലിങ്ക് എടുക്കാനുള്ള പെർമിഷൻ ഇല്ല..!")
     else:
-        message.reply_text("I can only give you invite links for supergroups and channels, sorry!")
+        message.reply_text("എനിക്ക് സൂപ്പർ ഗ്രൂപ്പ്‌ന്റെയോ ചാനെൽന്റെയോ ലിങ്ക് മാത്രമേ തരാൻ കഴിയു.. സോറി 😬!")
 
 @run_async
 def link_public(bot: Bot, update: Update):
@@ -201,13 +201,13 @@ def link_public(bot: Bot, update: Update):
     
     if chat.type == chat.SUPERGROUP or chat.type == chat.CHANNEL:
         if invitelink:
-            message.reply_text("Link of *{}*:\n`{}`".format(chat.title, invitelink), parse_mode=ParseMode.MARKDOWN)
+            message.reply_text("ലിങ്ക്  *{}*:\n`{}`".format(chat.title, invitelink), parse_mode=ParseMode.MARKDOWN)
         else:
-            message.reply_text("The admins of *{}* haven't set link."
-                               " \nLink can be set by following: `/setlink` and get link of chat "
-                               "using /invitelink, paste the link after `/setlink` append.".format(chat.title), parse_mode=ParseMode.MARKDOWN)
+            message.reply_text("🙄 ഗ്രൂപ്പ്‌ അഡ്മിൻ ലിങ്ക് ഒന്നും സെറ്റ് ചെയ്തിട്ടില്ല."
+                               " \n 👉 `/setlink` എന്ന് ടൈപ്പ് ചെയ്തു ഗ്രൂപ്പ്‌ ലിങ്ക് സെറ്റ് ചെയ്യണം.. "
+                               "👉 അപ്പോൾ  /invitelink, കൊടുക്കുമ്പോൾ നേരത്തെ സെറ്റ് ചെയ്ത ലിങ്ക് ലഭിക്കും.".format(chat.title), parse_mode=ParseMode.MARKDOWN)
     else:
-        message.reply_text("I can only can save links for supergroups and channels, sorry!")
+        message.reply_text("എനിക്ക് സൂപ്പർ ഗ്രൂപ്പ്‌ന്റെയോ അല്ലെങ്കിൽ ചാനലിന്റെയോ ലിങ്ക് മാത്രമേ സേവ് ചെയ്യാൻ കഴിയു..സോറി..!")
 
 @run_async
 @user_admin
