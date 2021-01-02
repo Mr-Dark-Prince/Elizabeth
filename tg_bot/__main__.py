@@ -144,7 +144,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
 
                 parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="🎉 Add me to your group", url="t.me/{}?startgroup=true".format(bot.username)],
+                    [[InlineKeyboardButton(text="🎉 Add me to your group", url="t.me/{}?startgroup=true".format(bot.username))],
                      [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/KeralaBots"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/KochuUpdates")],
                      [InlineKeyboardButton(text="🎬 Youtube Channel", url="https://www.youtube.com/stealthtechnogaming?sub_confirmation=1"), InlineKeyboardButton(text="🛠 Help", url="https://t.me/{}?start=help".format(bot.username)) ]]))
 
