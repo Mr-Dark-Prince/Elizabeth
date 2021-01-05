@@ -2,6 +2,8 @@ import json
 import os
 
 import pybase64
+from telethon import events
+from Samantha.miss_samantharobot import register
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import DocumentAttributeAudio
 from youtube_dl import YoutubeDL
@@ -18,7 +20,7 @@ from youtube_dl.utils import (
 from youtubesearchpython import SearchVideos
 
 
-@telebot.on(admin_cmd(pattern="song (.*)"))
+@register(pattern="^/song (.*)")
 async def download_video(tele):
     x = await eor(tele, "Searching...")
     url = tele.pattern_match.group(1)
