@@ -5,23 +5,23 @@ from telegram import ParseMode, Message
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async
 
-import SaitamaRobot.modules.sql.notes_sql as sql
-from SaitamaRobot import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
-from SaitamaRobot.__main__ import DATA_IMPORT
-from SaitamaRobot.modules.helper_funcs.chat_status import user_admin
-from SaitamaRobot.modules.helper_funcs.alternate import typing_action
+import Samantha.modules.sql.notes_sql as sql
+from Samantha import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
+from Samantha.__main__ import DATA_IMPORT
+from Samantha.modules.helper_funcs.chat_status import user_admin
+from Samantha.modules.helper_funcs.alternate import typing_action
 
-# from SaitamaRobot.modules.rules import get_rules
-import SaitamaRobot.modules.sql.rules_sql as rulessql
+# from Samantha.modules.rules import get_rules
+import Samantha.modules.sql.rules_sql as rulessql
 
-# from SaitamaRobot.modules.sql import warns_sql as warnssql
-import SaitamaRobot.modules.sql.blacklist_sql as blacklistsql
-from SaitamaRobot.modules.sql import disable_sql as disabledsql
+# from Samantha.modules.sql import warns_sql as warnssql
+import Samantha.modules.sql.blacklist_sql as blacklistsql
+from Samantha.modules.sql import disable_sql as disabledsql
 
-# from SaitamaRobot.modules.sql import cust_filters_sql as filtersql
-# import SaitamaRobot.modules.sql.welcome_sql as welcsql
-import SaitamaRobot.modules.sql.locks_sql as locksql
-from SaitamaRobot.modules.connection import connected
+# from Samantha.modules.sql import cust_filters_sql as filtersql
+# import Samantha.modules.sql.welcome_sql as welcsql
+import Samantha.modules.sql.locks_sql as locksql
+from Samantha.modules.connection import connected
 
 
 @run_async
