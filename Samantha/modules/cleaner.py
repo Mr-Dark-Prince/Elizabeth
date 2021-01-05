@@ -1,14 +1,14 @@
 import html
 
-from SaitamaRobot import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from SaitamaRobot.modules.disable import DisableAbleCommandHandler
-from SaitamaRobot.modules.helper_funcs.chat_status import (
+from Samantha import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from Samantha.modules.disable import DisableAbleCommandHandler
+from Samantha.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
     user_admin,
 )
-from SaitamaRobot.modules.sql import cleaner_sql as sql
+from Samantha.modules.sql import cleaner_sql as sql
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
