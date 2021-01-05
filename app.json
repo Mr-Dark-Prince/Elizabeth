@@ -1,14 +1,14 @@
 {
-      "name": "SaitamaRobot",
+      "name": "Samantha",
       "description": "An Anime themed Telegram group management bot.",
       "keywords": [
          "telegram",
          "anime",
          "group",
          "manager",
-         "Saitama"
+         "Samantha"
       ],   
-   "repository": "https://github.com/AnimeKaizoku/SaitamaRobot",
+   "repository": "https://github.com/A-dark-prince/Samantha",
    "addons": [
       {
          "options": {
