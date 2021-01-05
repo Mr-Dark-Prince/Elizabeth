@@ -1,6 +1,6 @@
-from SaitamaRobot.modules.helper_funcs.chat_status import user_admin
-from SaitamaRobot.modules.disable import DisableAbleCommandHandler
-from SaitamaRobot import dispatcher
+from Samantha.modules.helper_funcs.chat_status import user_admin
+from Samantha.modules.disable import DisableAbleCommandHandler
+from Samantha import dispatcher
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram import ParseMode, Update
