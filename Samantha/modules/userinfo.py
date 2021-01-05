@@ -33,7 +33,7 @@ from Samantha.modules.sql.afk_sql import is_afk, check_afk_status
 from Samantha.modules.sql.users_sql import get_user_num_chats
 from Samantha.modules.helper_funcs.chat_status import sudo_plus
 from Samantha.modules.helper_funcs.extraction import extract_user
-from Samantha import telethn as samanthaTelethonClient, TIGERS, DRAGONS, DEMONS
+from Samantha import telethn as SamanthaTelethonClient, TIGERS, DRAGONS, DEMONS
 
 
 def no_by_per(totalhp, percentage):
@@ -161,7 +161,7 @@ def get_id(update: Update, context: CallbackContext):
             )
 
 
-@SaitamaTelethonClient.on(
+@SamanthaTelethonClient.on(
     events.NewMessage(
         pattern="/ginfo ", from_users=(TIGERS or []) + (DRAGONS or []) + (DEMONS or [])
     )
