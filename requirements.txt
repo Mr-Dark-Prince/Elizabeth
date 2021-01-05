@@ -26,6 +26,7 @@ bleach
 git+https://github.com/A-DARK-PRINCE/python-markdown2.git
 youtube-search-python
 youtube_dl
+pybase64
 wikipedia
 telethon
 spamwatch
