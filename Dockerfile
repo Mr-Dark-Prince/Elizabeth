@@ -64,7 +64,7 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/SaitamaRobot
+# Copy Python Requirements to /root/Samantha
 RUN git clone -b master https://github.com/a-dark-prince/samantha /root/Samantha
 WORKDIR /root/Samantha
 
