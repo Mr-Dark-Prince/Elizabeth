@@ -35,9 +35,9 @@ async def download_video(v_url):
     me = await lazy.client.get_me()
 
     if not sender.id == me.id:
-        rkp = await edit_or_reply(lazy, "`Wait. Processing your request....`")
+        rkp = await lazy.reply("`processing...`")
     else:
-        rkp = await edit_or_reply(lazy, "`Wait. Processing your request....`")
+        rkp = await lazy.edit("`processing...`")
     url = v_url.pattern_match.group(1)
     if not url:
         return await rkp.edit("**Error** \n__Usage:__ `song <song name>`")
