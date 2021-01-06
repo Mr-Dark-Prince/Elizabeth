@@ -1,9 +1,12 @@
+# Ported by @A_DARK_PRINCE 🍀 -- Don't remove this line..
+
 import asyncio
 import json
 import os
 import time
 
 from telethon import events
+from Samantha.my_samantha import progress
 from Samantha.miss_samantharobot import register
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeAudio
