@@ -255,19 +255,16 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-Lazy to promote or demote someone for admins? Want to see basic information about chat? \
-All stuff about chatroom such as admin lists, pinning or grabbing an invite link can be \
-done easily using the bot.
+*അഡ്മിൻ സെറ്റിംഗ്സ്* ⚙️
 
- - /adminlist: list of admins and members in the chat
- - /staff: same as /adminlist
- - /link: get the group link for this chat.
- - #link: same as /link
+കമാൻഡുകൾ
+ - /staff അല്ലെങ്കിൽ /adminlist: ഗ്രൂപ്പിൽ ഉള്ള അഡ്മിൻസിന്റെ ലിസ്റ്റ് ലഭിക്കുന്നു.
+ - #link /link: നിലവിലെ ഗ്രൂപ്പ്‌ ലിങ്ക് ലഭിക്കുന്നു.
 
-*Admin only:*
- - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifies to users.
- - /unpin: unpins the currently pinned message.
- - /invitelink: generates new invite link.
+*അഡ്മിൻ മാത്രം:*
+ - /pin: ഒരു സന്ദേശം ഗ്രൂപ്പിന് മുകളിൽ പിൻ ചെയ്തു വെക്കുന്നതിന്.
+ - /unpin: നിലവിൽ പിൻ ചെയ്തിരിക്കുന്ന സന്ദേശം അൺ പിൻ ചെയ്യുന്നതിന്.
+ - /invitelink: ഗ്രൂപ്പിന്റെ ഇൻവിറ്റേഷൻ ലിങ്ക് ജെനറേറ്റ് ചെയ്യുന്നു.
  - /setlink <your group link here>: set the group link for this chat.
  - /clearlink: clear the group link for this chat.
  - /promote: promotes the user replied to
