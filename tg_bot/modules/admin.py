@@ -30,16 +30,16 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("മെസ്സേജിന് മറുപടിയായി മാത്രം കമാൻഡ് നൽകുക!.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("അഡ്മിനായ ഒരാളെ വീണ്ടും എങ്ങനെ അഡ്മിൻ ആക്കും?")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("ഞാൻ എന്നെത്തന്നെ അഡ്മിൻ ആക്കുവാനോ.. നടക്കില്ല കേട്ടോ!.")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -55,7 +55,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("Successfully promoted!")
+    message.reply_text("അഡ്മിൻ ആക്കിയിട്ടുണ്ട് 👍!")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
@@ -257,8 +257,8 @@ def __chat_settings__(chat_id, user_id):
 __help__ = """
 *അഡ്മിൻ ക്രമീകരണം* ⚙️
 
- ➩ /staff അല്ലെങ്കിൽ /adminlist: ഗ്രൂപ്പിൽ ഉള്ള അഡ്മിൻസിന്റെ ലിസ്റ്റ് ലഭിക്കുന്നു.
- ➩ #link /link: നിലവിലെ ഗ്രൂപ്പ്‌ ലിങ്ക് ലഭിക്കുന്നു.
+ ➩ /adminlist: ഗ്രൂപ്പിൽ ഉള്ള അഡ്മിൻസിന്റെ ലിസ്റ്റ് ലഭിക്കുന്നു.
+ ➩ /link: നിലവിലെ ഗ്രൂപ്പ്‌ ലിങ്ക് ലഭിക്കുന്നു.
 
 *അഡ്മിൻ മാത്രം:*
  ➩ /pin: ഒരു സന്ദേശം ഗ്രൂപ്പിന് മുകളിൽ പിൻ ചെയ്യുന്നു.
