@@ -262,22 +262,22 @@ __help__ = """
  - #link /link: നിലവിലെ ഗ്രൂപ്പ്‌ ലിങ്ക് ലഭിക്കുന്നു.
 
 *അഡ്മിൻ മാത്രം:*
- - /pin: ഒരു സന്ദേശം ഗ്രൂപ്പിന് മുകളിൽ പിൻ ചെയ്തു വെക്കുന്നതിന്.
- - /unpin: നിലവിൽ പിൻ ചെയ്തിരിക്കുന്ന സന്ദേശം അൺ പിൻ ചെയ്യുന്നതിന്.
+ - /pin: ഒരു സന്ദേശം ഗ്രൂപ്പിന് മുകളിൽ പിൻ ചെയ്യുന്നു.
+ - /unpin: നിലവിൽ പിൻ ചെയ്തിരിക്കുന്ന സന്ദേശം അൺ പിൻ ചെയ്യുന്നു.
  - /invitelink: ഗ്രൂപ്പിന്റെ ഇൻവിറ്റേഷൻ ലിങ്ക് ജെനറേറ്റ് ചെയ്യുന്നു.
- - /setlink <your group link here>: set the group link for this chat.
- - /clearlink: clear the group link for this chat.
- - /promote: promotes the user replied to
- - /demote: demotes the user replied to
+ - /setlink <ഗ്രൂപ്പ്‌ ലിങ്ക്>: ഗ്രൂപ്പ്‌ ലിങ്ക് സെറ്റ് ചെയ്യുന്നു.
+ - /clearlink: സെറ്റ് ചെയ്ത ഗ്രൂപ്പ്‌ ലിങ്ക് ഒഴിവാക്കുന്നു.
+ - /promote: ഒരാളുടെ മെസ്സേജ്ന് മറുപടിയായി ഈ കമാൻഡ് കൊടുത്താൽ അയാളെ ഗ്രൂപ്പ്‌ അഡ്മിൻ ആക്കുന്നു.
+ - /demote: ഒരു ഗ്രൂപ്പ്‌ അഡ്മിന്റെ മെസ്സേജ്ന് മറുപടിയായി ഈ കമാൻഡ് നൽകിയാൽ അയാളെ അഡ്മിൻ സ്ഥാനത്തു നിന്ന് നീക്കം ചെയ്യുന്നു.
  
- An example of set a link:
+ ഗ്രൂപ്പ്‌ ലിങ്ക് സെറ്റ് ചെയ്യുന്നതിന് ഒരു ഉദാഹരണം:
 `/setlink https://t.me/joinchat/HwiIk1RADK5gRMr9FBdOrwtae`
 
-An example of promoting someone to admins:
-`/promote @username`; this promotes a user to admins.
+യൂസർനയിനം ഉപയോഗിച്ച് ഒരാളെ അഡ്മിൻ ആക്കുന്നതിന് ഒരു ഉദാഹരണം:
+`/promote @username`; മെൻഷൻ ചെയ്ത ആളെ അഡ്മിൻ ആക്കുന്നു.
 """
 
-__mod_name__ = "Admin"
+__mod_name__ = "അഡ്മിൻ"
 
 PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
 UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
