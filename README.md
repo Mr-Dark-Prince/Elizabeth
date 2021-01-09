@@ -1,4 +1,3 @@
-## ⚠️ Forked from [SaitamaRobot](https://github.com/AnimeKaizoku/SaitamaRobot)
 
 ## How To Host
 The easiest way to deploy Samantha Robot
