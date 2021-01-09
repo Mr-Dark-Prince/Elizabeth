@@ -1,3 +1,4 @@
+# Malayalam Translated by @D_A_R_K_P_R_I_N_C_E
 import html
 from typing import Optional, List
 
@@ -76,20 +77,20 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("മെസ്സേജിന് മറുപടിയായി കമാൻഡ് നൽകുക!.")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'creator':
-        message.reply_text("This person CREATED the chat, how would I demote them?")
+        message.reply_text("സോറി! ഇദ്ദേഹം ആണ് ഗ്രൂപ്പ്‌ മുതലാളി.. ഗ്രൂപ്പ്‌ ഉണ്ടാക്കിയ അളിനെ എങ്ങനെ Demote ചെയ്യും?")
         return ""
 
     if not user_member.status == 'administrator':
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("അഡ്മിൻ അല്ലാത്ത ഒരാളെ എങ്ങനെ അഡ്മിൻ സ്ഥാനത്ത് നിന്ന് ഒഴിവാക്കും?!")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("😂 അയ്യട മനമേ...")
         return ""
 
     try:
@@ -102,7 +103,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                               can_restrict_members=False,
                               can_pin_messages=False,
                               can_promote_members=False)
-        message.reply_text("Successfully demoted!")
+        message.reply_text("അഡ്മിൻ സ്ഥാനം ഒഴിവാക്കി🤭!")
         return "<b>{}:</b>" \
                "\n#DEMOTED" \
                "\n<b>Admin:</b> {}" \
@@ -111,8 +112,8 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                                           mention_html(user_member.user.id, user_member.user.first_name))
 
     except BadRequest:
-        message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
-                           "user, so I can't act upon them!")
+        message.reply_text("Demote ചെയ്യാൻ കഴിയില്ല. ഒന്നുകിൽ ഞാൻ അഡ്മിൻ അല്ല, അല്ലെങ്കിൽ അയാളെ അഡ്മിൻ ആക്കിയത് മറ്റാരോ ആയിരിക്കും "
+                           "എനിക്ക് അയാളുടെ മേൽ ആക്ഷൻ എടുക്കാൻ കഴിയില്ല!")
         return ""
 
 
