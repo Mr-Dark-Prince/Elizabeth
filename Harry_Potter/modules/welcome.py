@@ -13,18 +13,18 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackQueryHandler, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-import priscia.modules.sql.welcome_sql as sql
-from priscia import LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher, spamwtc
-from priscia.modules.helper_funcs.chat_status import is_user_ban_protected, user_admin
-from priscia.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from priscia.modules.helper_funcs.msg_types import get_welcome_type
-from priscia.modules.helper_funcs.string_handling import (
+import Harry_Potter.modules.sql.welcome_sql as sql
+from Harry_Potter import LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher, spamwtc
+from Harry_Potter.modules.helper_funcs.chat_status import is_user_ban_protected, user_admin
+from Harry_Potter.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from Harry_Potter.modules.helper_funcs.msg_types import get_welcome_type
+from Harry_Potter.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
     markdown_to_html,
 )
-from priscia.modules.log_channel import loggable
-from priscia.modules.sql.global_bans_sql import is_user_gbanned
+from Harry_Potter.modules.log_channel import loggable
+from Harry_Potter.modules.sql.global_bans_sql import is_user_gbanned
 
 VALID_WELCOME_FORMATTERS = [
     "first",
