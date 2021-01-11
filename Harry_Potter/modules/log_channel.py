@@ -10,9 +10,9 @@ if is_module_loaded(FILENAME):
     from telegram.ext import CommandHandler
     from telegram.utils.helpers import escape_markdown
 
-    from Hurry_Potter import LOGGER, dispatcher
-    from Hurry_Potter.modules.helper_funcs.chat_status import user_admin
-    from Hurry_Potter.modules.sql import log_channel_sql as sql
+    from Harry_Potter import LOGGER, dispatcher
+    from Harry_Potter.modules.helper_funcs.chat_status import user_admin
+    from Harry_Potter.modules.sql import log_channel_sql as sql
 
     def loggable(func):
         @wraps(func)
