@@ -1,7 +1,7 @@
-priscia/config.py
+Harry_Potter/config.py
 logfile
-priscia.session
-priscia.session-journal
+Harry_Potter.session
+Harry_Potter.session-journal
 *.pyc
 .idea/
 .project
@@ -14,5 +14,5 @@ sticker.png
 kangsticker.png
 kangsticker.tgs
 kangsticker
-priscia.mp3
+Harry_Potter.mp3
 gpic.png
