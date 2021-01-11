@@ -10,8 +10,8 @@ from sqlalchemy import (
     func,
 )
 
-from priscia import dispatcher
-from priscia.modules.sql import BASE, SESSION
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.sql import BASE, SESSION
 
 
 class Users(BASE):
