@@ -6,17 +6,17 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-import priscia.modules.sql.blacklist_sql as sql
-from priscia import LOGGER, dispatcher
-from priscia.modules.connection import connected
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.alternate import send_message
-from priscia.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from priscia.modules.helper_funcs.extraction import extract_text
-from priscia.modules.helper_funcs.misc import split_message
-from priscia.modules.helper_funcs.string_handling import extract_time
-from priscia.modules.log_channel import loggable
-from priscia.modules.warns import warn
+import Harry_Potter.modules.sql.blacklist_sql as sql
+from Harry_Potter import LOGGER, dispatcher
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.alternate import send_message
+from Harry_Potter.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Harry_Potter.modules.helper_funcs.extraction import extract_text
+from Harry_Potter.modules.helper_funcs.misc import split_message
+from Harry_Potter.modules.helper_funcs.string_handling import extract_time
+from Harry_Potter.modules.log_channel import loggable
+from Harry_Potter.modules.warns import warn
 
 BLACKLIST_GROUP = 11
 
