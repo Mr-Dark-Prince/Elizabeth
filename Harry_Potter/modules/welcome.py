@@ -184,7 +184,7 @@ def new_member(update, context):
             elif new_mem.id == context.bot.id:
                 update.effective_message.reply_text(
                     "Hey {}, I'm {}! Thank you for adding me to {}"
-                    " and be sure to join our channel: @fvllprojekt to know more about updates and tricks!".format(
+                    " ❤️ @D_A_R_K_P_R_I_N_C_E !".format(
                         user.first_name, context.bot.first_name, chat_name
                     ),
                     reply_to_message_id=reply,
