@@ -175,7 +175,7 @@ def start(update, context):
 
         else:
             update.effective_message.reply_video(
-                "https://telegra.ph/file/47343fdcd34ccdccd4867.mp4",
+                "https://telegra.ph/file/2f77a306166d06c19d32e.mp4",
                 caption=PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
