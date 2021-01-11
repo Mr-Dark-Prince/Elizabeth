@@ -12,7 +12,7 @@ import aiohttp
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from priscia import pciabot
+from Harry_Potter import pciabot
 
 session = aiohttp.ClientSession()
 progress_callback_data = {}
