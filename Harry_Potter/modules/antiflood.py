@@ -6,13 +6,13 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-from priscia import dispatcher
-from priscia.modules.connection import connected
-from priscia.modules.helper_funcs.alternate import send_message
-from priscia.modules.helper_funcs.chat_status import is_user_admin, user_admin
-from priscia.modules.helper_funcs.string_handling import extract_time
-from priscia.modules.log_channel import loggable
-from priscia.modules.sql import antiflood_sql as sql
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.helper_funcs.alternate import send_message
+from Harry_Potter.modules.helper_funcs.chat_status import is_user_admin, user_admin
+from Harry_Potter.modules.helper_funcs.string_handling import extract_time
+from Harry_Potter.modules.log_channel import loggable
+from Harry_Potter.modules.sql import antiflood_sql as sql
 
 FLOOD_GROUP = 3
 
