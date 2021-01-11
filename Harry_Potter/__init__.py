@@ -97,7 +97,7 @@ if ENV:
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
 
 else:
-    from priscia.config import Development as Config
+    from Harry_Potter.config import Development as Config
 
     TOKEN = Config.API_KEY
     try:
@@ -168,10 +168,10 @@ else:
     spamwtc = spamwatch.Client(SPAMWATCH)
 
 # Telethon
-client = TelegramClient("priscia", api_id=API_ID, api_hash=API_HASH)
+client = TelegramClient("Harry_Potter", api_id=API_ID, api_hash=API_HASH)
 # Pyrogram
 pciabot = Client(
-    "PrisciaPyro",
+    "Harry_PotterPyro",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=TOKEN)
@@ -185,7 +185,7 @@ WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
 
 # Load at end to ensure all prev variables have been set
-from priscia.modules.helper_funcs.handlers import CustomCommandHandler  # noqa
+from Harry_Potter.modules.helper_funcs.handlers import CustomCommandHandler  # noqa
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
