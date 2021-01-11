@@ -5,10 +5,10 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CallbackQueryHandler, CommandHandler
 
-import priscia.modules.sql.connection_sql as sql
-from priscia import SUDO_USERS, dispatcher
-from priscia.modules.helper_funcs import chat_status
-from priscia.modules.helper_funcs.alternate import send_message
+import Harry_Potter.modules.sql.connection_sql as sql
+from Harry_Potter import SUDO_USERS, dispatcher
+from Harry_Potter.modules.helper_funcs import chat_status
+from Harry_Potter.modules.helper_funcs.alternate import send_message
 
 user_admin = chat_status.user_admin
 
