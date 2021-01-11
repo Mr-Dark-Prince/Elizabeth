@@ -7,9 +7,9 @@ from google_trans_new import LANGUAGES, google_translator
 from gtts import gTTS
 from telegram import ChatAction
 
-from priscia import dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.alternate import send_action
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.alternate import send_action
 
 
 def gtrans(update, context):
