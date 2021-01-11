@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String
 
-from priscia.modules.sql import BASE, SESSION
+from Harry_Potter.modules.sql import BASE, SESSION
 
 
 class LastFMUsers(BASE):
