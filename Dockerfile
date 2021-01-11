@@ -66,7 +66,7 @@ RUN pip3 install --upgrade pip setuptools
 
 # Copy Python Requirements to /root/Harry_Potter
 RUN git clone https://github.com/D-A-R-K-P-R-I-N-C-E/Harry_Potter /root/Harry_Potter
-WORKDIR /root/Harry_Potterx
+WORKDIR /root/Harry_Potter
 
 #Copy config file to /root/Harry_Potter/Harry_Potter
 COPY ./Harry_Potter/sample_config.py ./Harry_Potter/config.py* /root/Harry_Potter/Harry_Potter/
