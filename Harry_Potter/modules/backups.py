@@ -343,7 +343,7 @@ def export_data(update, context):
     context.bot.sendDocument(
         current_chat_id,
         document=open("Hurry_Potter{}.backup".format(chat_id), "rb"),
-        caption="*Successfully imported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Priscia-Backup` is specially made for notes.".format(
+        caption="*Successfully imported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Harry Potter-Backup` is specially made for notes.".format(
             chat.title, chat_id, tgl
         ),
         timeout=360,
