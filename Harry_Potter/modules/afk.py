@@ -4,11 +4,11 @@ from telegram import MessageEntity
 from telegram.error import BadRequest
 from telegram.ext import Filters, MessageHandler
 
-import priscia.modules.helper_funcs.fun_strings as fun
-from priscia import dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
-from priscia.modules.sql import afk_sql as sql
-from priscia.modules.users import get_user_id
+import Harry_Potter.modules.helper_funcs.fun_strings as fun
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
+from Harry_Potter.modules.sql import afk_sql as sql
+from Harry_Potter.modules.users import get_user_id
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
