@@ -1,1 +1,1 @@
-web: python3 -m priscia
+worker: python3 -m 
