@@ -20,8 +20,8 @@ from telegram.error import BadRequest, TelegramError, Unauthorized
 from telegram.ext import CallbackQueryHandler, CommandHandler
 from telegram.utils.helpers import mention_html, mention_markdown
 
-import priscia.modules.sql.feds_sql as sql
-from priscia import (
+import Harry_Potter.modules.sql.feds_sql as sql
+from Harry_Potter import (
     LOGGER,
     MESSAGE_DUMP,
     OWNER_ID,
@@ -29,15 +29,15 @@ from priscia import (
     WHITELIST_USERS,
     dispatcher,
 )
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.alternate import send_action, send_message
-from priscia.modules.helper_funcs.chat_status import is_user_admin
-from priscia.modules.helper_funcs.extraction import (
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.alternate import send_action, send_message
+from Harry_Potter.modules.helper_funcs.chat_status import is_user_admin
+from Harry_Potter.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
 )
-from priscia.modules.helper_funcs.string_handling import markdown_parser
+from Harry_Potter.modules.helper_funcs.string_handling import markdown_parser
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
 # Federation by MrYacha 2018-2019
