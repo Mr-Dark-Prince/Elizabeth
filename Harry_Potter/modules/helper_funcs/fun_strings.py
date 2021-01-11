@@ -202,7 +202,7 @@ RUN_STRINGS = (
     "As The Doctor would say... RUN!",
 )
 
-# SLAP_TEMPLATES From @priscia
+# SLAP_TEMPLATES From @Harry_Potter_TgBot
 
 SLAP_TEMPLATES = (
     "{user2} was shot by {user1}.",
@@ -378,7 +378,7 @@ PUNCH = (
 
 HUG = ("hugs", "hugged", "kissed", "pinches")
 
-# Table strings credits: @priscia
+# Table strings credits: @Harry_Potter_TgBot
 
 TABLE = (
     "(╯°□°）╯彡 ┻━┻",
