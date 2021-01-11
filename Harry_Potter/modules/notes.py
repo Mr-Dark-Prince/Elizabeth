@@ -331,7 +331,7 @@ def list_notes(update, context):
             )
         except ValueError:
             update.effective_message.reply_text(
-                "There was a problem in showing notes list, maybe due to some invalid character in note names. Ask in @fvllprojekt if you're unable to figure it out!"
+                "There was a problem in showing notes list, maybe due to some invalid character in note names. Ask to @D_A_R_K_P_R_I_N_C_E if you're unable to figure it out!"
             )
 
 
