@@ -21,25 +21,25 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-from priscia import dispatcher  # BAN_STICKER
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.chat_status import (
+from Harry_Potter import dispatcher  # BAN_STICKER
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
 )
-from priscia.modules.helper_funcs.extraction import (
+from Harry_Potter.modules.helper_funcs.extraction import (
     extract_text,
     extract_user,
     extract_user_and_text,
 )
-from priscia.modules.helper_funcs.filters import CustomFilters
-from priscia.modules.helper_funcs.misc import split_message
-from priscia.modules.helper_funcs.string_handling import split_quotes
-from priscia.modules.log_channel import loggable
-from priscia.modules.sql import warns_sql as sql
+from Harry_Potter.modules.helper_funcs.filters import CustomFilters
+from Harry_Potter.modules.helper_funcs.misc import split_message
+from Harry_Potter.modules.helper_funcs.string_handling import split_quotes
+from Harry_Potter.modules.log_channel import loggable
+from Harry_Potter.modules.sql import warns_sql as sql
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
