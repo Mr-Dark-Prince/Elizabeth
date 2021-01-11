@@ -426,7 +426,7 @@ def stretch(update, context):
 
 def me_too(update, context):
     message = update.effective_message
-    reply = random.choice(["Me too thanks", "Haha yes, me too", "Same lol", "Me irl"])
+    reply = random.choice(["Me too thanks", "Haha yes, me too", "Same lol"])
     message.reply_text(reply)
 
 
@@ -464,12 +464,12 @@ Some dank memes for fun or whatever!
 
 *Regex based memes:*
 
-`/decide` can be also used with regex like: `priscia? <question>: randomly answer "Yes, No" etc.`
+`/decide` can be also used with regex like: `Hurry_Potter? <question>: randomly answer "Yes, No" etc.`
 
 Some other regex filters are:
 `me too` | `goodmorning` | `goodnight`.
 
-Priscia will reply random strings accordingly when these words are used!
+Hurry_Potter will reply random strings accordingly when these words are used!
 All regex filters can be disabled incase u don't want... like: `/disable metoo`.
 
 """
@@ -478,7 +478,7 @@ __mod_name__ = "Memes"
 
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug)
 DECIDE_HANDLER = DisableAbleMessageHandler(
-    Filters.regex(r"(?i)^priscia\?"), decide, friendly="decide"
+    Filters.regex(r"(?i)^harry\?"), decide, friendly="decide"
 )
 SNIPE_HANDLER = CommandHandler(
     "snipe", snipe, pass_args=True, filters=CustomFilters.sudo_filter
