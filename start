@@ -1,8 +1,0 @@
-# Attemp to Terminate and Remove previous session
-if [ -f Harry_Potter.session ]; then
-    kill $(pgrep -f 'python3 -m Harry_Potter')
-    rm -f Harry_Potter.session-journal Harry_Potter.session
-fi
-
-# start
-python3 -m Harry_Potter
