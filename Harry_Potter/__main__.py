@@ -13,7 +13,6 @@ from telegram.utils.helpers import escape_markdown
 
 from Harry_Potter import (
     dispatcher,
-    prince,
     updater,
     TOKEN,
     OWNER_ID,
