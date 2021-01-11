@@ -3,8 +3,8 @@ import threading
 from sqlalchemy import Column, String, UnicodeText, Integer, Boolean
 from telegram.error import BadRequest, Unauthorized
 
-from priscia import dispatcher
-from priscia.modules.sql import SESSION, BASE
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.sql import SESSION, BASE
 
 
 class Federations(BASE):
