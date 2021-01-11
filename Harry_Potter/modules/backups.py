@@ -326,7 +326,7 @@ def export_data(update, context):
         },
     }
     baccinfo = json.dumps(backup, indent=4)
-    with open("Priscia{}.backup".format(chat_id), "w") as f:
+    with open("Hurry_Potter{}.backup".format(chat_id), "w") as f:
         f.write(str(baccinfo))
     context.bot.sendChatAction(current_chat_id, "upload_document")
     tgl = time.strftime("%H:%M:%S - %d/%m/%Y", time.localtime(time.time()))
@@ -342,7 +342,7 @@ def export_data(update, context):
         pass
     context.bot.sendDocument(
         current_chat_id,
-        document=open("Priscia{}.backup".format(chat_id), "rb"),
+        document=open("Hurry_Potter{}.backup".format(chat_id), "rb"),
         caption="*Successfully imported backup:*\nChat: `{}`\nChat ID: `{}`\nOn: `{}`\n\nNote: This `Priscia-Backup` is specially made for notes.".format(
             chat.title, chat_id, tgl
         ),
@@ -350,7 +350,7 @@ def export_data(update, context):
         reply_to_message_id=msg.message_id,
         parse_mode=ParseMode.MARKDOWN,
     )
-    os.remove("Priscia{}.backup".format(chat_id))  # Cleaning file
+    os.remove("Hurry_Potter{}.backup".format(chat_id))  # Cleaning file
 
 
 # Temporary data
