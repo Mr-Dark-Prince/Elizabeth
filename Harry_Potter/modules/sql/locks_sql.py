@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from priscia.modules.sql import SESSION, BASE
+from Harry_Potter.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):
