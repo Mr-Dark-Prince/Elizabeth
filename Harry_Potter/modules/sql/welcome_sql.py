@@ -2,8 +2,8 @@ import threading
 from typing import Union
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, BigInteger
 
-from priscia.modules.helper_funcs.msg_types import Types
-from priscia.modules.sql import SESSION, BASE
+from Harry_Potter.modules.helper_funcs.msg_types import Types
+from Harry_Potter.modules.sql import SESSION, BASE
 
 DEFAULT_WELCOME = "Hi {first}, how are you?"
 DEFAULT_GOODBYE = "{first} has left the game."
