@@ -26,7 +26,7 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from priscia import (
+from Harry_Potter import (
     OWNER_ID,
     SUDO_USERS,
     SUPPORT_USERS,
@@ -35,11 +35,11 @@ from priscia import (
     dispatcher,
     spamwtc,
 )
-from priscia.__main__ import GDPR, STATS, USER_INFO
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.alternate import send_action
-from priscia.modules.helper_funcs.extraction import extract_user
-from priscia.modules.helper_funcs.filters import CustomFilters
+from Harry_Potter.__main__ import GDPR, STATS, USER_INFO
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.alternate import send_action
+from Harry_Potter.modules.helper_funcs.extraction import extract_user
+from Harry_Potter.modules.helper_funcs.filters import CustomFilters
 
 
 def get_id(update, context):
