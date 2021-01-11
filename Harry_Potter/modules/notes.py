@@ -15,14 +15,14 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackQueryHandler, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-import priscia.modules.sql.notes_sql as sql
-from priscia import LOGGER, MESSAGE_DUMP, dispatcher
-from priscia.modules.connection import connected
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from priscia.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from priscia.modules.helper_funcs.msg_types import get_note_type
-from priscia.modules.helper_funcs.string_handling import (
+import Harry_Potter.modules.sql.notes_sql as sql
+from Harry_Potter import LOGGER, MESSAGE_DUMP, dispatcher
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from Harry_Potter.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from Harry_Potter.modules.helper_funcs.msg_types import get_note_type
+from Harry_Potter.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_to_html,
 )
