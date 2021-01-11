@@ -7,11 +7,11 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
 
-import priscia.modules.helper_funcs.fun_strings as fun
-from priscia import LOGGER, SUDO_USERS, SUPPORT_USERS, dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
-from priscia.modules.helper_funcs.extraction import extract_user
-from priscia.modules.helper_funcs.filters import CustomFilters
+import Harry_Potter.modules.helper_funcs.fun_strings as fun
+from Harry_Potter import LOGGER, SUDO_USERS, SUPPORT_USERS, dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
+from Harry_Potter.modules.helper_funcs.extraction import extract_user
+from Harry_Potter.modules.helper_funcs.filters import CustomFilters
 
 
 def runs(update, context):
