@@ -7,21 +7,21 @@ from telegram import Message, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler
 
-# from priscia.modules.sql import warns_sql as warnssql
-import priscia.modules.sql.blacklist_sql as blacklistsql
+# from Harry_Potter.modules.sql import warns_sql as warnssql
+import Harry_Potter.modules.sql.blacklist_sql as blacklistsql
 
-# from priscia.modules.sql import cust_filters_sql as filtersql
-# import priscia.modules.sql.welcome_sql as welcsql
-import priscia.modules.sql.locks_sql as locksql
-import priscia.modules.sql.notes_sql as sql
+# from Harry_Potter.modules.sql import cust_filters_sql as filtersql
+# import Harry_Potter.modules.sql.welcome_sql as welcsql
+import Harry_Potter.modules.sql.locks_sql as locksql
+import Harry_Potter.modules.sql.notes_sql as sql
 
-# from priscia.modules.rules import get_rules
-import priscia.modules.sql.rules_sql as rulessql
-from priscia import LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher
-from priscia.__main__ import DATA_IMPORT
-from priscia.modules.connection import connected
-from priscia.modules.helper_funcs.chat_status import user_admin
-from priscia.modules.sql import disable_sql as disabledsql
+# from Harry_Potter.modules.rules import get_rules
+import Harry_Potter.modules.sql.rules_sql as rulessql
+from Harry_Potter import LOGGER, MESSAGE_DUMP, OWNER_ID, dispatcher
+from Harry_Potter.__main__ import DATA_IMPORT
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.helper_funcs.chat_status import user_admin
+from Harry_Potter.modules.sql import disable_sql as disabledsql
 
 
 @user_admin
