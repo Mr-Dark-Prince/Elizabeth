@@ -4,9 +4,9 @@ from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CallbackQueryHandler, CommandHandler, Filters
 
-import priscia.modules.sql.global_bans_sql as gban_sql
-import priscia.modules.sql.users_sql as user_sql
-from priscia import OWNER_ID, dispatcher
+import Harry_Potter.modules.sql.global_bans_sql as gban_sql
+import Harry_Potter.modules.sql.users_sql as user_sql
+from Harry_Potter import OWNER_ID, dispatcher
 
 
 def get_invalid_chats(bot: Bot, update: Update, remove: bool = False):
