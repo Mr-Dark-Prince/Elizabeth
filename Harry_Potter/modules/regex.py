@@ -4,8 +4,8 @@ import sre_constants
 import telegram
 from telegram.ext import Filters
 
-from priscia import LOGGER, dispatcher
-from priscia.modules.disable import DisableAbleMessageHandler
+from Harry_Potter import LOGGER, dispatcher
+from Harry_Potter.modules.disable import DisableAbleMessageHandler
 
 DELIMITERS = ("/", ":", "|", "_")
 
