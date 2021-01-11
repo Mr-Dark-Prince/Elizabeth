@@ -1,6 +1,6 @@
 from functools import wraps
 
-from priscia.modules.helper_funcs.misc import is_module_loaded
+from Harry_Potter.modules.helper_funcs.misc import is_module_loaded
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
