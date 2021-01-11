@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, func, distinct
 
-from priscia.modules.sql import SESSION, BASE
+from Harry_Potter.modules.sql import SESSION, BASE
 
 
 class Rules(BASE):
