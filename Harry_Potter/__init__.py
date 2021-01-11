@@ -167,9 +167,9 @@ if SPAMWATCH is None:
 else:
     spamwtc = spamwatch.Client(SPAMWATCH)
 
-# Telethon
+# For Telethon
 client = TelegramClient("Harry_Potter", api_id=API_ID, api_hash=API_HASH)
-# Pyrogram
+# For Pyrogram
 pciabot = Client(
     "Harry_PotterPyro",
     api_id=API_ID,
