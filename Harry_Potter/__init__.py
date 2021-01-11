@@ -3,7 +3,6 @@ import os
 import sys
 import spamwatch
 from telethon import TelegramClient
-from pyrogram import Client
 import telegram.ext as tg
 
 # enable logging
