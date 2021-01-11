@@ -64,12 +64,12 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/Priscia
-RUN git clone https://github.com/AkaruiAikara/Priscia /root/Priscia
+# Copy Python Requirements to /root/Harry_Potter
+RUN git clone https://github.com/D-A-R-K-P-R-I-N-C-E/Harry_Potter /root/Harry_Potter
 WORKDIR /root/Priscia
 
-#Copy config file to /root/Priscia/priscia
-COPY ./priscia/sample_config.py ./priscia/config.py* /root/Priscia/priscia/
+#Copy config file to /root/Harry_Potter/Harry_Potter
+COPY ./Harry_Potter/sample_config.py ./Harry_Potter/config.py* /root/Harry_Potter/Harry_Potter/
 
 ENV PATH="/home/bot/bin:$PATH"
 
@@ -77,4 +77,4 @@ ENV PATH="/home/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","priscia"]
+CMD ["python3","-m","Harry_Potter"]
