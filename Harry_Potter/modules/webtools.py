@@ -18,9 +18,9 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telethon import __version__ as __tltn__
 
-from priscia import MESSAGE_DUMP, OWNER_ID, dispatcher
-from priscia.modules.helper_funcs.alternate import send_message
-from priscia.modules.helper_funcs.filters import CustomFilters
+from Harry_Potter import MESSAGE_DUMP, OWNER_ID, dispatcher
+from Harry_Potter.modules.helper_funcs.alternate import send_message
+from Harry_Potter.modules.helper_funcs.filters import CustomFilters
 
 
 def ping(update, context):
