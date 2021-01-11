@@ -4,9 +4,9 @@ import requests
 from telegram import ParseMode
 from telegram.ext import CommandHandler
 
-import priscia.modules.sql.last_fm_sql as sql
-from priscia import LASTFM_API_KEY, dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler
+import Harry_Potter.modules.sql.last_fm_sql as sql
+from Harry_Potter import LASTFM_API_KEY, dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
 
 
 def set_user(update, context):
