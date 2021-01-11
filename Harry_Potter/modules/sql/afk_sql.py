@@ -1,6 +1,6 @@
 import threading
 
-from priscia.modules.sql import BASE, SESSION
+from Harry_Potter.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, UnicodeText
 
 
