@@ -4,8 +4,8 @@ import threading
 
 from sqlalchemy import Column, String, Boolean, UnicodeText, Integer, func, distinct
 
-from priscia.modules.helper_funcs.msg_types import Types
-from priscia.modules.sql import SESSION, BASE
+from Harry_Potter.modules.helper_funcs.msg_types import Types
+from Harry_Potter.modules.sql import SESSION, BASE
 
 
 class Notes(BASE):
