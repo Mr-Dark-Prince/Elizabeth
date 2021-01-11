@@ -13,19 +13,19 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-import priscia.modules.sql.locks_sql as sql
-from priscia import LOGGER, dispatcher
-from priscia.modules.connection import connected
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.alternate import send_message
-from priscia.modules.helper_funcs.chat_status import (
+import Harry_Potter.modules.sql.locks_sql as sql
+from Harry_Potter import LOGGER, dispatcher
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.alternate import send_message
+from Harry_Potter.modules.helper_funcs.chat_status import (
     can_delete,
     is_bot_admin,
     is_user_admin,
     user_admin,
     user_not_admin,
 )
-from priscia.modules.log_channel import loggable
+from Harry_Potter.modules.log_channel import loggable
 
 ad = AlphabetDetector()
 
