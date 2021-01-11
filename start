@@ -17,10 +17,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Attemp to Terminate and Remove previous session
-if [ -f priscia.session ]; then
-    kill $(pgrep -f 'python3 -m priscia')
-    rm -f priscia.session-journal priscia.session
+if [ -f Harry_Potter.session ]; then
+    kill $(pgrep -f 'python3 -m Harry_Potter')
+    rm -f Harry_Potter.session-journal Harry_Potter.session
 fi
 
 # start
-python3 -m priscia
+python3 -m Harry_Potter
