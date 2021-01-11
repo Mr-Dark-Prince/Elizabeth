@@ -4,7 +4,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import MessageDeleteForbiddenError
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from priscia import SUDO_USERS, client
+from Harry_Potter import SUDO_USERS, client
 
 # Check if user has admin rights
 
