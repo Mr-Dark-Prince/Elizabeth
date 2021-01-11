@@ -5,7 +5,6 @@ import json
 import re
 from typing import Optional
 
-from pyrogram import idle
 from telegram import Message, Chat, User
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
@@ -585,9 +584,3 @@ def main():
     updater.idle()
 
 
-if __name__ == "__main__":
-    prince.start()
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    client.start(bot_token=TOKEN)
-    main()
-    idle()
