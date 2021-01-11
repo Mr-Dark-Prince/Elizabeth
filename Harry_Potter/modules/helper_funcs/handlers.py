@@ -2,7 +2,7 @@ import telegram.ext as tg
 from telegram import Update
 
 try:
-    from priscia import CUSTOM_CMD
+    from Harry_Potter import CUSTOM_CMD
 except BaseException:
     CUSTOM_CMD = False
 
