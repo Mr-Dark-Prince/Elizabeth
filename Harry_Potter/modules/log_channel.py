@@ -10,9 +10,9 @@ if is_module_loaded(FILENAME):
     from telegram.ext import CommandHandler
     from telegram.utils.helpers import escape_markdown
 
-    from priscia import LOGGER, dispatcher
-    from priscia.modules.helper_funcs.chat_status import user_admin
-    from priscia.modules.sql import log_channel_sql as sql
+    from Hurry_Potter import LOGGER, dispatcher
+    from Hurry_Potter.modules.helper_funcs.chat_status import user_admin
+    from Hurry_Potter.modules.sql import log_channel_sql as sql
 
     def loggable(func):
         @wraps(func)
