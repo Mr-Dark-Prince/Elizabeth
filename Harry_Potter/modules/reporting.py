@@ -13,10 +13,10 @@ from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CallbackQueryHandler, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-from priscia import LOGGER, dispatcher
-from priscia.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from priscia.modules.log_channel import loggable
-from priscia.modules.sql import reporting_sql as sql
+from Harry_Potter import LOGGER, dispatcher
+from Harry_Potter.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Harry_Potter.modules.log_channel import loggable
+from Harry_Potter.modules.sql import reporting_sql as sql
 
 REPORT_GROUP = 5
 
