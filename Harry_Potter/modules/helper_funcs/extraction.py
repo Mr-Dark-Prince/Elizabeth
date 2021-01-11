@@ -3,8 +3,8 @@ from typing import List, Optional
 from telegram import Message, MessageEntity
 from telegram.error import BadRequest
 
-from priscia import LOGGER
-from priscia.modules.users import get_user_id
+from Harry_Potter import LOGGER
+from Harry_Potter.modules.users import get_user_id
 
 
 def id_from_reply(message):
