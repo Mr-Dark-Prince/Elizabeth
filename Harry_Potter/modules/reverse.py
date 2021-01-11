@@ -7,8 +7,8 @@ import requests
 from bs4 import BeautifulSoup
 from telegram import InputMediaPhoto, TelegramError
 
-from priscia import dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
 
 opener = urllib.request.build_opener()
 useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.38 Safari/537.36"
