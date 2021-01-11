@@ -1,7 +1,7 @@
 from telegram import Message
 from telegram.ext import MessageFilter
 
-from priscia import SUPPORT_USERS, SUDO_USERS
+from Harry_Potter import SUPPORT_USERS, SUDO_USERS
 
 
 class CustomFilters(object):
