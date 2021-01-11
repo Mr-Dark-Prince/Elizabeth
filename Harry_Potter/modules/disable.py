@@ -5,11 +5,11 @@ from telegram import Chat, ParseMode, Update
 from telegram.ext import CommandHandler, MessageHandler
 from telegram.utils.helpers import escape_markdown
 
-from priscia import dispatcher
-from priscia.modules.connection import connected
-from priscia.modules.helper_funcs.alternate import send_message
-from priscia.modules.helper_funcs.handlers import CMD_STARTERS
-from priscia.modules.helper_funcs.misc import is_module_loaded
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.helper_funcs.alternate import send_message
+from Harry_Potter.modules.helper_funcs.handlers import CMD_STARTERS
+from Harry_Potter.modules.helper_funcs.misc import is_module_loaded
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
