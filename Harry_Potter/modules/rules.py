@@ -11,10 +11,10 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
 
-import priscia.modules.sql.rules_sql as sql
-from priscia import dispatcher
-from priscia.modules.helper_funcs.chat_status import user_admin
-from priscia.modules.helper_funcs.string_handling import markdown_parser
+import Harry_Potter.modules.sql.rules_sql as sql
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.helper_funcs.chat_status import user_admin
+from Harry_Potter.modules.helper_funcs.string_handling import markdown_parser
 
 
 def get_rules(update, context):
