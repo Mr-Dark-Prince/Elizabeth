@@ -1,7 +1,7 @@
 from tswift import Song
 
-from priscia import dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
 
 
 def lyrics(update, context):
