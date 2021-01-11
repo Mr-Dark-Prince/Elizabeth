@@ -5,9 +5,9 @@ from telegram import TelegramError
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, MessageHandler
 
-import priscia.modules.sql.users_sql as sql
-from priscia import LOGGER, OWNER_ID, dispatcher
-from priscia.modules.helper_funcs.filters import CustomFilters
+import Harry_Potter.modules.sql.users_sql as sql
+from Harry_Potter import LOGGER, OWNER_ID, dispatcher
+from Harry_Potter.modules.helper_funcs.filters import CustomFilters
 
 USERS_GROUP = 4
 CHAT_GROUP = 10
