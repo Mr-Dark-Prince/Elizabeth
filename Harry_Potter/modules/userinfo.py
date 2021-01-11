@@ -4,10 +4,10 @@ from typing import Optional
 from telegram import MAX_MESSAGE_LENGTH, Message, ParseMode, User
 from telegram.utils.helpers import escape_markdown
 
-import priscia.modules.sql.userinfo_sql as sql
-from priscia import SUDO_USERS, dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.extraction import extract_user
+import Harry_Potter.modules.sql.userinfo_sql as sql
+from Harry_Potter import SUDO_USERS, dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.extraction import extract_user
 
 
 def about_me(update, context):
