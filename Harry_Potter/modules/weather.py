@@ -6,9 +6,9 @@ from pytz import country_names as cname
 from telegram import ParseMode
 from telegram.error import BadRequest
 
-from priscia import API_WEATHER as APPID
-from priscia import dispatcher
-from priscia.modules.disable import DisableAbleCommandHandler
+from Harry_Potter import API_WEATHER as APPID
+from Harry_Potter import dispatcher
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
 
 
 def weather(update, context):
