@@ -12,7 +12,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryH
 from telegram.ext.dispatcher import DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from priscia import (
+from Harry_Potter import (
     dispatcher,
     pciabot,
     updater,
@@ -29,15 +29,15 @@ from priscia import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from priscia.modules import ALL_MODULES
-from priscia.modules.purge import client
-from priscia.modules.helper_funcs.chat_status import is_user_admin
-from priscia.modules.helper_funcs.misc import paginate_modules
-from priscia.modules.helper_funcs.alternate import typing_action
+from Harry_Potter.modules import ALL_MODULES
+from Harry_Potter.modules.purge import client
+from Harry_Potter.modules.helper_funcs.chat_status import is_user_admin
+from Harry_Potter.modules.helper_funcs.misc import paginate_modules
+from Harry_Potter.modules.helper_funcs.alternate import typing_action
 
 
 PM_START_TEXT = f"""
-Kon'nichiwa! my name is *{dispatcher.bot.first_name}*. If you have any questions on how to use me, Click Help button.
+Hellow! my name is *{dispatcher.bot.first_name}*. If you have any questions on how to use me, Click Help button.
 
 I'm here to make your group management fun and easy!
 i have lots of handy features, such as flood control, a warning system, a note keeping system, and even replies on predetermined filters.
@@ -51,10 +51,10 @@ buttons = [
     [
         InlineKeyboardButton(
             text="Add to Group 👥",
-            url="t.me/PrisciaBot?startgroup=true"),
+            url="t.me/Harry_Potter_TgBot?startgroup=true"),
         InlineKeyboardButton(
             text="Join Channel ℹ️",
-            url="https://t.me/fvllprojekt"),
+            url="https://t.me/telegram"),
     ]]
 
 buttons += [[InlineKeyboardButton(text="Help & Commands ❔",
@@ -62,7 +62,7 @@ buttons += [[InlineKeyboardButton(text="Help & Commands ❔",
 
 
 HELP_STRINGS = f"""
-Kon'nichiwa! My name is *{dispatcher.bot.first_name}*.
+Hellow! My name is *{dispatcher.bot.first_name}*.
 I'm a advanced modular group management bot with a lot of additional features! \
 Have a look at the following for an idea of some of the things I can help you with.
 
@@ -89,7 +89,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("priscia.modules." + module_name)
+    imported_module = importlib.import_module("Harry_Potter.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
