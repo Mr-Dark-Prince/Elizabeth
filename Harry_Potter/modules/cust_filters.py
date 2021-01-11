@@ -7,22 +7,22 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, DispatcherHandlerStop, Filters, MessageHandler
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from priscia import LOGGER, dispatcher
-from priscia.modules.connection import connected
-from priscia.modules.disable import DisableAbleCommandHandler
-from priscia.modules.helper_funcs.alternate import send_message
-from priscia.modules.helper_funcs.chat_status import user_admin
-from priscia.modules.helper_funcs.extraction import extract_text
-from priscia.modules.helper_funcs.filters import CustomFilters
-from priscia.modules.helper_funcs.misc import build_keyboard_parser
-from priscia.modules.helper_funcs.msg_types import get_filter_type
-from priscia.modules.helper_funcs.string_handling import (
+from Harry_Potter import LOGGER, dispatcher
+from Harry_Potter.modules.connection import connected
+from Harry_Potter.modules.disable import DisableAbleCommandHandler
+from Harry_Potter.modules.helper_funcs.alternate import send_message
+from Harry_Potter.modules.helper_funcs.chat_status import user_admin
+from Harry_Potter.modules.helper_funcs.extraction import extract_text
+from Harry_Potter.modules.helper_funcs.filters import CustomFilters
+from Harry_Potter.modules.helper_funcs.misc import build_keyboard_parser
+from Harry_Potter.modules.helper_funcs.msg_types import get_filter_type
+from Harry_Potter.modules.helper_funcs.string_handling import (
     button_markdown_parser,
     escape_invalid_curly_brackets,
     markdown_to_html,
     split_quotes,
 )
-from priscia.modules.sql import cust_filters_sql as sql
+from Harry_Potter.modules.sql import cust_filters_sql as sql
 
 HANDLER_GROUP = 15
 
