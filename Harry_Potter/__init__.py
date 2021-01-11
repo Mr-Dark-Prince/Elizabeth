@@ -170,7 +170,7 @@ else:
 # For Telethon
 client = TelegramClient("Harry_Potter", api_id=API_ID, api_hash=API_HASH)
 # For Pyrogram
-pciabot = Client(
+prince = Client(
     "Harry_PotterPyro",
     api_id=API_ID,
     api_hash=API_HASH,
