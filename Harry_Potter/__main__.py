@@ -14,7 +14,7 @@ from telegram.utils.helpers import escape_markdown
 
 from Harry_Potter import (
     dispatcher,
-    pciabot,
+    prince,
     updater,
     TOKEN,
     OWNER_ID,
@@ -586,7 +586,7 @@ def main():
 
 
 if __name__ == "__main__":
-    pciabot.start()
+    prince.start()
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     client.start(bot_token=TOKEN)
     main()
