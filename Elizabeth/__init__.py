@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler("ubotindo-log.txt"),
+        logging.FileHandler("Elizabeth-log.txt"),
         logging.StreamHandler(),
     ],
     level=logging.INFO,
@@ -107,7 +107,7 @@ WHITELIST_USERS = list(WHITELIST_USERS)
 
 # Load at end to ensure all prev variables have been set
 # pylint: disable=C0413
-from ubotindo.modules.helper_funcs.handlers import (
+from Elizabeth.modules.helper_funcs.handlers import (
     CustomCommandHandler,
 )
 
