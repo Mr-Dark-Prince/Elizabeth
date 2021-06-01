@@ -56,7 +56,7 @@ class Config(object):
     COMMAND_HANDLER = os.environ.get("COMMAND_HANDLER", ".")
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
     AFS = list(SUDO_USERS)
-    CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "✘")
+    CUSTOM_HELP_EMOJI = os.environ.get("CUSTOM_HELP_EMOJI", "")
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
