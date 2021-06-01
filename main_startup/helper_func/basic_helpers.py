@@ -136,7 +136,7 @@ async def get_all_pros() -> list:
 def paginate_help(page_number, loaded_modules, prefix, is_official=True):
     """Paginate Buttons"""
     number_of_rows = 7
-    number_of_cols = 4
+    number_of_cols = 3
     helpable_modules = []
     for p in loaded_modules:
         if not p.startswith("_"):
@@ -155,7 +155,7 @@ def paginate_help(page_number, loaded_modules, prefix, is_official=True):
     ]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
     if len(modules) % number_of_cols == 1:
-        pairs.append((modules[-1],))
+        pairs.append((modules[-2],))
     max_num_pages = ceil(len(pairs) / number_of_rows)
     modulo_page = page_number % max_num_pages
     if len(pairs) > number_of_rows:
