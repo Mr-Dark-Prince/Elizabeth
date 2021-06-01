@@ -1,11 +1,3 @@
-# Copyright (C) 2020-2021 by DevsExpo@Github, < https://github.com/DevsExpo >.
-#
-# This file is part of < https://github.com/DevsExpo/FridayUserBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/DevsExpo/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 import logging
 import math
@@ -144,7 +136,7 @@ async def get_all_pros() -> list:
 def paginate_help(page_number, loaded_modules, prefix, is_official=True):
     """Paginate Buttons"""
     number_of_rows = 6
-    number_of_cols = 2
+    number_of_cols = 3
     helpable_modules = []
     for p in loaded_modules:
         if not p.startswith("_"):
@@ -177,7 +169,7 @@ def paginate_help(page_number, loaded_modules, prefix, is_official=True):
                         prefix, modulo_page, is_official
                     ),
                 ),
-                InlineKeyboardButton(text="Back 🔙", callback_data=f"backO_to_help_menu"),
+                InlineKeyboardButton(text="Home 🏡", callback_data=f"backO_to_help_menu"),
                 InlineKeyboardButton(
                     text="Next ⏩",
                     callback_data="{}_next({})_{}".format(
