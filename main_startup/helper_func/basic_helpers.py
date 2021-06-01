@@ -135,8 +135,8 @@ async def get_all_pros() -> list:
 
 def paginate_help(page_number, loaded_modules, prefix, is_official=True):
     """Paginate Buttons"""
-    number_of_rows = 6
-    number_of_cols = 3
+    number_of_rows = 7
+    number_of_cols = 4
     helpable_modules = []
     for p in loaded_modules:
         if not p.startswith("_"):
