@@ -100,11 +100,11 @@ async def showinfo(client, message):
         user_name = "none"
 
     await message.reply_text(
-        f"<b>Name</b> : {name}\n\n"
-        f"<b>User ID</b> : <code>{id}</code>\n\n"
-        f"<b>Username</b> : {user_name}\n\n"
-        f"<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
-        f"<b>DC ID</b> : {dcid}\n\n",
+        f"👤<b>Name</b> : {name}\n\n"
+        f"🆔<b>User ID</b> : <code>{id}</code>\n\n"
+        f"🗨️<b>Username</b> : {user_name}\n\n"
+        f"🚹<b>Permanant USER link</b> : <a href='tg://user?id={id}'>Click here!</a>\n\n"
+        f"🎭<b>DC ID</b> : {dcid}\n\n",
         quote=True,
         parse_mode="html"
     )
@@ -217,7 +217,7 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Command Help", callback_data="help_data")
+                    InlineKeyboardButton("📚Command Help📚", callback_data="help_data")
                 ]
             ]
         ),
@@ -243,12 +243,8 @@ async def help(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("How to Deploy?", url="https://youtu.be/hkmc3e7U7R4"),
-                    InlineKeyboardButton("About Me", callback_data="about_data")
-                ],
-                [
-                    InlineKeyboardButton("BOT Channel", url="https://t.me/TroJanzHEX"),
-                    InlineKeyboardButton("Support Group", url="https://t.me/TroJanzSupport")
+                    InlineKeyboardButton("🖨️Source", url="https://github.com/TroJanzHEX/Unlimited-Filter-Bot"),
+                    InlineKeyboardButton("⚠️About", callback_data="about_data")
                 ]
             ]
         ),
@@ -264,12 +260,8 @@ async def about(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(
-                        "SOURCE CODE", url="https://github.com/TroJanzHEX/Unlimited-Filter-Bot")
-                ],
-                [
-                    InlineKeyboardButton("BACK", callback_data="help_data"),
-                    InlineKeyboardButton("CLOSE", callback_data="close_data"),
+                    InlineKeyboardButton("↩️BACK", callback_data="help_data"),
+                    InlineKeyboardButton("❌️CLOSE", callback_data="close_data"),
                 ]                
             ]
         ),
