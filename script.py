@@ -2,8 +2,8 @@ class Script(object):
 
     START_MSG = """<b>Hy {},
 
-I'm an advanced filter bot with many capabilities!
-There is no practical limits for my filtering capacity :)
+I'm an advanced Unlimited filter bot with many capabilities! 🎨
+There is no practical limits for my filtering capacity 📚
 """
 
 
@@ -18,7 +18,7 @@ There is no practical limits for my filtering capacity :)
 /about - Something about me!
 
 
-<b>Filter Commands;</b>
+🗃️<b>Filter Commands;</b>
 
 <code>/add name reply</code>  -  Add filter for name
 
@@ -29,7 +29,7 @@ There is no practical limits for my filtering capacity :)
 <code>/viewfilters</code>  -  List all filters in chat
 
 
-<b>Connection Commands;</b>
+🔄<b>Connection Commands;</b>
 
 <code>/connect groupid</code>  -  Connect your group to my PM. You can also simply use,
 <code>/connect</code> in groups.
@@ -37,7 +37,7 @@ There is no practical limits for my filtering capacity :)
 <code>/connections</code>  -  Manage your connections.
 
 
-<b>Extras;</b>
+🛍️<b>Extras;</b>
 
 /status  -  Shows current status of your bot (Auth User Only)
 
