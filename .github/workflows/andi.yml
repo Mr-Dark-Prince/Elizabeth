@@ -9,12 +9,12 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "തേങ്ങ"
-          replace: "ചക്ക"
+          find: "https://github.com/TroJanzHEX/Unlimited-Filter-Bot"
+          replace: "https://github.com/Mr-Dark-Prince/Unlimited-Filter-Bot"
       - name: Pull All Updates
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'സിൽമാ കാട്ട മാമ 😍😂'
+          commit_message: '📺സിൽമാ കാട്ട മാമ 😍😂'
           commit_options: '--no-verify'
           repository: .
           commit_user_name: Mr-Dark-Prince
