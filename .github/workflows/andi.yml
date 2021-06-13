@@ -1,4 +1,3 @@
- 
 name: Lets Start Filters
 on: push
 jobs:
